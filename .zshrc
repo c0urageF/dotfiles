@@ -1,5 +1,5 @@
 
-rt LANG=ja_JP.UTF-8
+LANG=ja_JP.UTF-8
 
 # パスを追加したい場合
 export PATH="$HOME/bin:$PATH"

@@ -3,20 +3,26 @@
 ;; auto-installによってインストールされるEmacs Lispをロードパスに加える
 ;; デフォルトは ~/.emacs.d/auto-install/
 (add-to-list 'load-path "~/.emacs.d/auto-install")
+(add-to-list 'load-path "~/.emacs.d/private-conf")
+(add-to-list 'load-path "~/.emacs.d/helm")
 
 (require 'package)
+(setq url-proxy-services
+      '(("http" . "http://localhost:3128")
+        ("https" . "https://localhost:3128")))
+(setq url-http-proxy-basic-auth-storage
+	'(("http://localhost:3128" ("Proxy" . "base64string"))))
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(fset 'package-desc-vers 'package--ac-desc-version)
 (package-initialize)
 
 ;; thingatpt.elc読み込まれていない場合は読み込む
 (require 'thingatpt)
 ;; org.elcを読み込む
 (load "org")
-;; org.elを読み込む
-(load "org.el")
 
 (require 'irony)
 (add-hook 'c-mode-hook 'irony-mode)
@@ -68,7 +74,30 @@
                 (local-set-key (kbd "M-@") 'rtags-find-references)
                 (local-set-key (kbd "M-,") 'rtags-location-stack-back)))))
 
-(custom-set-variables '(rtags-use-helm t))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(flycheck-display-errors-delay 0.5)
+ '(flycheck-display-errors-function
+   (lambda
+	 (errors)
+	 (let
+		 ((messages
+		   (mapcar
+			(function flycheck-error-message)
+			errors)))
+	   (popup-tip
+		(mapconcat
+		 (quote identity)
+		 messages "
+")))))
+ '(irony-additional-clang-options (quote ("-std=c++11")))
+ '(package-selected-packages
+   (quote
+	(helm yasnippet undohist undo-tree rtags irony-eldoc flycheck-irony company-irony-c-headers company-irony)))
+ '(rtags-use-helm t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 基本設定
@@ -112,16 +141,18 @@
 ;;----
 ;; カラーテーマ
 ;;----
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'monokai t)
+;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+;;(load-theme 'monokai t)
+;; Color-Theme loading
+(require 'color-theme)
+(color-theme-initialize)
+;; Select theme
+(color-theme-ld-dark)
+
+;;(load-theme 'ld-dark t)
 
 ;;Font設定
-;; (set-face-attribute 'default nil :family "monaco" :height 110)
-(set-face-attribute 'default nil :family "Source Han Code JP ExtraLight" :height 110)
-(set-fontset-font
-  (frame-parameter nil 'font)
-    'japanese-jisx0208
-    '("Source Han Code JP ExtraLight" . "iso10646-*"))
+(add-to-list 'default-frame-alist '(font . "ricty-10.5"))
 
 ;; 現在行に色をつける
 (global-hl-line-mode 1)
@@ -141,6 +172,8 @@
 ;; 行番号・桁番号を表示する
 (line-number-mode 1)
 (column-number-mode 1)
+(require 'linum)
+(global-linum-mode)
 ;; リージョンに色をつける
 (transient-mark-mode 1)
 ;; GCを減らして軽くする(デフォルトの20倍)
@@ -244,11 +277,11 @@
              (expand-file-name "~/.emacs.d/elpa/yasnippet"))
 
 ;; 既存スニペットを挿入する
-(define-key yas-minor-mode-map (kbd "C-x i i") 'yas-insert-snippet)
+;;(define-key yas-minor-mode-map (kbd "C-x i i") 'yas-insert-snippet)
 ;; 新規スニペットを作成するバッファを用意する
-(define-key yas-minor-mode-map (kbd "C-x i n") 'yas-new-snippet)
+;;(define-key yas-minor-mode-map (kbd "C-x i n") 'yas-new-snippet)
 ;; 既存スニペットを閲覧・編集する
-(define-key yas-minor-mode-map (kbd "C-x i v") 'yas-visit-snippet-file)
+;;(define-key yas-minor-mode-map (kbd "C-x i v") 'yas-visit-snippet-file)
 
 ;;自分用のスニペットフォルダと，拾ってきたスニペットフォルダの2つを作っておきます．
 ;;(一つにまとめてもいいけど)
@@ -338,12 +371,12 @@
 (require 'hideif)
 (add-hook 'c-mode-common-hook 'hide-ifdef-mode)
 
-(witch-func-mode 1)
+;;(witch-func-mode 1)
 ;;; すべてのメジャーモードに対してwitch-func-modeを適用する
-(setq which-func-modes t)
+;;(setq which-func-modes t)
 ;;; 画面上部に表示する場合は下の2行が必要
-(delete (assoc 'witch-func-mode mode-line-format) mode-line-format)
-(setq-default header-line-format '(which-func-modes ("" whic-func-format)))
+;;(delete (assoc 'witch-func-mode mode-line-format) mode-line-format)
+;;(setq-default header-line-format '(which-func-modes ("" whic-func-format)))
 
 (add-hook 'c-mode-common-hook (lambda () (flymake-mode t)))
 
@@ -359,31 +392,26 @@
 ;; (require 'auto-async-byte-compile)
 ;; 自動バイトコンパイルを有効にするファイル名の正規表現
 ;; (setq auto-async-byte-compile-exclude-files-regexp "/junk/")
-;; (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode) 
+;; (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
+
+;;(require 'sticky)
+;;(use-sticky-key ";" sticky-alist:en) 	;JISキーボードでは sticky-alist:ja
+
+(put 'upcase-region 'disabled nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; auto-install.el
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (install--elisp-from-emacswiki 'auto-install.el')
-(require 'auto-install)
+;;(require 'auto-install)
 ;; 起動時にEmacswikiのページ名を保管候補に加える
-(auto-install-update-emacswiki-package-name t)
+;;(setq auto-install-use-wget t)
+;;(auto-install-update-emacswiki-package-name t)
 ;; install-elisp.el互換モードにする
-(auto-install-compatibility-setup)
+;;(auto-install-compatibility-setup)
 ;; ediff関連のバッファを1つのフレームにまとめる
-(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+;;(setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
-
-;;(require 'sticky)
-;;(use-sticky-key ";" sticky-alist:en) 	;JISキーボードでは sticky-alist:ja
+;;(require 'helm-config)
+;;(helm-mode 1)
 
