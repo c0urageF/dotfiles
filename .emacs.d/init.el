@@ -136,69 +136,134 @@
 ;;----
 (setq frame-title-format "%f")
 
+;; バックアップファイルを作らない
+(setq make-backup-files nil)
+;; オートセーブファイルを作らない
+(setq auto-save-default nil)
+
 (set-face-background 'region "custom-rogue ")
 
-;;----
-;; カラーテーマ
-;;----
-;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-;;(load-theme 'monokai t)
-;; Color-Theme loading
-(require 'color-theme)
-(color-theme-initialize)
-;; Select theme
-(color-theme-ld-dark)
+;;; uncomment for CJK utf-8 support for non-Asian users
+;; (require 'un-define)
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(auto-save-default nil)
+ '(column-number-mode t)
+ '(global-linum-mode t)
+ '(initial-frame-alist (quote ((top . 20) (left . 950) (width . 110) (height . 140))))
+ '(make-backup-files nil)
+ '(ruby-insert-encoding-magic-comment nil)
+ '(inhibit-startup-screen t))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
 
-;;(load-theme 'ld-dark t)
+;; bat-mode
+(setq auto-mode-alist 
+       (append 
+        (list (cons "\\.[bB][aA][tT]$" 'bat-mode))
+        ;; For DOS init files
+        (list (cons "CONFIG\\."   'bat-mode))
+        (list (cons "AUTOEXEC\\." 'bat-mode))
+        auto-mode-alist))
+
+(autoload 'bat-mode "bat-mode"
+      "DOS and Windows BAT files" t)
+
+;; スクロール量を変更
+(setq scroll-conservatively 35
+scroll-margin 0
+scroll-step 20) 
+
+;; edit background color
+(if window-system (progn
+
+  (set-background-color "Black")
+  (set-foreground-color "LightGray")
+  (set-cursor-color "Gray")
+  (set-frame-parameter nil 'alpha 90)
+  ;; (set-frame-parameter nil 'alpha 80)
+  ))
+
+;; default to unified diffs
+(setq diff-switches "-u")
 
 ;;Font設定
 (add-to-list 'default-frame-alist '(font . "ricty-10.5"))
 
+;; 文字サイズを変更
+(set-face-attribute 'default nil :height 77)
+
 ;; 現在行に色をつける
 (global-hl-line-mode 1)
+
 ;; 色
 (set-face-background 'hl-line "darkolivegreen")
+
 ;; 履歴を次回Emacs起動時にも保存する
 (savehist-mode 1)
+
 ;; ファイル内のカーソルの位置を記憶する
 (setq-default save-place t)
 (require 'saveplace)
+
 ;; 対応する括弧を表示させる
 (show-paren-mode 1)
+
 ;; シェルに合わせるため、C-hは後退に割り当てる
 (global-set-key (kbd "C-h") 'delete-backward-char)
+
 ;; モードラインに時刻を表示する
 (display-time)
+
 ;; 行番号・桁番号を表示する
 (line-number-mode 1)
 (column-number-mode 1)
 (require 'linum)
 (global-linum-mode)
+
 ;; リージョンに色をつける
-(transient-mark-mode 1)
+(transient-mark-mode t)
+(set-face-background 'region "DeepSkyBlue")
+
 ;; GCを減らして軽くする(デフォルトの20倍)
 (setq gc-cons-threshold (* 20 gc-cons-threshold))
+
 ;; ログの記録行数を増やす
 (setq message-log-max 10000)
+
 ;; ミニバッファを先的に呼び出せるようにする
 (setq enable-recursive-minibuffers t)
+
 ;; ダイアログボックスｗｐ使わないようにする
 (setq use-dialog-box nil)
 (defalias 'message-box 'message)
+
 ;; 履歴をたくさん保存する
 (setq history-length 1000)
+
 ;; キーストロークをエコーエリアに早く表示する
 (setq echo-keystrokes 0.1)
+
 ;; 大きいファイルは開こうとした時に警告を発生させる
 ;; デフォルト10MB → 25MB
 (setq large-file-warning-threshold (* 25 1024 1024))
+
 ;; ミニバッファで入力を取り消しても履歴に残す
 ;; 誤って取り消しで入力が失われるのを防ぐため
 (defadvice abort-recursive-edit (before minibuffer-save activate)
   (when (eq (selected-window) (active-minibuffer-window))
     (add-to-history minibuffer-history-variable (minibuffer-contents))))
+
 ;; yes → y
 (defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; ツールバーとスクロールバーを消す
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -211,17 +276,22 @@
 
 ;; バッファ表示名変更
 (require 'uniquify)
+
 ;; filename<dir>形式のバッファ名にする
 (setq uniquify-buffer-name-style 'post-forword-angle-brackets)
+
 ;; *で囲まれたバッファ名は対象外とする
 (setq uniquify-ignore-buffer-re "*[^*]+*")
 
 ;; バッファの切り替え
 (iswitchb-mode 1)
+
 ;; バッファの読み取り関数を iswitchb にする
 (setq read-buffer-function 'iswitchb-read-buffer)
+
 ;; 部分文字列の代わりに正規表現を使う場合は t に設定する
 (setq iswitchb-regexp nil)
+
 ;; 新しいバッファを作成するときにいちいち聞いてこない
 (setq iswitchb-prompt-newbuffer nil)
 
@@ -230,16 +300,6 @@
 ;; (setq recentf-max-saved-items 500)
 ;; 最近使ったファイルを加えないファイルを正規表現で指定する
 ;; (setq recentf-exclude '("TAGS$" "/var/tmp/"))
-
-(server-start)
-(defun iconify-emacs-when-server-si-done ()
-  (unless server-clients (iconify-frane)))
-;; 編集が終了したらEmacsをアイコン化する(好み応じて)
-(add-hook 'server-done-hook 'iconify-emacs-when-server-is-done)
-;; C-x C-cに割り当てる
-(global-set-key (kbd "C-x C-c") 'server-edit)
-;; M-x exitでEmacsを終了できるようにする
-(defalias 'exit 'save-buffer-kill-emacs)
 
 ;; (require 'tempbuf)
 ;; ファイルを開いたら自動的にtempbufを有効にする
@@ -250,7 +310,6 @@
 ;; ファイルを自動で保存する
 (require 'auto-save-buffers)
 (run-with-idle-timer 2 t 'auto-save-buffers) ;アイドル2秒で保存
-
 
 ;;(require 'screen-lines)
 ;; text-modeかそれを継承したメジャーモードで自動的に有効にする
@@ -382,8 +441,6 @@
 
 ;; (require 'ipa)
 
-
-
 ;; (require 'w3m-load)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -414,4 +471,3 @@
 
 ;;(require 'helm-config)
 ;;(helm-mode 1)
-
