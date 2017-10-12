@@ -1,4 +1,3 @@
-
 LANG=ja_JP.UTF-8
 
 # パスを追加したい場合
@@ -50,6 +49,7 @@ alias lst='ls -ltr --color=auto'
 alias l='ls -ltr --color=auto'
 alias la='ls -la --color=auto'
 alias ll='ls -l --color=auto'
+alias ls='ls --color=auto -F'
 alias so='source'
 alias v='vim'
 alias vi='vim'
@@ -63,6 +63,13 @@ alias mkdir='mkdir -p'
 alias ..='c ../'
 alias back='pushd'
 alias diff='diff -U1'
+alias less='less -s'
+alias sl="ssh -Y"
+
+p7za=~/tool/compress/p7zip_15.09/bin.linux.x86_64/bin
+export PATH="/usr/local/eclipse:$p7za:$PATH"
+
+alias sl_tgt='ssh -Y root@genericx86-64.local'
 
 # backspace,deleteキーを使えるように
 stty erase ^H
