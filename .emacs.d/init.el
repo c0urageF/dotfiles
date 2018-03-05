@@ -150,19 +150,14 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(auto-save-default nil)
- '(column-number-mode t)
- '(global-linum-mode t)
- '(initial-frame-alist (quote ((top . 20) (left . 950) (width . 110) (height . 140))))
- '(make-backup-files nil)
- '(ruby-insert-encoding-magic-comment nil)
- '(inhibit-startup-screen t))
+ '(initial-frame-alist (quote ((width . 110) (height . 140)))))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- )
+)
+
 
 ;; bat-mode
 (setq auto-mode-alist 
@@ -267,6 +262,51 @@ scroll-step 20)
 ;; ツールバーとスクロールバーを消す
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+
+;; autoinsert
+;; http://ymotongpoo.hatenablog.com/entry/2012/12/02/190248
+(require 'autoinsert)
+(setq user-id-string "id")
+(setq user-full-name "full name")
+(setq user-mail-address "mail address")
+
+;; テンプレートのディレクトリ
+(setq auto-insert-directory "~/.emacs.d/insert/")
+
+;; 各ファイルによってテンプレートを切り替える
+(setq auto-insert-alist
+      (nconc '(
+			   ("\\.sh$" . ["template.sh" my-template])
+               ("\\.py$"   . ["template.py" my-template])
+               ("\\.pl$"   . ["template.pl" my-template])
+               ("\\.rb$" . ["template.rb" my-template])
+			   ("\\.cpp$" . ["template.cpp" my-template])
+               ("\\.h$"   . ["template.h" my-template])
+               ) auto-insert-alist))
+(require 'cl)
+
+(defvar template-replacements-alists
+  '(("%file%"             . (lambda () (file-name-nondirectory (buffer-file-name))))
+    ("%file-without-ext%" . (lambda () (file-name-sans-extension (file-name-nondirectory (buffer-file-name)))))
+    ("%date%" . (lambda () (format-time-string "%Y-%m-%d %H:%M:%S")))
+    ("%mail%" . (lambda () (identity user-mail-address)))
+    ("%name%" . (lambda () (identity user-full-name)))
+    ("%id%" . (lambda () (identity user-id-string)))
+))
+
+(defun my-template ()
+  (time-stamp)
+  (mapc #'(lambda(c)
+        (progn
+          (goto-char (point-min))
+          (replace-string (car c) (funcall (cdr c)) nil)))
+    template-replacements-alists)
+  (goto-char (point-max))
+  (message "done."))
+(add-hook 'find-file-not-found-hooks 'auto-insert)
+
+;; リージョンを上書き入力
+(delete-selection-mode t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; バッファ・ファイル関係
