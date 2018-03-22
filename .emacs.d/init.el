@@ -1,3 +1,4 @@
+
 (add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/info")
 ;; auto-installによってインストールされるEmacs Lispをロードパスに加える
@@ -7,11 +8,6 @@
 (add-to-list 'load-path "~/.emacs.d/helm")
 
 (require 'package)
-(setq url-proxy-services
-      '(("http" . "http://localhost:3128")
-        ("https" . "https://localhost:3128")))
-(setq url-http-proxy-basic-auth-storage
-	'(("http://localhost:3128" ("Proxy" . "base64string"))))
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -24,6 +20,9 @@
 ;; org.elcを読み込む
 (load "org")
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; C++関連
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'irony)
 (add-hook 'c-mode-hook 'irony-mode)
 (add-hook 'c++-mode-hook 'irony-mode)
@@ -79,6 +78,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(auto-save-default nil)
+ '(column-number-mode t)
  '(flycheck-display-errors-delay 0.5)
  '(flycheck-display-errors-function
    (lambda
@@ -93,11 +94,73 @@
 		 (quote identity)
 		 messages "
 ")))))
+ '(global-linum-mode t)
+ '(inhibit-startup-screen t)
+ '(initial-frame-alist
+   (quote
+	((top . 20)
+	 (left . 950)
+	 (width . 110)
+	 (height . 140))))
  '(irony-additional-clang-options (quote ("-std=c++11")))
+ '(make-backup-files nil)
  '(package-selected-packages
    (quote
-	(helm yasnippet undohist undo-tree rtags irony-eldoc flycheck-irony company-irony-c-headers company-irony)))
- '(rtags-use-helm t))
+	(igrep helm yasnippet undohist undo-tree rtags irony-eldoc flycheck-irony company-irony-c-headers company-irony)))
+ '(py-indent-offset 4)
+ '(rtags-use-helm t)
+ '(ruby-insert-encoding-magic-comment nil))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; python関連
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(autoload 'python-mode "python-mode" "Python Mode." t)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+
+
+(add-hook 'python-mode-hook
+  '(lambda()
+    (setq tab-width 4) 
+    (setq indent-tabs-mode nil)))
+
+(add-hook 'python-mode-hook
+          (lambda ()
+            (define-key python-mode-map "\"" 'electric-pair)
+            (define-key python-mode-map "\'" 'electric-pair)
+            (define-key python-mode-map "(" 'electric-pair)
+            (define-key python-mode-map "[" 'electric-pair)
+            (define-key python-mode-map "{" 'electric-pair)
+			(define-key python-mode-map "\C-m" 'newline-and-indent)))
+(defun electric-pair ()
+  "Insert character pair without sournding spaces"
+  (interactive)
+  (let (parens-require-spaces)
+    (insert-pair)))
+
+(jedi:setup)
+(define-key jedi-mode-map (kbd "<C-tab>") nil) ;;C-tabはウィンドウの移動に用いる
+(setq jedi:complete-on-dot t)
+(setq ac-sources
+	  (delete 'ac-source-words-in-same-mode-buffers ac-sources)) ;;jediの補完候補だけでいい
+(add-to-list 'ac-sources 'ac-source-filename)
+(add-to-list 'ac-sources 'ac-source-jedi-direct)
+(add-hook 'python-mode-hook
+          (lambda ()
+			(define-key python-mode-map "\C-ct" 'jedi:goto-definition)
+			(define-key python-mode-map "\C-cb" 'jedi:goto-definition-pop-marker)
+			(define-key python-mode-map "\C-cr" 'helm-jedi-related-names)))
+
+(require 'py-autopep8)
+(setq py-autopep8-options '("--max-line-length=200"))
+(setq flycheck-flake8-maximum-line-length 200)
+(py-autopep8-enable-on-save)
+
+(flymake-mode t)
+;;errorやwarningを表示する
+(require 'flymake-python-pyflakes)
+(flymake-python-pyflakes-load)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 基本設定
@@ -146,18 +209,17 @@
 ;;; uncomment for CJK utf-8 support for non-Asian users
 ;; (require 'un-define)
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(initial-frame-alist (quote ((width . 110) (height . 140)))))
+;; custom-set-variables was added by Custom.
+;; If you edit it by hand, you could mess it up, so be care
+;; Your init file should contain only one such instance.
+;; If there is more than one, they won't work right.
+'(initial-frame-alist (quote ((width . 110) (height . 140)))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
-)
-
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 ;; bat-mode
 (setq auto-mode-alist 
@@ -193,7 +255,7 @@ scroll-step 20)
 (add-to-list 'default-frame-alist '(font . "ricty-10.5"))
 
 ;; 文字サイズを変更
-(set-face-attribute 'default nil :height 77)
+(set-face-attribute 'default nil :height 110)
 
 ;; 現在行に色をつける
 (global-hl-line-mode 1)
@@ -275,32 +337,32 @@ scroll-step 20)
 
 ;; 各ファイルによってテンプレートを切り替える
 (setq auto-insert-alist
-      (nconc '(
+	  (nconc '(
 			   ("\\.sh$" . ["template.sh" my-template])
-               ("\\.py$"   . ["template.py" my-template])
-               ("\\.pl$"   . ["template.pl" my-template])
-               ("\\.rb$" . ["template.rb" my-template])
+			   ("\\.py$"   . ["template.py" my-template])
+			   ("\\.pl$"   . ["template.pl" my-template])
+			   ("\\.rb$" . ["template.rb" my-template])
 			   ("\\.cpp$" . ["template.cpp" my-template])
-               ("\\.h$"   . ["template.h" my-template])
-               ) auto-insert-alist))
-(require 'cl)
+			   ("\\.h$"   . ["template.h" my-template])
+			   ) auto-insert-alist))
 
+(require 'cl)
 (defvar template-replacements-alists
   '(("%file%"             . (lambda () (file-name-nondirectory (buffer-file-name))))
-    ("%file-without-ext%" . (lambda () (file-name-sans-extension (file-name-nondirectory (buffer-file-name)))))
-    ("%date%" . (lambda () (format-time-string "%Y-%m-%d %H:%M:%S")))
-    ("%mail%" . (lambda () (identity user-mail-address)))
-    ("%name%" . (lambda () (identity user-full-name)))
-    ("%id%" . (lambda () (identity user-id-string)))
+	("%file-without-ext%" . (lambda () (file-name-sans-extension (file-name-nondirectory (buffer-file-name)))))
+	("%date%" . (lambda () (format-time-string "%Y-%m-%d %H:%M:%S")))
+	("%mail%" . (lambda () (identity user-mail-address)))
+	("%name%" . (lambda () (identity user-full-name)))
+	("%id%" . (lambda () (identity user-id-string)))
 ))
 
 (defun my-template ()
   (time-stamp)
   (mapc #'(lambda(c)
-        (progn
-          (goto-char (point-min))
-          (replace-string (car c) (funcall (cdr c)) nil)))
-    template-replacements-alists)
+			(progn
+			  (goto-char (point-min))
+			  (replace-string (car c) (funcall (cdr c)) nil)))
+		template-replacements-alists)
   (goto-char (point-max))
   (message "done."))
 (add-hook 'find-file-not-found-hooks 'auto-insert)
@@ -355,12 +417,12 @@ scroll-step 20)
 ;; text-modeかそれを継承したメジャーモードで自動的に有効にする
 ;;(add-hook 'text-mode-hook 'turn-on-screen-lines-mode)
 
-;;(require 'redo+)
-;;(global-set-key (kbd "C-M-/") 'redo)
-;;(setq undo-no-redo t)	;過去のredoがundoされないようにする
+(require 'redo+)
+(global-set-key (kbd "C-M-/") 'redo)
+(setq undo-no-redo t)	;過去のredoがundoされないようにする
 ;; 大量のundoに耐えられるようにする
-;;(setq undo-limit 600000)
-;;(setq undo-strong-limit 900000)
+(setq undo-limit 600000)
+(setq undo-strong-limit 900000)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; auto-complete.el
@@ -405,25 +467,25 @@ scroll-step 20)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; moccur
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (require 'color-moccur)
-;; (setq moccur-split-word t) ; スペースでくぎられた複数の単語にマッチさせる
+(require 'color-moccur)
+(setq moccur-split-word t) ; スペースでくぎられた複数の単語にマッチさせる
 
-;; (require 'moccur-edit)
+(require 'moccur-edit)
 ;; その他color-moccur.elの設定
-;; (setq moccur-split-word t)
+(setq moccur-split-word t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; grep
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (require 'igrep)
+(require 'igrep)
 ;; igrepに-Ou8オプションをつけると出力がUTF-8になる
-;; (igrep-define lgrep (igrep-use-zgrep nil)(igrep-regex-option "-n -Ou8"))
-;; (igrep-find-define lgrep (igrep-use-zgrep nil)(igrep-regex-option "-n -Ou8"))
+(igrep-define lgrep (igrep-use-zgrep nil)(igrep-regex-option "-n -Ou8"))
+(igrep-find-define lgrep (igrep-use-zgrep nil)(igrep-regex-option "-n -Ou8"))
 
-;; (require 'grep-a-lot)
-;; (grep-a-lot-setup-keys)
+(require 'grep-a-lot)
+(grep-a-lot-setup-keys)
 ;; igrepを扱う人向け
-;; (grep-a-lot-advise igrep)
+(grep-a-lot-advise igrep)
 
 ;; (require 'grep-edit)
 
@@ -448,24 +510,9 @@ scroll-step 20)
 (add-hook 'lisp-mode-hook 'enable-paredit-mode)
 (add-hook 'ielm-mode-hook 'enable-paredit-mode)
 
-;; (require 'eldoc-extension)
-;; (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-;; (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
-;; (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
-;; (setq eldoc-idel-delay 0.2)
-;; (setq eldoc-minor-mode-string "")
-
 (find-function-setup-keys)
 
 (require 'edit-list)
-
-;; (require 'el-expecations)
-
-;; (require 'open-junk-file)
-;; ファイル名入力時に ~/junk/年-月-日-時分秒. が出てくる
-;; (setq open-junk-file-format "~/junk/%Y-%m-%H%M%S.")
-
-;; (require 'summarye)
 
 (require 'hideif)
 (add-hook 'c-mode-common-hook 'hide-ifdef-mode)
@@ -497,17 +544,48 @@ scroll-step 20)
 (put 'upcase-region 'disabled nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; auto-install.el
+;; helm.el
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (install--elisp-from-emacswiki 'auto-install.el')
-;;(require 'auto-install)
-;; 起動時にEmacswikiのページ名を保管候補に加える
-;;(setq auto-install-use-wget t)
-;;(auto-install-update-emacswiki-package-name t)
-;; install-elisp.el互換モードにする
-;;(auto-install-compatibility-setup)
-;; ediff関連のバッファを1つのフレームにまとめる
-;;(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+(require 'helm)
+(require 'helm-config)
+(helm-mode 1)
 
-;;(require 'helm-config)
-;;(helm-mode 1)
+;; C-hで前の文字削除
+(define-key helm-map (kbd "C-h") 'delete-backward-char)
+(define-key helm-find-files-map (kbd "C-h") 'delete-backward-char)
+
+;; キーバインド
+;;(define-key global-map (kbd "C-x b")   'helm-buffers-list)
+(define-key global-map (kbd "C-x b") 'helm-for-files)
+(define-key global-map (kbd "C-x C-b") 'helm-buffers-list)
+(define-key global-map (kbd "C-x C-f") 'helm-find-files)
+(define-key global-map (kbd "M-x")     'helm-M-x)
+(define-key global-map (kbd "M-y")     'helm-show-kill-ring)
+(define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
+(define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
+
+;; Emulate `kill-line' in helm minibuffer
+(setq helm-delete-minibuffer-contents-from-point t)
+(defadvice helm-delete-minibuffer-contents (before helm-emulate-kill-line activate)
+  "Emulate `kill-line' in helm minibuffer"
+  (kill-new (buffer-substring (point) (field-end))))
+
+(defadvice helm-ff-kill-or-find-buffer-fname (around execute-only-if-exist activate)
+  "Execute command only if CANDIDATE exists"
+  (when (file-exists-p candidate)
+    ad-do-it))
+
+
+(global-set-key [f8] 'neotree-toggle)
+
+;; 隠しファイルをデフォルトで表示
+(setq neo-show-hidden-files t)
+
+;; neotree でファイルを新規作成した後、自動的にファイルを開く
+(setq neo-create-file-auto-open t)
+
+;; delete-other-window で neotree ウィンドウを消さない
+(setq neo-persist-show t)
+
+;; キーバインドをシンプルにする
+(setq neo-keymap-style 'concise)
