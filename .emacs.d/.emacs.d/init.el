@@ -1,3 +1,4 @@
+
 (add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/info")
 ;; auto-installによってインストールされるEmacs Lispをロードパスに加える
