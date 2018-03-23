@@ -8,11 +8,6 @@
 (add-to-list 'load-path "~/.emacs.d/helm")
 
 (require 'package)
-(setq url-proxy-services
-      '(("http" . "http://localhost:3128")
-        ("https" . "https://localhost:3128")))
-(setq url-http-proxy-basic-auth-storage
-	'(("http://localhost:3128" ("Proxy" . "base64string"))))
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -43,20 +38,7 @@
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
   (define-key company-search-map (kbd "C-n") 'company-select-next)
   (define-key company-search-map (kbd "C-p") 'company-select-previous)
-  (define-key company-active-map (kbd "C-s") 'company-filter-candidates)
-  (define-key company-active-map (kbd "C-f") 'company-complete-selection)
-  (define-key company-active-map (kbd "C-i") 'company-complete-selection)
   (define-key company-active-map (kbd "<tab>") 'company-complete-selection))
-
-;; yasnippetとの連携
-(defvar company-mode/enable-yas t
-  "Enable yasnippet for all backends.")
-(defun company-mode/backend-with-yas (backend)
-  (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
-      backend
-    (append (if (consp backend) backend (list backend))
-            '(:with company-yasnippet))))
-(setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
 
 (eval-after-load "irony"
   '(progn
@@ -76,7 +58,6 @@
   (define-key flycheck-mode-map (kbd "C-M-n") 'flycheck-next-error)
   (define-key flycheck-mode-map (kbd "C-M-p") 'flycheck-previous-error)
   (add-hook 'c-mode-common-hook 'flycheck-mode))
-
 
 (eval-after-load "flycheck"
   '(progn
@@ -271,7 +252,7 @@ scroll-step 20)
 (setq diff-switches "-u")
 
 ;;Font設定
-(add-to-list 'default-frame-alist '(font . "Myrica M"))
+(add-to-list 'default-frame-alist '(font . "ricty-10.5"))
 
 ;; 文字サイズを変更
 (set-face-attribute 'default nil :height 110)
