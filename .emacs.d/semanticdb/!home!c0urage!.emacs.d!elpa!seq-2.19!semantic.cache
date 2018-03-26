@@ -1,0 +1,66 @@
+;; Object seq-2.19/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "seq-2.19/"
+  :tables
+  (list
+    (semanticdb-table "seq-24.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("seq-doseq" function (:arguments ("spec" "body")) nil [1401 2267])
+            ("seq-let" function (:arguments ("args" "sequence" "body")) nil [2328 2729])
+            ("seq-drop" function (:arguments ("sequence" "n")) nil [2731 3131])
+            ("seq-take" function (:arguments ("sequence" "n")) nil [3133 3473])
+            ("seq-drop-while" function (:arguments ("predicate" "sequence")) nil [3475 3807])
+            ("seq-take-while" function (:arguments ("predicate" "sequence")) nil [3809 4135])
+            ("seq-filter" function (:arguments ("predicate" "sequence")) nil [4137 4526])
+            ("seq-map-indexed" function (:arguments ("function" "sequence")) nil [4528 4938])
+            ("seq-remove" function (:arguments ("predicate" "sequence")) nil [4940 5150])
+            ("seq-reduce" function (:arguments ("function" "sequence" "initial-value")) nil [5152 5756])
+            ("seq-some" function (:arguments ("predicate" "sequence")) nil [5758 6050])
+            ("seq-find" function (:arguments ("predicate" "sequence" "default")) nil [6052 6503])
+            ("seq-every-p" function (:arguments ("predicate" "sequence")) nil [6505 6769])
+            ("seq-count" function (:arguments ("predicate" "sequence")) nil [6771 7028])
+            ("seq-empty-p" function (:arguments ("sequence")) nil [7030 7207])
+            ("seq-sort" function (:arguments ("predicate" "sequence")) nil [7209 7556])
+            ("seq-sort-by" function (:arguments ("function" "pred" "sequence")) nil [7558 7939])
+            ("seq-contains" function (:arguments ("sequence" "elt" "testfn")) nil [7941 8218])
+            ("seq-position" function (:arguments ("sequence" "elt" "testfn")) nil [8220 8615])
+            ("seq-uniq" function (:arguments ("sequence" "testfn")) nil [8617 8961])
+            ("seq-subseq" function (:arguments ("sequence" "start" "end")) nil [8963 10086])
+            ("seq-concatenate" function (:arguments ("type" "seqs")) nil [10088 10474])
+            ("seq-mapcat" function (:arguments ("function" "sequence" "type")) nil [10476 10752])
+            ("seq-mapn" function (:arguments ("function" "sequence" "seqs")) nil [10754 11290])
+            ("seq-partition" function (:arguments ("sequence" "n")) nil [11292 11716])
+            ("seq-intersection" function (:arguments ("seq1" "seq2" "testfn")) nil [11718 12097])
+            ("seq-difference" function (:arguments ("seq1" "seq2" "testfn")) nil [12099 12484])
+            ("seq-group-by" function (:arguments ("function" "sequence")) nil [12486 12941])
+            ("defalias" code nil nil [12943 13375])
+            ("seq-into" function (:arguments ("sequence" "type")) nil [13377 13705])
+            ("seq-min" function (:arguments ("sequence")) nil [13707 13871])
+            ("seq-max" function (:arguments ("sequence")) nil [13873 14038])
+            ("seq-random-elt" function (:arguments ("sequence")) nil [14040 14279])
+            ("seq--drop-list" function (:arguments ("list" "n")) nil [14281 14437])
+            ("seq--take-list" function (:arguments ("list" "n")) nil [14439 14706])
+            ("seq--drop-while-list" function (:arguments ("predicate" "list")) nil [14708 14981])
+            ("seq--take-while-list" function (:arguments ("predicate" "list")) nil [14983 15298])
+            ("seq--count-successive" function (:arguments ("predicate" "sequence")) nil [15300 15615])
+            ("seq--make-bindings" function (:arguments ("args" "sequence" "bindings")) nil [15704 16612])
+            ("seq--elt-safe" function (:arguments ("sequence" "n")) nil [16614 16871])
+            ("seq--activate-font-lock-keywords" function nil nil [16873 17088])
+            ("defalias" code nil nil [17090 17126])
+            ("defalias" code nil nil [17127 17152])
+            ("defalias" code nil nil [17153 17184])
+            ("defalias" code nil nil [17185 17210])
+            ("defalias" code nil nil [17211 17240])
+            ("defalias" code nil nil [17241 17269])
+            ("defalias" code nil nil [17270 17298])
+            ("unless" code nil nil [17300 17544])
+            ("seq-24" package nil nil [17546 17563]))          
+      :file "seq-24.el"
+      :pointmax 17588
+      :fsize 17589
+      :lastmodtime '(23221 9008 913863 838000)
+      :unmatched-syntax nil))
+  :file "!home!c0urage!.emacs.d!elpa!seq-2.19!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

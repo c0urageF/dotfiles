@@ -1,4 +1,3 @@
-
 (add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/info")
 ;; auto-installによってインストールされるEmacs Lispをロードパスに加える
@@ -8,11 +7,6 @@
 (add-to-list 'load-path "~/.emacs.d/helm")
 
 (require 'package)
-(setq url-proxy-services
-      '(("http" . "http://localhost:3128")
-        ("https" . "https://localhost:3128")))
-(setq url-http-proxy-basic-auth-storage
-	'(("http://localhost:3128" ("Proxy" . "base64string"))))
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -26,219 +20,41 @@
 (load "org")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; C++関連
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'irony)
-(add-hook 'c-mode-hook 'irony-mode)
-(add-hook 'c++-mode-hook 'irony-mode)
-(add-hook 'objc-mode-hook 'irony-mode)
-(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-;(add-to-list 'company-backends 'company-irony)
-
-(when (locate-library "company")
-  (global-company-mode 1)
-  (global-set-key (kbd "C-M-i") 'company-complete)
-  ;; (setq company-idle-delay nil) ; 自動補完をしない
-  (define-key company-active-map (kbd "C-n") 'company-select-next)
-  (define-key company-active-map (kbd "C-p") 'company-select-previous)
-  (define-key company-search-map (kbd "C-n") 'company-select-next)
-  (define-key company-search-map (kbd "C-p") 'company-select-previous)
-  (define-key company-active-map (kbd "C-s") 'company-filter-candidates)
-  (define-key company-active-map (kbd "C-f") 'company-complete-selection)
-  (define-key company-active-map (kbd "C-i") 'company-complete-selection)
-  (define-key company-active-map (kbd "<tab>") 'company-complete-selection))
-
-;; yasnippetとの連携
-(defvar company-mode/enable-yas t
-  "Enable yasnippet for all backends.")
-(defun company-mode/backend-with-yas (backend)
-  (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
-      backend
-    (append (if (consp backend) backend (list backend))
-            '(:with company-yasnippet))))
-(setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
-
-(eval-after-load "irony"
-  '(progn
-     (custom-set-variables '(irony-additional-clang-options '("-std=c++11")))
-     (add-to-list 'company-backends 'company-irony)
-     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-     (add-hook 'c-mode-common-hook 'irony-mode)))
-
-(when (require 'flycheck nil 'noerror)
-  (custom-set-variables
-   ;; エラーをポップアップで表示
-   '(flycheck-display-errors-function
-     (lambda (errors)
-       (let ((messages (mapcar #'flycheck-error-message errors)))
-         (popup-tip (mapconcat 'identity messages "\n")))))
-   '(flycheck-display-errors-delay 0.5))
-  (define-key flycheck-mode-map (kbd "C-M-n") 'flycheck-next-error)
-  (define-key flycheck-mode-map (kbd "C-M-p") 'flycheck-previous-error)
-  (add-hook 'c-mode-common-hook 'flycheck-mode))
-
-
-(eval-after-load "flycheck"
-  '(progn
-     (when (locate-library "flycheck-irony")
-       (flycheck-irony-setup))))
-
-(when (require 'rtags nil 'noerror)
-  (add-hook 'c-mode-common-hook
-            (lambda ()
-              (when (rtags-is-indexed)
-                (local-set-key (kbd "M-.") 'rtags-find-symbol-at-point)
-                (local-set-key (kbd "M-;") 'rtags-find-symbol)
-                (local-set-key (kbd "M-@") 'rtags-find-references)
-                (local-set-key (kbd "M-,") 'rtags-location-stack-back)))))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(auto-save-default nil)
- '(column-number-mode t)
- '(flycheck-display-errors-delay 0.5)
- '(flycheck-display-errors-function
-   (lambda
-	 (errors)
-	 (let
-		 ((messages
-		   (mapcar
-			(function flycheck-error-message)
-			errors)))
-	   (popup-tip
-		(mapconcat
-		 (quote identity)
-		 messages "
-")))))
- '(global-linum-mode t)
- '(inhibit-startup-screen t)
- '(initial-frame-alist
-   (quote
-	((top . 20)
-	 (left . 950)
-	 (width . 110)
-	 (height . 140))))
- '(irony-additional-clang-options (quote ("-std=c++11")))
- '(make-backup-files nil)
- '(package-selected-packages
-   (quote
-	(igrep helm yasnippet undohist undo-tree rtags irony-eldoc flycheck-irony company-irony-c-headers company-irony)))
- '(py-indent-offset 4)
- '(rtags-use-helm t)
- '(ruby-insert-encoding-magic-comment nil))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; python関連
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(autoload 'python-mode "python-mode" "Python Mode." t)
-(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(add-to-list 'interpreter-mode-alist '("python" . python-mode))
-
-
-(add-hook 'python-mode-hook
-  '(lambda()
-    (setq tab-width 4) 
-    (setq indent-tabs-mode nil)))
-
-(add-hook 'python-mode-hook
-          (lambda ()
-            (define-key python-mode-map "\"" 'electric-pair)
-            (define-key python-mode-map "\'" 'electric-pair)
-            (define-key python-mode-map "(" 'electric-pair)
-            (define-key python-mode-map "[" 'electric-pair)
-            (define-key python-mode-map "{" 'electric-pair)
-			(define-key python-mode-map "\C-m" 'newline-and-indent)))
-(defun electric-pair ()
-  "Insert character pair without sournding spaces"
-  (interactive)
-  (let (parens-require-spaces)
-    (insert-pair)))
-
-(jedi:setup)
-(define-key jedi-mode-map (kbd "<C-tab>") nil) ;;C-tabはウィンドウの移動に用いる
-(setq jedi:complete-on-dot t)
-(setq ac-sources
-	  (delete 'ac-source-words-in-same-mode-buffers ac-sources)) ;;jediの補完候補だけでいい
-(add-to-list 'ac-sources 'ac-source-filename)
-(add-to-list 'ac-sources 'ac-source-jedi-direct)
-(add-hook 'python-mode-hook
-          (lambda ()
-			(define-key python-mode-map "\C-ct" 'jedi:goto-definition)
-			(define-key python-mode-map "\C-cb" 'jedi:goto-definition-pop-marker)
-			(define-key python-mode-map "\C-cr" 'helm-jedi-related-names)))
-
-(require 'py-autopep8)
-(setq py-autopep8-options '("--max-line-length=200"))
-(setq flycheck-flake8-maximum-line-length 200)
-(py-autopep8-enable-on-save)
-
-(flymake-mode t)
-;;errorやwarningを表示する
-(require 'flymake-python-pyflakes)
-(flymake-python-pyflakes-load)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 基本設定
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;----
 ;; スタートアップページを表示しない
-;;----
 (setq inhibit-startup-message t)
 
 ;;複数ウィンドウを開かないようにする
 (setq ns-pop-up-frames nil) 
 
-;;----
 ;; ビープ音を消す
-;;----
 (setq ring-bell-function 'ignore)
 
-;;----
 ;; カーソル行に下線を表示
-;;----
 (setq hl-line-face 'underline)
 (global-hl-line-mode)
 
-;;----
 ;; TABの表示幅
-;;----
 (setq-default tab-width 4)
 
-;;----
 ;; ファイルサイズ表示
-;;----
 (size-indication-mode t)
 
-;;----
 ;; タイトルバーにフルパス表示
-;;----
 (setq frame-title-format "%f")
 
 ;; バックアップファイルを作らない
 (setq make-backup-files nil)
+
 ;; オートセーブファイルを作らない
 (setq auto-save-default nil)
-
 (set-face-background 'region "custom-rogue ")
 
 ;;; uncomment for CJK utf-8 support for non-Asian users
-;; (require 'un-define)
 (custom-set-variables
-;; custom-set-variables was added by Custom.
-;; If you edit it by hand, you could mess it up, so be care
-;; Your init file should contain only one such instance.
-;; If there is more than one, they won't work right.
-'(initial-frame-alist (quote ((width . 110) (height . 140)))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+ '(initial-frame-alist (quote ((width . 110) (height . 140)))))
+(custom-set-faces)
 
 ;; bat-mode
 (setq auto-mode-alist 
@@ -259,7 +75,6 @@ scroll-step 20)
 
 ;; edit background color
 (if window-system (progn
-
   (set-background-color "Black")
   (set-foreground-color "LightGray")
   (set-cursor-color "Gray")
@@ -344,48 +159,6 @@ scroll-step 20)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-;; autoinsert
-;; http://ymotongpoo.hatenablog.com/entry/2012/12/02/190248
-(require 'autoinsert)
-(setq user-id-string "id")
-(setq user-full-name "full name")
-(setq user-mail-address "mail address")
-
-;; テンプレートのディレクトリ
-(setq auto-insert-directory "~/.emacs.d/insert/")
-
-;; 各ファイルによってテンプレートを切り替える
-(setq auto-insert-alist
-	  (nconc '(
-			   ("\\.sh$" . ["template.sh" my-template])
-			   ("\\.py$"   . ["template.py" my-template])
-			   ("\\.pl$"   . ["template.pl" my-template])
-			   ("\\.rb$" . ["template.rb" my-template])
-			   ("\\.cpp$" . ["template.cpp" my-template])
-			   ("\\.h$"   . ["template.h" my-template])
-			   ) auto-insert-alist))
-
-(require 'cl)
-(defvar template-replacements-alists
-  '(("%file%"             . (lambda () (file-name-nondirectory (buffer-file-name))))
-	("%file-without-ext%" . (lambda () (file-name-sans-extension (file-name-nondirectory (buffer-file-name)))))
-	("%date%" . (lambda () (format-time-string "%Y-%m-%d %H:%M:%S")))
-	("%mail%" . (lambda () (identity user-mail-address)))
-	("%name%" . (lambda () (identity user-full-name)))
-	("%id%" . (lambda () (identity user-id-string)))
-))
-
-(defun my-template ()
-  (time-stamp)
-  (mapc #'(lambda(c)
-			(progn
-			  (goto-char (point-min))
-			  (replace-string (car c) (funcall (cdr c)) nil)))
-		template-replacements-alists)
-  (goto-char (point-max))
-  (message "done."))
-(add-hook 'find-file-not-found-hooks 'auto-insert)
-
 ;; リージョンを上書き入力
 (delete-selection-mode t)
 
@@ -416,6 +189,14 @@ scroll-step 20)
 ;; 新しいバッファを作成するときにいちいち聞いてこない
 (setq iswitchb-prompt-newbuffer nil)
 
+;; 括弧を自動補完
+;; (require 'smartparens)
+;; (smartparens-global-mode t)
+
+;; anzu
+(require 'anzu)
+(global-anzu-mode +1)
+
 ;; (require 'recentf-ext)
 ;; 最新ファイル500個保存する
 ;; (setq recentf-max-saved-items 500)
@@ -432,36 +213,12 @@ scroll-step 20)
 (require 'auto-save-buffers)
 (run-with-idle-timer 2 t 'auto-save-buffers) ;アイドル2秒で保存
 
-;;(require 'screen-lines)
-;; text-modeかそれを継承したメジャーモードで自動的に有効にする
-;;(add-hook 'text-mode-hook 'turn-on-screen-lines-mode)
-
-(require 'redo+)
-(global-set-key (kbd "C-M-/") 'redo)
-(setq undo-no-redo t)	;過去のredoがundoされないようにする
-;; 大量のundoに耐えられるようにする
-(setq undo-limit 600000)
-(setq undo-strong-limit 900000)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; auto-complete.el
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'auto-complete-config)
-(global-auto-complete-mode 1)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; yasnippet
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; yasnippetを置いているフォルダにパスを通す
 (add-to-list 'load-path
              (expand-file-name "~/.emacs.d/elpa/yasnippet"))
-
-;; 既存スニペットを挿入する
-;;(define-key yas-minor-mode-map (kbd "C-x i i") 'yas-insert-snippet)
-;; 新規スニペットを作成するバッファを用意する
-;;(define-key yas-minor-mode-map (kbd "C-x i n") 'yas-new-snippet)
-;; 既存スニペットを閲覧・編集する
-;;(define-key yas-minor-mode-map (kbd "C-x i v") 'yas-visit-snippet-file)
 
 ;;自分用のスニペットフォルダと，拾ってきたスニペットフォルダの2つを作っておきます．
 ;;(一つにまとめてもいいけど)
@@ -474,6 +231,38 @@ scroll-step 20)
 ;; yas起動
 (yas-global-mode 1)
 
+;; 既存スニペットを挿入する
+(define-key yas-minor-mode-map (kbd "C-x i i") 'yas-insert-snippet)
+;; 新規スニペットを作成するバッファを用意する
+(define-key yas-minor-mode-map (kbd "C-x i n") 'yas-new-snippet)
+;; 既存スニペットを閲覧・編集する
+(define-key yas-minor-mode-map (kbd "C-x i v") 'yas-visit-snippet-file)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; open-junk-file
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when (require 'open-junk-file)
+  (setq open-junk-file-format "~/Documents/junk/%Y-%m-%d-%H%M%S.")
+  (global-set-key (kbd "C-x j") 'open-junk-file))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; init-loader
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when (require 'init-loader nil t)
+  (init-loader-load "~/.emacs.d/inits"))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; redo+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'redo+)
+(global-set-key (kbd "C-M-/") 'redo)
+(setq undo-no-redo t)	;過去のredoがundoされないようにする
+;; 大量のundoに耐えられるようにする
+(setq undo-limit 600000)
+(setq undo-strong-limit 900000)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Undo
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
@@ -482,6 +271,13 @@ scroll-step 20)
 
 (when (require 'undohist nil t)
   (undohist-initialize))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ace-isearch
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when (require 'ace-isearch)
+  (global-ace-isearch-mode +1)
+  (define-key isearch-mode-map (kbd "M-o") 'helm-multi-swoop-all-from-isearch))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; moccur
@@ -506,19 +302,6 @@ scroll-step 20)
 ;; igrepを扱う人向け
 (grep-a-lot-advise igrep)
 
-;; (require 'grep-edit)
-
-;; (require 'col-highlight)
-;; 1,2の内どれかを選ぶ
-;; 1:常にハイライトする
-;; (column-highlight-mode 1)
-;; 2:何もしないとハイライトを始める
-;; (toggle-highlight-column-when-idle 1)
-;; (col-highlight-set-interval 6)		;ハイライトの秒数を変更する
-
-;;(require 'multi-shell)
-;; 指定しないと環境変数SHELLのシェルが使われる
-;;(setq multi-shell-command "/bin/zsh")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; emacs lisp関連
@@ -594,7 +377,55 @@ scroll-step 20)
   (when (file-exists-p candidate)
     ad-do-it))
 
+(require 'helm-gtags)
 
+(custom-set-variables
+ ;'(helm-gtags-path-style 'relative)
+ '(helm-gtags-ignore-case t)
+ '(helm-gtags-auto-update t))
+
+(add-hook 'helm-gtags-mode-hook
+          '(lambda ()
+             ;; do what i mean
+             (local-set-key (kbd "M-.") 'helm-gtags-dwim)
+             ;;入力されたタグの定義元へジャンプ
+             (local-set-key (kbd "M-t") 'helm-gtags-find-tag)
+             ;;入力タグを参照する場所へジャンプ
+             (local-set-key (kbd "M-r") 'helm-gtags-find-rtag)
+             ;;入力したシンボルを参照する場所へジャンプ
+             (local-set-key (kbd "M-s") 'helm-gtags-find-symbol)
+             ;;タグ一覧からタグを選択し, その定義元にジャンプする
+             (local-set-key (kbd "M-l") 'helm-gtags-select)
+             ;;ジャンプ前の場所に戻る
+             (local-set-key (kbd "M-,") 'helm-gtags-pop-stack)
+             (local-set-key (kbd "M-g M-p") 'helm-gtags-parse-file)
+             (local-set-key (kbd "C-c <") 'helm-gtags-previous-history)
+             (local-set-key (kbd "C-c >") 'helm-gtags-next-history)))
+
+(when (require 'helm-ls-git)
+  (when (require 'helm-ghq)
+    (custom-set-variables
+     '(helm-truncate-lines t)
+     '(helm-delete-minibuffer-contents-from-point t)
+     '(helm-mini-default-sources '(helm-source-buffers-list
+                                   helm-source-ls-git-status
+                                   helm-source-files-in-current-dir
+                                   helm-source-ls-git
+                                   helm-source-recentf
+                                   helm-source-ghq)))
+    (global-set-key (kbd "C-x C-i") 'helm-mini)))
+
+(when (require 'helm-git-grep)
+  (global-set-key (kbd "C-x C-a") 'helm-git-grep)
+  ;; Invoke 'helm-git-grep' from isearch.
+  (define-key isearch-mode-map (kbd "C-x C-a") 'helm-git-grep-from-isearch)
+  ;; Invoke 'helm-git-grep' from other helm.
+  (eval-after-load 'helm
+    '(define-key helm-map (kbd "C-x C-a") 'helm-git-grep-from-helm)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; neotree.el
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key [f8] 'neotree-toggle)
 
 ;; 隠しファイルをデフォルトで表示
@@ -608,3 +439,292 @@ scroll-step 20)
 
 ;; キーバインドをシンプルにする
 (setq neo-keymap-style 'concise)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; autoinsert
+;; http://ymotongpoo.hatenablog.com/entry/2012/12/02/190248
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'autoinsert)
+(setq user-id-string "id")
+(setq user-full-name "full name")
+(setq user-mail-address "mail address")
+
+;; テンプレートのディレクトリ
+(setq auto-insert-directory "~/.emacs.d/insert/")
+
+;; 各ファイルによってテンプレートを切り替える
+(setq auto-insert-alist
+	  (nconc '(
+			   ("\\.sh$" . ["template.sh" my-template])
+			   ("\\.py$"   . ["template.py" my-template])
+			   ("\\.pl$"   . ["template.pl" my-template])
+			   ("\\.rb$" . ["template.rb" my-template])
+			   ("\\.cpp$" . ["template.cpp" my-template])
+			   ("\\.h$"   . ["template.h" my-template])
+			   ) auto-insert-alist))
+
+(require 'cl)
+(defvar template-replacements-alists
+  '(("%file%"             . (lambda () (file-name-nondirectory (buffer-file-name))))
+	("%file-without-ext%" . (lambda () (file-name-sans-extension (file-name-nondirectory (buffer-file-name)))))
+	("%date%" . (lambda () (format-time-string "%Y-%m-%d %H:%M:%S")))
+	("%mail%" . (lambda () (identity user-mail-address)))
+	("%name%" . (lambda () (identity user-full-name)))
+	("%id%" . (lambda () (identity user-id-string)))
+))
+
+(defun my-template ()
+  (time-stamp)
+  (mapc #'(lambda(c)
+			(progn
+			  (goto-char (point-min))
+			  (replace-string (car c) (funcall (cdr c)) nil)))
+		template-replacements-alists)
+  (goto-char (point-max))
+  (message "done."))
+(add-hook 'find-file-not-found-hooks 'auto-insert)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; company.el
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when (locate-library "company")
+  (global-company-mode 1)
+  (setq company-idle-delay 0) ; デフォルトは0.5
+  (setq company-minimum-prefix-length 2) ; デフォルトは4
+  (setq company-selection-wrap-around t) ; 候補の一番下でさらに下に行こうとすると一番上に戻る
+  (global-set-key (kbd "C-M-i") 'company-complete)
+   (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous)
+  (define-key company-search-map (kbd "C-n") 'company-select-next)
+  (define-key company-search-map (kbd "C-p") 'company-select-previous)
+  (define-key company-active-map (kbd "C-s") 'company-filter-candidates)
+  (define-key company-active-map (kbd "C-f") 'company-complete-selection)
+  (define-key company-active-map (kbd "C-i") 'company-complete-selection)
+  (define-key company-active-map (kbd "<tab>") 'company-complete-selection))
+
+;; yasnippetとの連携
+(defvar company-mode/enable-yas t
+  "Enable yasnippet for all backends.")
+(defun company-mode/backend-with-yas (backend)
+  (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
+      backend
+    (append (if (consp backend) backend (list backend))
+            '(:with company-yasnippet))))
+(setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; irony.el
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'irony)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'objc-mode-hook 'irony-mode)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+(add-to-list 'company-backends 'company-irony)
+
+(eval-after-load "irony"
+  '(progn
+     (custom-set-variables '(irony-additional-clang-options '("-std=c++11")))
+     (add-to-list 'company-backends 'company-irony)
+     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+     (add-hook 'c-mode-common-hook 'irony-mode)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; flycheck.el
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when (require 'flycheck nil 'noerror)
+  (custom-set-variables
+   ;; エラーをポップアップで表示
+   '(flycheck-display-errors-function
+     (lambda (errors)
+       (let ((messages (mapcar #'flycheck-error-message errors)))
+         (popup-tip (mapconcat 'identity messages "\n")))))
+   '(flycheck-display-errors-delay 0.5))
+  (define-key flycheck-mode-map (kbd "C-M-n") 'flycheck-next-error)
+  (define-key flycheck-mode-map (kbd "C-M-p") 'flycheck-previous-error)
+  (add-hook 'c-mode-common-hook 'flycheck-mode))
+
+(eval-after-load "flycheck"
+  '(progn
+     (when (locate-library "flycheck-irony")
+       (flycheck-irony-setup))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; rtags
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when (require 'rtags nil 'noerror)
+  (add-hook 'c-mode-common-hook
+            (lambda ()
+              (when (rtags-is-indexed)
+                (local-set-key (kbd "M-.") 'rtags-find-symbol-at-point)
+                (local-set-key (kbd "M-;") 'rtags-find-symbol)
+                (local-set-key (kbd "M-@") 'rtags-find-references)
+                (local-set-key (kbd "M-,") 'rtags-location-stack-back)))))
+
+(custom-set-variables '(rtags-use-helm t))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; semantic
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(semantic-mode 1)
+(global-semantic-idle-scheduler-mode 1)
+(global-semanticdb-minor-mode 1)
+(global-semantic-idle-completions-mode 1)
+(global-semantic-decoration-mode 1)
+(global-semantic-stickyfunc-mode 1)
+(global-semantic-mru-bookmark-mode 1)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; srefactor
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'srefactor)
+(require 'srefactor-lisp)
+(define-key c-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
+(define-key c++-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; python関連
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(autoload 'python-mode "python-mode" "Python Mode." t)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+
+
+(add-hook 'python-mode-hook
+  '(lambda()
+    (setq tab-width 4) 
+    (setq indent-tabs-mode nil)))
+
+(add-hook 'python-mode-hook
+          (lambda ()
+            (define-key python-mode-map "\"" 'electric-pair)
+            (define-key python-mode-map "\'" 'electric-pair)
+            (define-key python-mode-map "(" 'electric-pair)
+            (define-key python-mode-map "[" 'electric-pair)
+            (define-key python-mode-map "{" 'electric-pair)
+			(define-key python-mode-map "\C-m" 'newline-and-indent)))
+(defun electric-pair ()
+  "Insert character pair without sournding spaces"
+  (interactive)
+  (let (parens-require-spaces)
+    (insert-pair)))
+
+(require 'jedi-core)
+(setq jedi:complete-on-dot t)
+(setq jedi:use-shortcuts t)
+(add-hook 'python-mode-hook 'jedi:setup)
+(add-to-list 'company-backends 'company-jedi) ; backendに追加
+
+(require 'py-autopep8)
+(setq py-autopep8-options '("--max-line-length=200"))
+(setq flycheck-flake8-maximum-line-length 200)
+(py-autopep8-enable-on-save)
+
+(flymake-mode t)
+;;errorやwarningを表示する
+(require 'flymake-python-pyflakes)
+(flymake-python-pyflakes-load)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; mode関連
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when (require 'json-mode)
+  (add-to-list 'auto-mode-alist '("\\.json$" . json-mode)))
+
+(when (require 'yaml-mode)
+  (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode)))
+
+(when (require 'markdown-mode nil t))
+
+(when (require 'web-mode)
+  (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tpl$" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.html.erb$" . web-mode))
+
+  (defun web-mode-hook()
+    (setq web-mode-markup-indent-offset 4)
+    (setq web-mode-css-indent-offset 4)
+    (setq web-mode-code-indent-offset 4)
+    (lambda ()
+      (flycheck-add-mode 'javascript-eslint 'web-mode)
+      (flycheck-mode))
+	(add-hook 'web-mode-hook 'web-mode-hook)))
+
+(when (require 'js2-mode)
+  (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+  (add-to-list 'auto-mode-alist '("\\.es$" . js2-mode))
+  (add-to-list 'auto-mode-alist '("\\.es6$" . js2-mode))
+  (add-to-list 'auto-mode-alist '("\\.jsx$" . js2-mode))
+
+  ;; js2-modeのインデントの不具合を解決
+  (add-hook 'js2-mode-hook 'js-indent-hook)
+
+  (setq company-tern-property-marker "")
+  (defun company-tern-depth (candidate)
+    "Return depth attribute for CANDIDATE. 'nil' entries are treated as 0."
+    (let ((depth (get-text-property 0 'depth candidate)))
+      (if (eq depth nil) 0 depth)))
+
+  (add-hook 'js2-mode-hook
+            '(lambda ()
+               (setq tern-command '("tern" "--no-port-file"))
+               (tern-mode t)))
+
+  (add-to-list 'company-backends 'company-tern)
+
+
+  (when (require 'flycheck)
+     (flycheck-add-mode 'javascript-eslint 'js2-mode))
+)
+
+(autoload 'haskell-mode "haskell-mode" nil t)
+(autoload 'haskell-cabal "haskell-cabal" nil t)
+
+(add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
+(add-to-list 'auto-mode-alist '("\\.lhs$" . literate-haskell-mode))
+(add-to-list 'auto-mode-alist '("\\.cabal$" . haskell-cabal-mode))
+
+(autoload 'ghc-init "ghc" nil t)
+(autoload 'ghc-debug "ghc" nil t)
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+(global-company-mode 1) ;; company-mode を常に ON
+(add-to-list 'company-backends 'company-ghc)
+
+(defun my-haskell-mode-hook ()
+    (interactive)
+    ;; インデント
+    (turn-on-haskell-indentation)
+    (turn-on-haskell-doc-mode)
+    (font-lock-mode)
+    (imenu-add-menubar-index)
+    ;; GHCi のコマンドを設定
+    (setq haskell-program-name "/usr/bin/stack ghci") ;; stack の場合
+    (inf-haskell-mode)
+    ;; ghc-mod を使えるように
+    (ghc-init)
+    ;; flycheck を起動
+    (flycheck-mode))
+(add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
+
+;;; racerやrustfmt、コンパイラにパスを通す
+(add-to-list 'exec-path (expand-file-name "~/.cargo/bin/"))
+;;; rust-modeでrust-format-on-saveをtにすると自動でrustfmtが走る
+(eval-after-load "rust-mode"
+  '(setq-default rust-format-on-save t))
+;;; rustのファイルを編集するときにracerとflycheckを起動する
+(add-hook 'rust-mode-hook (lambda ()
+                            (racer-mode)
+                            (flycheck-rust-setup)))
+;;; racerのeldocサポートを使う
+(add-hook 'racer-mode-hook #'eldoc-mode)
+;;; racerの補完サポートを使う
+(add-hook 'racer-mode-hook (lambda ()
+                             (company-mode)
+                             ;;; この辺の設定はお好みで
+                             (set (make-variable-buffer-local 'company-idle-delay) 0.1)
+                             (set (make-variable-buffer-local 'company-minimum-prefix-length) 0)))
+
+

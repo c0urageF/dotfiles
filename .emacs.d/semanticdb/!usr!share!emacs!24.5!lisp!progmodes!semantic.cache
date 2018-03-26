@@ -1,0 +1,174 @@
+;; Object progmodes/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "progmodes/"
+  :tables
+  (list
+    (semanticdb-table "etags.el.gz"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("ring" include nil nil [969 984])
+            ("button" include nil nil [985 1002])
+            ("tags-file-name" variable nil nil [1019 1255])
+            ("etags" customgroup (:user-visible-flag t) nil [1483 1534])
+            ("tags-case-fold-search" variable (:default-value (quote default)) nil [1551 1943])
+            ("tags-table-list" variable nil nil [2036 2417])
+            ("tags-compression-info-list" variable (:default-value (purecopy (quote ("" ".Z" ".bz2" ".gz" ".xz" ".tgz")))) nil [2434 2723])
+            ("tags-add-tables" variable (:default-value (quote ask-user)) nil [3216 3610])
+            ("tags-revert-without-query" variable nil nil [3612 3761])
+            ("tags-table-computed-list" variable nil nil [3763 4245])
+            ("tags-table-computed-list-for" variable nil nil [4247 4493])
+            ("tags-table-list-pointer" variable nil nil [4495 4684])
+            ("tags-table-list-started-at" variable nil nil [4686 4804])
+            ("tags-table-set-list" variable nil nil [4806 4968])
+            ("find-tag-hook" variable nil nil [4985 5231])
+            ("find-tag-default-function" variable nil nil [5248 5585])
+            ("find-tag-marker-ring-length" variable (:default-value 16) nil [5587 5756])
+            ("tags-tag-face" variable (:default-value (quote default)) nil [5758 5891])
+            ("tags-apropos-verbose" variable nil nil [5893 6055])
+            ("tags-apropos-additional-actions" variable nil nil [6057 6974])
+            ("find-tag-marker-ring" variable (:default-value (make-ring find-tag-marker-ring-length)) nil [6976 7122])
+            ("default-tags-table-function" variable nil nil [7124 7348])
+            ("tags-location-ring" variable (:default-value (make-ring find-tag-marker-ring-length)) nil [7350 7553])
+            ("tags-table-files" variable nil nil [7630 7795])
+            ("tags-completion-table" variable nil nil [7797 7887])
+            ("tags-included-tables" variable nil nil [7889 7982])
+            ("next-file-list" variable nil nil [7984 8059])
+            ("tags-table-format-functions" variable (:default-value (quote (etags-recognize-tags-table tags-recognize-empty-tags-table))) nil [8090 8469])
+            ("file-of-tag-function" variable nil nil [8471 8664])
+            ("tags-table-files-function" variable nil nil [8665 8775])
+            ("tags-completion-table-function" variable nil nil [8776 8870])
+            ("snarf-tag-function" variable nil nil [8871 9079])
+            ("goto-tag-location-function" variable nil nil [9080 9252])
+            ("find-tag-regexp-search-function" variable nil nil [9253 9373])
+            ("find-tag-regexp-tag-order" variable nil nil [9374 9482])
+            ("find-tag-regexp-next-line-after-failure-p" variable nil nil [9483 9602])
+            ("find-tag-search-function" variable nil nil [9603 9709])
+            ("find-tag-tag-order" variable nil nil [9710 9804])
+            ("find-tag-next-line-after-failure-p" variable nil nil [9805 9910])
+            ("list-tags-function" variable nil nil [9911 9998])
+            ("tags-apropos-function" variable nil nil [9999 10092])
+            ("tags-included-tables-function" variable nil nil [10093 10211])
+            ("verify-tags-table-function" variable nil nil [10212 10320])
+            ("initialize-new-tags-table" function nil nil [10323 10994])
+            ("tags-table-mode" function (:user-visible-flag t) nil [11011 11259])
+            ("visit-tags-table" function
+               (:user-visible-flag t
+                :arguments ("file" "local"))
+                nil [11276 12806])
+            ("tags-table-check-computed-list" function nil nil [12808 14677])
+            ("tags-table-extend-computed-list" function nil nil [14679 16390])
+            ("tags-expand-table-name" function (:arguments ("file")) nil [16392 16603])
+            ("tags-table-list-member" function (:arguments ("file" "list")) nil [16735 17205])
+            ("tags-verify-table" function (:arguments ("file")) nil [17207 18916])
+            ("tags-table-including" function (:arguments ("this-file" "core-only")) nil [19327 21369])
+            ("tags-next-table" function nil nil [21371 22211])
+            ("visit-tags-table-buffer" function (:arguments ("cont")) nil [22228 28536])
+            ("tags-reset-tags-tables" function (:user-visible-flag t) nil [28538 29339])
+            ("file-of-tag" function (:arguments ("relative")) nil [29342 29674])
+            ("tags-table-files" function nil nil [29691 30039])
+            ("tags-included-tables" function nil nil [30041 30284])
+            ("tags-completion-table" function nil nil [30287 31464])
+            ("tags-lazy-completion-table" function nil nil [31466 31854])
+            ("tags-completion-at-point-function" function nil nil [32101 32848])
+            ("find-tag-tag" function (:arguments ("string")) nil [32851 33522])
+            ("last-tag" variable nil nil [33524 33581])
+            ("find-tag-interactive" function (:arguments ("prompt" "no-default")) nil [33583 33996])
+            ("find-tag-history" variable nil nil [33998 34027])
+            ("etags-case-fold-search" variable nil nil [34063 34094])
+            ("etags-syntax-table" variable nil nil [34095 34122])
+            ("local-find-tag-hook" variable nil nil [34123 34151])
+            ("find-tag-noselect" function
+               (:user-visible-flag t
+                :arguments ("tagname" "next-p" "regexp-p"))
+                nil [34168 37290])
+            ("find-tag" function
+               (:user-visible-flag t
+                :arguments ("tagname" "next-p" "regexp-p"))
+                nil [37307 38506])
+            ("find-tag-other-window" function
+               (:user-visible-flag t
+                :arguments ("tagname" "next-p" "regexp-p"))
+                nil [38573 40419])
+            ("find-tag-other-frame" function
+               (:user-visible-flag t
+                :arguments ("tagname" "next-p"))
+                nil [40503 41596])
+            ("find-tag-regexp" function
+               (:user-visible-flag t
+                :arguments ("regexp" "next-p" "other-window"))
+                nil [41679 42776])
+            ("pop-tag-mark" function (:user-visible-flag t) nil [42909 43520])
+            ("tag-lines-already-matched" variable nil nil [43523 43599])
+            ("find-tag-in-order" function (:arguments ("pattern" "search-forward-func" "order" "next-line-after-failure-p" "matching" "first-search")) nil [43630 47974])
+            ("tag-find-file-of-tag-noselect" function (:arguments ("file")) nil [47976 49820])
+            ("tag-find-file-of-tag" function (:arguments ("file")) nil [49822 50007])
+            ("etags-recognize-tags-table" function nil nil [50048 51677])
+            ("etags-verify-tags-table" function nil nil [51679 51875])
+            ("etags-file-of-tag" function (:arguments ("relative")) nil [51877 52209])
+            ("etags-tags-completion-table" function nil nil [52212 53416])
+            ("etags-snarf-tag" function (:arguments ("use-explicit")) nil [53418 54985])
+            ("etags-goto-tag-location" function (:arguments ("tag-info")) nil [54987 57428])
+            ("etags-list-tags" function (:arguments ("file")) nil [57430 58703])
+            ("tags-with-face" function (:arguments ("face" "body")) nil [58705 59036])
+            ("etags-tags-apropos-additional" function (:arguments ("regexp")) nil [59038 60273])
+            ("etags-tags-apropos" function (:arguments ("string")) nil [60275 62482])
+            ("etags-tags-table-files" function nil nil [62484 62879])
+            ("etags-tags-included-tables" function nil nil [62920 63428])
+            ("tags-recognize-empty-tags-table" function nil nil [63460 64059])
+            ("tag-exact-file-name-match-p" function (:arguments ("tag")) nil [64606 64874])
+            ("tag-file-name-match-p" function (:arguments ("tag")) nil [64999 65221])
+            ("tag-exact-match-p" function (:arguments ("tag")) nil [65555 66006])
+            ("tag-implicit-name-match-p" function (:arguments ("tag")) nil [66123 66594])
+            ("tag-symbol-match-p" function (:arguments ("tag")) nil [66723 67041])
+            ("tag-word-match-p" function (:arguments ("tag")) nil [67159 67419])
+            ("tag-partial-file-name-match-p" function (:arguments ("_tag")) nil [67557 67926])
+            ("tag-any-match-p" function (:arguments ("_tag")) nil [68001 68123])
+            ("tag-re-match-p" function (:arguments ("re")) nil [68185 68431])
+            ("tags-loop-revert-buffers" variable nil nil [68434 68826])
+            ("next-file" function
+               (:user-visible-flag t
+                :arguments ("initialize" "novisit"))
+                nil [68843 71755])
+            ("tags-loop-operate" variable nil nil [71757 71849])
+            ("tags-loop-scan" variable (:default-value (quote (user-error "%s" (substitute-command-keys "No \\[tags-search] or \\[tags-query-replace] in progress")))) nil [71851 72179])
+            ("tags-loop-eval" function (:arguments ("form")) nil [72181 72492])
+            ("tags-loop-continue" function
+               (:user-visible-flag t
+                :arguments ("first-time"))
+                nil [72510 74720])
+            ("tags-search" function
+               (:user-visible-flag t
+                :arguments ("regexp" "file-list-form"))
+                nil [74797 75606])
+            ("tags-query-replace" function
+               (:user-visible-flag t
+                :arguments ("from" "to" "delimited" "file-list-form"))
+                nil [75623 76844])
+            ("tags-complete-tags-table-file" function (:arguments ("string" "predicate" "what")) nil [76847 77209])
+            ("list-tags" function
+               (:user-visible-flag t
+                :arguments ("file" "_next-match"))
+                nil [77226 78162])
+            ("tags-apropos" function
+               (:user-visible-flag t
+                :arguments ("regexp"))
+                nil [78179 78928])
+            ("define-button-type" code nil nil [78957 79106])
+            ("select-tags-table" function (:user-visible-flag t) nil [79196 81321])
+            ("select-tags-table-mode-map" variable (:default-value (let ((map (make-sparse-keymap))) (set-keymap-parent map button-buffer-map) (define-key map "t" (quote push-button)) (define-key map " " (quote next-line)) (define-key map "" (quote previous-line)) (define-key map "n" (quote next-line)) (define-key map "p" (quote previous-line)) (define-key map "q" (quote select-tags-table-quit)) map)) nil [81323 81704])
+            ("define-derived-mode" code nil nil [81706 81888])
+            ("select-tags-table-select" function
+               (:user-visible-flag t
+                :arguments ("button"))
+                nil [81890 82254])
+            ("select-tags-table-quit" function (:user-visible-flag t) nil [82256 82393])
+            ("complete-tag" function (:user-visible-flag t) nil [82411 83100])
+            ("etags" package nil nil [83103 83119]))          
+      :file "etags.el.gz"
+      :pointmax 83144
+      :fsize 21922
+      :lastmodtime '(21885 55889 0 0)
+      :unmatched-syntax nil))
+  :file "!usr!share!emacs!24.5!lisp!progmodes!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

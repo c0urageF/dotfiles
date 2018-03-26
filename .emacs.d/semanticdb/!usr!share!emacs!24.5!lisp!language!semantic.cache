@@ -1,0 +1,173 @@
+;; Object language/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "language/"
+  :tables
+  (list
+    (semanticdb-table "japan-util.el.gz"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("setup-japanese-environment-internal" function nil nil [1128 1482])
+            ("japanese-kana-table" variable
+               (:constant-flag t
+                :default-value (quote ((12354 12450 65393) (12356 12452 65394) (12358 12454 65395) (12360 12456 65396) (12362 12458 65397) (12363 12459 65398) (12365 12461 65399) (12367 12463 65400) (12369 12465 65401) (12371 12467 65402) (12373 12469 65403) (12375 12471 65404) (12377 12473 65405) (12379 12475 65406) (12381 12477 65407) (12383 12479 65408) (12385 12481 65409) (12388 12484 65410) (12390 12486 65411) (12392 12488 65412) (12394 12490 65413) (12395 12491 65414) (12396 12492 65415) (12397 12493 65416) (12398 12494 65417) (12399 12495 65418) (12402 12498 65419) (12405 12501 65420) (12408 12504 65421) (12411 12507 65422) (12414 12510 65423) (12415 12511 65424) (12416 12512 65425) (12417 12513 65426) (12418 12514 65427) (12420 12516 65428) (12422 12518 65429) (12424 12520 65430) (12425 12521 65431) (12426 12522 65432) (12427 12523 65433) (12428 12524 65434) (12429 12525 65435) (12431 12527 65436) (12432 12528 "ｲ") (12433 12529 "ｴ") (12434 12530 65382) (12435 12531 65437) (12364 12460 "ｶﾞ") (12366 12462 "ｷﾞ") (12368 12464 "ｸﾞ") (12370 12466 "ｹﾞ") (12372 12468 "ｺﾞ") (12374 12470 "ｻﾞ") (12376 12472 "ｼﾞ") (12378 12474 "ｽﾞ") (12380 12476 "ｾﾞ") (12382 12478 "ｿﾞ") (12384 12480 "ﾀﾞ") (12386 12482 "ﾁﾞ") (12389 12485 "ﾂﾞ") (12391 12487 "ﾃﾞ") (12393 12489 "ﾄﾞ") (12400 12496 "ﾊﾞ") (12403 12499 "ﾋﾞ") (12406 12502 "ﾌﾞ") (12409 12505 "ﾍﾞ") (12412 12508 "ﾎﾞ") (12401 12497 "ﾊﾟ") (12404 12500 "ﾋﾟ") (12407 12503 "ﾌﾟ") (12410 12506 "ﾍﾟ") (12413 12509 "ﾎﾟ") (12353 12449 65383) (12355 12451 65384) (12357 12453 65385) (12359 12455 65386) (12361 12457 65387) (12387 12483 65391) (12419 12515 65388) (12421 12517 65389) (12423 12519 65390) (12430 12526 "ﾜ") ("う゛" 12532 "ｳﾞ") (nil 12533 "ｶ") (nil 12534 "ｹ"))))
+                nil [1484 2829])
+            ("let" code nil nil [2947 4095])
+            ("japanese-symbol-table" variable
+               (:constant-flag t
+                :default-value (quote ((12288 32) (65292 44 65380) (65294 46 65377) (12289 44 65380) (12290 46 65377) (12539 nil 65381) (65306 58) (65307 59) (65311 63) (65281 33) (12443 nil 65438) (12444 nil 65439) (180 39) (65344 96) (65342 94) (65343 95) (12540 45 65392) (8212 45) (8208 45) (65295 47) (65340 92) (12316 126) (65372 124) (8216 96) (8217 39) (8220 34) (8221 34) (65288 40) (65289 41) (65339 91) (65341 93) (65371 123) (65373 125) (12296 60) (12297 62) (12300 nil 65378) (12301 nil 65379) (65291 43) (8722 45) (65309 61) (65308 60) (65310 62) (8242 39) (8243 34) (65509 92) (65284 36) (65285 37) (65283 35) (65286 38) (65290 42) (65312 64) (8213 45) (65374 126) (65293 45))))
+                nil [4097 4932])
+            ("let" code nil nil [5060 5615])
+            ("japanese-alpha-numeric-table" variable
+               (:constant-flag t
+                :default-value (quote ((65296 . 48) (65297 . 49) (65298 . 50) (65299 . 51) (65300 . 52) (65301 . 53) (65302 . 54) (65303 . 55) (65304 . 56) (65305 . 57) (65313 . 65) (65314 . 66) (65315 . 67) (65316 . 68) (65317 . 69) (65318 . 70) (65319 . 71) (65320 . 72) (65321 . 73) (65322 . 74) (65323 . 75) (65324 . 76) (65325 . 77) (65326 . 78) (65327 . 79) (65328 . 80) (65329 . 81) (65330 . 82) (65331 . 83) (65332 . 84) (65333 . 85) (65334 . 86) (65335 . 87) (65336 . 88) (65337 . 89) (65338 . 90) (65345 . 97) (65346 . 98) (65347 . 99) (65348 . 100) (65349 . 101) (65350 . 102) (65351 . 103) (65352 . 104) (65353 . 105) (65354 . 106) (65355 . 107) (65356 . 108) (65357 . 109) (65358 . 110) (65359 . 111) (65360 . 112) (65361 . 113) (65362 . 114) (65363 . 115) (65364 . 116) (65365 . 117) (65366 . 118) (65367 . 119) (65368 . 120) (65369 . 121) (65370 . 122))))
+                nil [5617 6507])
+            ("let" code nil nil [6632 6892])
+            ("japanese-string-conversion" function (:arguments ("str" "func" "args")) nil [6955 7192])
+            ("japanese-katakana" function (:arguments ("obj" "hankaku")) nil [7209 7827])
+            ("japanese-hiragana" function (:arguments ("obj")) nil [7844 8195])
+            ("japanese-hankaku" function (:arguments ("obj" "ascii-only")) nil [8212 8735])
+            ("japanese-zenkaku" function (:arguments ("obj")) nil [8752 9102])
+            ("japanese-replace-region" function (:arguments ("from" "to" "string")) nil [9104 9276])
+            ("japanese-katakana-region" function
+               (:user-visible-flag t
+                :arguments ("from" "to" "hankaku"))
+                nil [9293 10217])
+            ("japanese-hiragana-region" function
+               (:user-visible-flag t
+                :arguments ("from" "to"))
+                nil [10235 10999])
+            ("japanese-hankaku-region" function
+               (:user-visible-flag t
+                :arguments ("from" "to" "ascii-only"))
+                nil [11016 11785])
+            ("japanese-zenkaku-region" function
+               (:user-visible-flag t
+                :arguments ("from" "to" "katakana-only"))
+                nil [11802 12846])
+            ("read-hiragana-string" function (:arguments ("prompt" "initial-input")) nil [12863 13147])
+            ("japan-util" package nil nil [13152 13173]))          
+      :file "japan-util.el.gz"
+      :pointmax 13203
+      :fsize 4226
+      :lastmodtime '(21885 55889 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "korea-util.el.gz"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("default-korean-keyboard" variable (:default-value (purecopy (if (string-match "3" (or (getenv "HANGUL_KEYBOARD_TYPE") "")) "3" ""))) nil [1093 1303])
+            ("toggle-korean-input-method" function (:user-visible-flag t) nil [1348 1613])
+            ("quail-hangul-switch-symbol-ksc" function
+               (:user-visible-flag t
+                :arguments ("ignore"))
+                nil [1615 1948])
+            ("quail-hangul-switch-hanja" function
+               (:user-visible-flag t
+                :arguments ("ignore"))
+                nil [1950 2313])
+            ("isearch-toggle-korean-input-method" function nil nil [2377 2664])
+            ("isearch-hangul-switch-symbol-ksc" function nil nil [2666 2955])
+            ("isearch-hangul-switch-hanja" function nil nil [2957 3236])
+            ("korean-key-bindings" variable (:default-value (\` ((global [33554464] toggle-korean-input-method nil) (global [Hangul] toggle-korean-input-method nil) (global [C-f9] quail-hangul-switch-symbol-ksc nil) (global [f9] hangul-to-hanja-conversion nil) (global [Hangul_Hanja] hangul-to-hanja-conversion nil) ((\, isearch-mode-map) [33554464] isearch-toggle-korean-input-method nil) ((\, isearch-mode-map) [Hangul] isearch-toggle-korean-input-method nil) ((\, isearch-mode-map) [C-f9] isearch-hangul-switch-symbol-ksc nil) ((\, isearch-mode-map) [f9] isearch-hangul-switch-hanja nil)))) nil [3297 3866])
+            ("setup-korean-environment-internal" function nil nil [3883 4432])
+            ("exit-korean-environment" function nil nil [4434 4979])
+            ("korea-util" package nil nil [4984 5005]))          
+      :file "korea-util.el.gz"
+      :pointmax 5035
+      :fsize 1586
+      :lastmodtime '(21885 55889 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "ethio-util.el.gz"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("robin" include nil nil [1299 1315])
+            ("exit-ethiopic-environment-data" variable nil nil [1366 1409])
+            ("setup-ethiopic-environment-internal" function nil nil [1426 2537])
+            ("exit-ethiopic-environment" function nil nil [2539 3007])
+            ("ethio-primary-language" variable (:default-value (quote tigrigna)) nil [3452 3632])
+            ("ethio-secondary-language" variable (:default-value (quote english)) nil [3634 3817])
+            ("ethio-use-colon-for-colon" variable nil nil [3819 4066])
+            ("ethio-use-three-dot-question" variable nil nil [4068 4357])
+            ("ethio-quote-vowel-always" variable nil nil [4359 4602])
+            ("ethio-W-sixth-always" variable nil nil [4604 4756])
+            ("ethio-numeric-reduction" variable nil nil [4758 5103])
+            ("ethio-java-save-lowercase" variable nil nil [5105 5250])
+            ("ethio-prefer-amharic-p" function nil nil [5252 5428])
+            ("ethio-prefer-amharic" function (:arguments ("arg")) nil [5430 5885])
+            ("ethio-use-colon-for-colon" function (:arguments ("arg")) nil [5887 6200])
+            ("ethio-use-three-dot-question" function (:arguments ("arg")) nil [6202 6465])
+            ("ethio-adjust-robin" function nil nil [6467 6664])
+            ("add-hook" code nil nil [6666 6717])
+            ("ethio-sera-to-fidel-buffer" function
+               (:user-visible-flag t
+                :arguments ("secondary" "force"))
+                nil [6758 7440])
+            ("ethio-sera-being-called-by-w3" variable nil nil [7512 7550])
+            ("sera-being-called-by-w3" variable nil nil [7611 7643])
+            ("ethio-sera-to-fidel-region" function
+               (:user-visible-flag t
+                :arguments ("begin" "end" "secondary" "force"))
+                nil [7660 9582])
+            ("ethio-sera-to-fidel-region-noethio" function nil nil [9584 10405])
+            ("ethio-sera-to-fidel-region-ethio" function (:arguments ("lang")) nil [10407 12383])
+            ("ethio-process-language-flag" function nil nil [12385 13759])
+            ("ethio-flag-to-language" function (:arguments ("flag")) nil [13761 13999])
+            ("ethio-process-digits" function nil nil [14001 14733])
+            ("ethio-sera-to-fidel-marker" function
+               (:user-visible-flag t
+                :arguments ("force"))
+                nil [14750 15412])
+            ("ethio-language-to-flag" function (:arguments ("lang")) nil [15438 15585])
+            ("ethio-fidel-to-sera-buffer" function
+               (:user-visible-flag t
+                :arguments ("secondary" "force"))
+                nil [15602 16374])
+            ("ethio-fidel-to-sera-region" function
+               (:user-visible-flag t
+                :arguments ("begin" "end" "secondary" "force"))
+                nil [16391 19898])
+            ("ethio-fidel-to-sera-marker" function
+               (:user-visible-flag t
+                :arguments ("force"))
+                nil [19915 20516])
+            ("ethio-modify-vowel" function (:user-visible-flag t) nil [20562 21116])
+            ("ethio-get-consonant" function (:arguments ("ch")) nil [21118 21549])
+            ("ethio-replace-space" function
+               (:user-visible-flag t
+                :arguments ("ch" "begin" "end"))
+                nil [21594 23515])
+            ("ethio-input-special-character" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [23588 23918])
+            ("ethio-fidel-to-tex-buffer" function (:user-visible-flag t) nil [23957 25184])
+            ("ethio-tex-to-fidel-buffer" function (:user-visible-flag t) nil [25201 25847])
+            ("ethio-fidel-to-java-buffer" function nil nil [25887 26421])
+            ("ethio-java-to-fidel-buffer" function nil nil [26438 26858])
+            ("ethio-find-file" function nil nil [26900 27823])
+            ("ethio-write-file" function nil nil [27840 28892])
+            ("ethio-record-user-preference" function nil nil [28894 29048])
+            ("ethio-prefer-ascii-space" variable (:default-value t) nil [29100 29135])
+            ("make-variable-buffer-local" code nil nil [29136 29190])
+            ("ethio-toggle-space" function (:user-visible-flag t) nil [29192 29370])
+            ("ethio-insert-space" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [29372 30251])
+            ("ethio-insert-ethio-space" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [30268 30456])
+            ("ethio-composition-function" function (:arguments ("pos" "to" "font-object" "string")) nil [30494 30935])
+            ("ethio-gemination" function (:user-visible-flag t) nil [30976 31463])
+            ("robin-define-package" code nil nil [31493 39552])
+            ("register-input-method" code nil nil [39554 39662])
+            ("robin-define-package" code nil nil [39664 48235])
+            ("ethio-util" package nil nil [48367 48388]))          
+      :file "ethio-util.el.gz"
+      :pointmax 48447
+      :fsize 14007
+      :lastmodtime '(21885 55889 0 0)
+      :unmatched-syntax nil))
+  :file "!usr!share!emacs!24.5!lisp!language!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

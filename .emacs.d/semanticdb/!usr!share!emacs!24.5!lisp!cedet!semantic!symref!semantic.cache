@@ -1,0 +1,70 @@
+;; Object symref/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "symref/"
+  :tables
+  (list
+    (semanticdb-table "list.el.gz"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("semantic/symref" include nil nil [1256 1282])
+            ("semantic/complete" include nil nil [1283 1311])
+            ("semantic/senator" include nil nil [1312 1339])
+            ("pulse" include nil nil [1340 1356])
+            ("semantic-symref" function (:user-visible-flag t) nil [1384 2293])
+            ("semantic-symref-symbol" function
+               (:user-visible-flag t
+                :arguments ("sym"))
+                nil [2310 2960])
+            ("semantic-symref-regexp" function
+               (:user-visible-flag t
+                :arguments ("sym"))
+                nil [2977 3629])
+            ("semantic-symref-results-mode" customgroup (:user-visible-flag t) nil [3651 3739])
+            ("semantic-symref-results-mode-map" variable (:default-value (let ((km (make-sparse-keymap))) (suppress-keymap km) (define-key km "	" (quote forward-button)) (define-key km "\303-i" (quote backward-button)) (define-key km " " (quote push-button)) (define-key km "-" (quote semantic-symref-list-toggle-showing)) (define-key km "=" (quote semantic-symref-list-toggle-showing)) (define-key km "+" (quote semantic-symref-list-toggle-showing)) (define-key km "n" (quote semantic-symref-list-next-line)) (define-key km "p" (quote semantic-symref-list-prev-line)) (define-key km "q" (quote semantic-symref-hide-buffer)) (define-key km "" (quote semantic-symref-list-expand-all)) (define-key km "" (quote semantic-symref-list-contract-all)) (define-key km "R" (quote semantic-symref-list-rename-open-hits)) (define-key km "(" (quote semantic-symref-list-create-macro-on-open-hit)) (define-key km "E" (quote semantic-symref-list-call-macro-on-open-hits)) km)) nil [3741 4709])
+            ("semantic-symref-list-menu-entries" variable (:default-value (list "Symref" (semantic-menu-item ["Toggle Line Open" semantic-symref-list-toggle-showing :active t :help "Toggle the current line open or closed."]) (semantic-menu-item ["Expand All Entries" semantic-symref-list-expand-all :active t :help "Expand every expandable entry."]) (semantic-menu-item ["Contract All Entries" semantic-symref-list-contract-all :active t :help "Close every expandable entry."]) (semantic-menu-item ["Rename Symbol in Open hits" semantic-symref-list-rename-open-hits :active t :help "Rename the searched for symbol in all hits that are currently open."]))) nil [4711 5507])
+            ("semantic-symref-list-menu" variable nil nil [5509 5606])
+            ("easy-menu-define" code nil nil [5608 5744])
+            ("semantic-symref-auto-expand-results" variable nil nil [5746 5871])
+            ("semantic-symref-results-mode-hook" variable nil nil [5873 5993])
+            ("semantic-symref-current-results" variable nil nil [5995 6089])
+            ("semantic-symref-produce-list-on-results" function (:arguments ("res" "str")) nil [6091 6668])
+            ("define-derived-mode" code nil nil [6670 6948])
+            ("semantic-symref-hide-buffer" function (:user-visible-flag t) nil [6950 7066])
+            ("semantic-symref-results-summary-function" variable (:default-value (quote semantic-format-tag-prototype)) nil [7068 7309])
+            ("semantic-symref-results-dump" function (:arguments ("results")) nil [7311 8410])
+            ("semantic-symref-list-toggle-showing" function (:user-visible-flag t) nil [8456 8695])
+            ("semantic-symref-rb-toggle-expand-tag" function
+               (:user-visible-flag t
+                :arguments ("button"))
+                nil [8697 10182])
+            ("semantic-symref-rb-goto-file" function (:arguments ("button")) nil [10184 10597])
+            ("semantic-symref-rb-goto-tag" function
+               (:user-visible-flag t
+                :arguments ("button"))
+                nil [10600 11060])
+            ("semantic-symref-rb-goto-match" function
+               (:user-visible-flag t
+                :arguments ("button"))
+                nil [11062 11587])
+            ("semantic-symref-list-next-line" function (:user-visible-flag t) nil [11589 11738])
+            ("semantic-symref-list-prev-line" function (:user-visible-flag t) nil [11740 11890])
+            ("semantic-symref-list-expand-all" function (:user-visible-flag t) nil [11892 12230])
+            ("semantic-symref-list-contract-all" function (:user-visible-flag t) nil [12232 12572])
+            ("semantic-symref-list-on-hit-p" function nil nil [12642 12999])
+            ("semantic-symref-list-create-macro-on-open-hit" function (:user-visible-flag t) nil [13110 14427])
+            ("semantic-symref-list-call-macro-on-open-hits" function (:user-visible-flag t) nil [14429 14992])
+            ("semantic-symref-list-rename-open-hits" function
+               (:user-visible-flag t
+                :arguments ("newname"))
+                nil [15087 15622])
+            ("semantic-symref-list-map-open-hits" function (:arguments ("function")) nil [15737 17082])
+            ("semantic-symref-list-update-open-hits" function nil nil [17084 17583])
+            ("semantic/symref/list" package nil nil [17585 17616]))          
+      :file "list.el.gz"
+      :pointmax 17786
+      :fsize 4859
+      :lastmodtime '(21885 55889 0 0)
+      :unmatched-syntax nil))
+  :file "!usr!share!emacs!24.5!lisp!cedet!semantic!symref!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
