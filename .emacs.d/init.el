@@ -333,6 +333,34 @@ scroll-step 20)
 ;; (require 'w3m-load)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; gtags.el
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path "/usr/local/share/gtags")
+(autoload 'gtags-mode "gtags" "" t)
+(setq gtags-mode-hook
+    '(lambda ()
+        (local-set-key "\M-t" 'gtags-find-tag)    ;関数へジャンプ
+        (local-set-key "\M-r" 'gtags-find-rtag)   ;関数の参照元へジャンプ
+        (local-set-key "\M-s" 'gtags-find-symbol) ;変数の定義元/参照先へジャンプ
+        (local-set-key "\C-t" 'gtags-pop-stack)   ;前のバッファに戻る
+        ))
+
+(add-hook 'c-mode-hook 'gtags-mode)
+(add-hook 'c++-mode-hook 'gtags-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; rtags.el
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when (require 'rtags nil 'noerror)
+  (add-hook 'c-mode-common-hook
+            (lambda ()
+              (when (rtags-is-indexed)
+                (local-set-key (kbd "M-.") 'rtags-find-symbol-at-point)
+                (local-set-key (kbd "M-;") 'rtags-find-symbol)
+                (local-set-key (kbd "M-@") 'rtags-find-references)
+                (local-set-key (kbd "M-,") 'rtags-location-stack-back)))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; auto-async-byte-compile.el
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (require 'auto-async-byte-compile)
@@ -522,12 +550,25 @@ scroll-step 20)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 (add-to-list 'company-backends 'company-irony)
 
-(eval-after-load "irony"
-  '(progn
-     (custom-set-variables '(irony-additional-clang-options '("-std=c++11")))
-     (add-to-list 'company-backends 'company-irony)
-     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-     (add-hook 'c-mode-common-hook 'irony-mode)))
+;; 連想リストの中身を文字列のリストに変更せず、変数そのままの構造を利用。
+;; 複数のコンパイルオプションはスペースで区切る
+(setq irony-lang-compile-option-alist
+      (quote ((c++-mode . "c++ -std=c++11 -lstdc++")
+              (c-mode . "c")
+              (objc-mode . "objective-c"))))
+;; アドバイスによって関数を再定義。
+;; split-string によって文字列をスペース区切りでリストに変換
+;; (24.4以降 新アドバイス使用)
+(defun ad-irony--lang-compile-option ()
+  (defvar irony-lang-compile-option-alist)
+  (let ((it (cdr-safe (assq major-mode irony-lang-compile-option-alist))))
+    (when it (append '("-x") (split-string it "\s")))))
+(advice-add 'irony--lang-compile-option :override #'ad-irony--lang-compile-option)
+;; (24.3以前 旧アドバイス使用)
+(defadvice irony--lang-compile-option (around ad-irony--lang-compile-option activate)
+  (defvar irony-lang-compile-option-alist)
+  (let ((it (cdr-safe (assq major-mode irony-lang-compile-option-alist))))
+    (when it (append '("-x") (split-string it "\s")))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; flycheck.el
