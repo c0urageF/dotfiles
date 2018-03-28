@@ -7,7 +7,7 @@
 (setq helm-file-name-history '("init.el -b" "init.el" ".zshrc" "02-square_error.py" "myproxy.el" "NPArray.hpp"))
 (setq helm-M-x-input-history '("package-install " "package-in" "package-install" "irony" "ir" "irony" "iro" "irony-i" "eva" "pack" "eval-buffer" "package-in" "packag" "k" "package-insta" "package-i" "package-" "pa" "packa" "package-install" "packa" "package" "package-in" "jedi:install-se" "packa" "irony-ins" "package-in" "rgrep" "jedi:insta" "eval-b" "package-list" "package-ins" "pack" "packa" "eval" "eva" "eval" "eva" "eval" "eva" "packa"))
 (setq query-replace-history '("-G" "--color=auto"))
-(setq search-ring '("lp" "irony" "gtags" "e" "company-backends" "yas" "smartpa" "mode" "undo" "helm" "smart" "handleDragS" "document" "add-node-modules-pathi" "js2-mode" "j2-mode"))
+(setq search-ring '("elsc" "lp" "irony" "gtags" "e" "company-backends" "yas" "smartpa" "mode" "undo" "helm" "smart" "handleDragS" "document" "add-node-modules-pathi" "js2-mode"))
 (setq irony--server-install-command-history '("cmake -DCMAKE_INSTALL_PREFIX\\=/home/pfpro/.emacs.d/irony/ /home/pfpro/.emacs.d/elpa/irony-20161106.830/server && cmake --build . --use-stderr --config Release --target install" "cmake -DCMAKE_INSTALL_PREFIX\\=/home/c0urage/.emacs.d/irony/ /home/c0urage/.emacs.d/elpa/irony-20161106.830/server && cmake --build . --use-stderr --config Release --target install"))
 (setq file-name-history '("~/.emacs.d/init.el" "~/tmp/lpcspdtFbnk/lpcspdtThread_source.h" "~/workspace/QuickDrag-WE/Firefox/quickdrag.js" "~/.zshrc" "~/workspace/ml4se/scripts/02-square_error.py" "~/.emacs.d/private-conf/myproxy.el" "~/Confidencial/Contenor/NPArray.hpp"))
 (setq iswitchb-history '("init" "Me" "init" "ini" "init" "ini" "init"))
