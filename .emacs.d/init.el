@@ -53,8 +53,42 @@
 
 ;;; uncomment for CJK utf-8 support for non-Asian users
 (custom-set-variables
- '(initial-frame-alist (quote ((width . 110) (height . 140)))))
-(custom-set-faces)
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(flycheck-display-errors-delay 0.5)
+ '(flycheck-display-errors-function
+   (lambda
+	 (errors)
+	 (let
+		 ((messages
+		   (mapcar
+			(function flycheck-error-message)
+			errors)))
+	   (popup-tip
+		(mapconcat
+		 (quote identity)
+		 messages "
+")))))
+ '(helm-delete-minibuffer-contents-from-point t)
+ '(helm-gtags-auto-update t)
+ '(helm-gtags-ignore-case t)
+ '(helm-mini-default-sources
+   (quote
+	(helm-source-buffers-list helm-source-ls-git-status helm-source-files-in-current-dir helm-source-ls-git helm-source-recentf helm-source-ghq)))
+ '(helm-truncate-lines t t)
+ '(initial-frame-alist (quote ((width . 110) (height . 140))))
+ '(package-selected-packages
+   (quote
+	(elscreen yasnippet yaml-mode wgrep web-mode undohist undo-tree srefactor redo+ racer python-mode python py-autopep8 open-junk-file neotree multi-term moccur-edit json-mode js2-mode js-auto-format-mode jedi irony-eldoc igrep helm-swoop helm-ls-git helm-gtags helm-git-grep helm-ghq helm-ghc helm-company grep-a-lot grep+ flymake-python-pyflakes flycheck-rust flycheck-pyflakes flycheck-pycheckers flycheck-irony flycheck-haskell flycheck-cask company-web company-tern company-shell company-rtags company-jedi company-irony-c-headers company-irony company-ghc company-cmake company-cabal anzu add-node-modules-path ace-jump-mode ace-isearch abc-mode)))
+ '(rtags-use-helm t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 ;; bat-mode
 (setq auto-mode-alist 
@@ -302,6 +336,37 @@ scroll-step 20)
 ;; igrepを扱う人向け
 (grep-a-lot-advise igrep)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; elscreen.el
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; プレフィクスキーはC-z
+(setq elscreen-prefix-key (kbd "C-z"))
+(elscreen-start)
+;;; タブの先頭に[X]を表示しない
+(setq elscreen-tab-display-kill-screen nil)
+;;; header-lineの先頭に[<->]を表示しない
+(setq elscreen-tab-display-control nil)
+;;; バッファ名・モード名からタブに表示させる内容を決定する(デフォルト設定)
+(setq elscreen-buffer-to-nickname-alist
+      '(("^dired-mode$" .
+         (lambda ()
+           (format "Dired(%s)" dired-directory)))
+        ("^Info-mode$" .
+         (lambda ()
+           (format "Info(%s)" (file-name-nondirectory Info-current-file))))
+        ("^mew-draft-mode$" .
+         (lambda ()
+           (format "Mew(%s)" (buffer-name (current-buffer)))))
+        ("^mew-" . "Mew")
+        ("^irchat-" . "IRChat")
+        ("^liece-" . "Liece")
+        ("^lookup-" . "Lookup")))
+(setq elscreen-mode-to-nickname-alist
+      '(("[Ss]hell" . "shell")
+        ("compilation" . "compile")
+        ("-telnet" . "telnet")
+        ("dict" . "OnlineDict")
+        ("*WL:Message*" . "Wanderlust")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; emacs lisp関連
@@ -407,10 +472,7 @@ scroll-step 20)
 
 (require 'helm-gtags)
 
-(custom-set-variables
- ;'(helm-gtags-path-style 'relative)
- '(helm-gtags-ignore-case t)
- '(helm-gtags-auto-update t))
+
 
 (add-hook 'helm-gtags-mode-hook
           '(lambda ()
@@ -602,7 +664,7 @@ scroll-step 20)
                 (local-set-key (kbd "M-@") 'rtags-find-references)
                 (local-set-key (kbd "M-,") 'rtags-location-stack-back)))))
 
-(custom-set-variables '(rtags-use-helm t))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; semantic

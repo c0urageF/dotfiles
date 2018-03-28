@@ -1,0 +1,313 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags nil
+      :file "elscreen-autoloads.el"
+      :pointmax 311
+      :fsize 843
+      :lastmodtime '(23227 19294 360926 177000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("dired" include nil nil [1554 1570])
+            ("declare-function" code nil nil [1572 1622])
+            ("elscreen-version" variable
+               (:constant-flag t
+                :default-value "2018-03-21")
+                nil [1624 1664])
+            ("elscreen" customgroup (:user-visible-flag t) nil [1666 1770])
+            ("elscreen-prefix-key" variable
+               (:user-visible-flag t
+                :default-value "")
+                nil [1772 2083])
+            ("elscreen-default-buffer-name" variable
+               (:user-visible-flag t
+                :default-value "*scratch*")
+                nil [2085 2252])
+            ("elscreen-default-buffer-initial-major-mode" variable
+               (:user-visible-flag t
+                :default-value initial-major-mode)
+                nil [2254 2465])
+            ("elscreen-default-buffer-initial-message" variable
+               (:user-visible-flag t
+                :default-value initial-scratch-message)
+                nil [2467 2788])
+            ("elscreen-mode-to-nickname-alist" variable
+               (:user-visible-flag t
+                :default-value (quote (("^dired-mode$" lambda nil (format "Dired(%s)" dired-directory)) ("^Info-mode$" lambda nil (format "Info(%s)" (file-name-nondirectory Info-current-file))) ("^mew-draft-mode$" lambda nil (format "Mew(%s)" (buffer-name (current-buffer)))) ("^mew-" . "Mew") ("^irchat-" . "IRChat") ("^liece-" . "Liece") ("^lookup-" . "Lookup"))))
+                nil [2790 3656])
+            ("elscreen-buffer-to-nickname-alist" variable
+               (:user-visible-flag t
+                :default-value (quote (("[Ss]hell" . "shell") ("compilation" . "compile") ("-telnet" . "telnet") ("dict" . "OnlineDict") ("*WL:Message*" . "Wanderlust"))))
+                nil [3658 4297])
+            ("elscreen-display-screen-number" variable
+               (:user-visible-flag t
+                :default-value t)
+                nil [4299 4500])
+            ("elscreen-display-tab" variable
+               (:user-visible-flag t
+                :default-value t)
+                nil [4502 5322])
+            ("make-obsolete-variable" code nil nil [5324 5451])
+            ("elscreen-tab-display-control" variable
+               (:user-visible-flag t
+                :default-value t)
+                nil [5452 5780])
+            ("elscreen-tab-display-kill-screen" variable
+               (:user-visible-flag t
+                :default-value (quote left))
+                nil [5782 6307])
+            ("elscreen-tab-background-face" variable
+               (:default-value (quote ((((type x w32 mac ns) (class color)) :background "Gray50") (((class color)) (:background "black"))))
+                :type "face")
+                nil [6309 6528])
+            ("elscreen-tab-control-face" variable
+               (:default-value (quote ((((type x w32 mac ns) (class color)) (:background "white" :foreground "black" :underline "Gray50")) (((class color)) (:background "white" :foreground "black" :underline t)) (t (:underline t))))
+                :type "face")
+                nil [6530 6825])
+            ("elscreen-tab-current-screen-face" variable
+               (:default-value (quote ((((class color)) (:background "white" :foreground "black")) (t (:underline t))))
+                :type "face")
+                nil [6827 7014])
+            ("elscreen-tab-other-screen-face" variable
+               (:default-value (quote ((((type x w32 mac ns) (class color)) :background "Gray85" :foreground "Gray50") (((class color)) (:background "blue" :foreground "black" :underline t))))
+                :type "face")
+                nil [7016 7295])
+            ("elscreen-map" variable (:default-value (make-sparse-keymap)) nil [7324 7391])
+            ("define-key" code nil nil [7392 7441])
+            ("define-key" code nil nil [7442 7491])
+            ("define-key" code nil nil [7492 7540])
+            ("define-key" code nil nil [7541 7588])
+            ("define-key" code nil nil [7589 7636])
+            ("define-key" code nil nil [7637 7703])
+            ("define-key" code nil nil [7704 7758])
+            ("define-key" code nil nil [7759 7810])
+            ("define-key" code nil nil [7811 7862])
+            ("define-key" code nil nil [7863 7910])
+            ("define-key" code nil nil [7911 7958])
+            ("define-key" code nil nil [7959 8008])
+            ("define-key" code nil nil [8009 8058])
+            ("define-key" code nil nil [8059 8106])
+            ("define-key" code nil nil [8107 8165])
+            ("define-key" code nil nil [8166 8215])
+            ("define-key" code nil nil [8216 8263])
+            ("define-key" code nil nil [8264 8311])
+            ("define-key" code nil nil [8312 8359])
+            ("define-key" code nil nil [8360 8407])
+            ("define-key" code nil nil [8408 8455])
+            ("define-key" code nil nil [8456 8503])
+            ("define-key" code nil nil [8504 8551])
+            ("define-key" code nil nil [8552 8599])
+            ("define-key" code nil nil [8600 8649])
+            ("define-key" code nil nil [8650 8697])
+            ("define-key" code nil nil [8698 8765])
+            ("define-key" code nil nil [8766 8833])
+            ("define-key" code nil nil [8834 8897])
+            ("define-key" code nil nil [8898 8961])
+            ("define-key" code nil nil [8962 9017])
+            ("define-key" code nil nil [9018 9073])
+            ("define-key" code nil nil [9074 9132])
+            ("define-key" code nil nil [9133 9199])
+            ("define-key" code nil nil [9200 9252])
+            ("define-key" code nil nil [9253 9315])
+            ("define-key" code nil nil [9316 9364])
+            ("define-key" code nil nil [9365 9432])
+            ("define-key" code nil nil [9433 9504])
+            ("define-key" code nil nil [9505 9566])
+            ("define-key" code nil nil [9567 9614])
+            ("define-key" code nil nil [9615 9673])
+            ("define-key" code nil nil [9674 9721])
+            ("define-key" code nil nil [9722 9770])
+            ("elscreen-set-prefix-key" function (:arguments ("prefix-key")) nil [9772 10561])
+            ("elscreen-help" variable (:default-value "ElScreen keys:
+  \\[elscreen-create]    Create a new screen and switch to it
+  \\[elscreen-clone]    Create a new screen with the window-configuration of current screen
+  \\[elscreen-kill]    Kill current screen
+  \\[elscreen-kill-screen-and-buffers]  Kill current screen and buffers
+  \\[elscreen-kill-others]    Kill other screens
+  \\[elscreen-next]    Switch to the \"next\" screen in a cyclic order
+  \\[elscreen-previous]    Switch to the \"previous\" screen in a cyclic order
+  \\[elscreen-toggle]    Toggle to the screen selected previously
+  \\[elscreen-select-and-goto]    Jump to the specified screen
+  \\[elscreen-jump-0]
+    :      Jump to the screen #
+  \\[elscreen-jump-9]
+  \\[elscreen-swap]  Swap current screen with previous one
+  \\[elscreen-display-screen-name-list]    Show list of screens
+  \\[elscreen-screen-nickname]    Name current screen
+  \\[elscreen-display-last-message]    Show last message
+  \\[elscreen-display-time]    Show time
+  \\[elscreen-find-and-goto-by-buffer]    Switch to the screen in which specified buffer is displayed
+  \\[elscreen-find-file]  Create new screen and open file
+  \\[elscreen-find-file-read-only]  Create new screen and open file but don't allow changes
+  \\[elscreen-dired]    Create new screen and run dired
+  \\[elscreen-execute-extended-command]  Read function name, then call it with new screen
+  \\[elscreen-toggle-display-screen-number]    Show/hide the screen number in the mode line
+  \\[elscreen-toggle-display-tab]    Show/hide the tab at the top of screen
+  \\[elscreen-display-version]    Show ElScreen version
+  \\[elscreen-help]    Show this help") nil [10563 12247])
+            ("elscreen--put-alist" function (:arguments ("key" "value" "alist")) nil [12297 12688])
+            ("elscreen--set-alist" function (:arguments ("symbol" "key" "value")) nil [12690 12928])
+            ("elscreen--del-alist" function (:arguments ("key" "alist")) nil [12930 13138])
+            ("elscreen-window-history-supported-p" function nil nil [13140 13347])
+            ("elscreen-get-all-window-history-alist" function nil nil [13349 13666])
+            ("elscreen-restore-all-window-history-alist" function (:arguments ("history-alist")) nil [13668 14158])
+            ("elscreen--remove-alist" function (:arguments ("symbol" "key")) nil [14160 14370])
+            ("elscreen-frame-confs" variable nil nil [14397 14499])
+            ("elscreen-current-window-configuration" function nil nil [14501 14604])
+            ("elscreen-default-window-configuration" function nil nil [14606 15179])
+            ("elscreen-apply-window-configuration" function (:arguments ("elscreen-window-configuration")) nil [15181 15490])
+            ("elscreen-copy-tree" function (:arguments ("tree")) nil [15492 15611])
+            ("elscreen-copy-tree-1" function (:arguments ("tree")) nil [15613 15944])
+            ("elscreen-save-screen-excursion" function (:arguments ("body")) nil [15946 17055])
+            ("elscreen-get-frame-confs" function (:arguments ("frame")) nil [17057 17145])
+            ("elscreen-make-frame-confs" function (:arguments ("frame" "keep-window-configuration")) nil [17147 18301])
+            ("elscreen-delete-frame-confs" function (:arguments ("frame")) nil [18303 18401])
+            ("add-hook" code nil nil [18403 18468])
+            ("add-hook" code nil nil [18469 18532])
+            ("elscreen-get-conf-list" function (:arguments ("type")) nil [18534 18641])
+            ("elscreen-set-conf-list" function (:arguments ("type" "conf-list")) nil [18643 18813])
+            ("elscreen-get-screen-property" function (:arguments ("screen")) nil [18815 18983])
+            ("elscreen-set-screen-property" function (:arguments ("screen" "property")) nil [18985 19245])
+            ("elscreen-delete-screen-property" function (:arguments ("screen")) nil [19247 19495])
+            ("elscreen-get-number-of-screens" function nil nil [19497 19627])
+            ("elscreen-one-screen-p" function nil nil [19629 19744])
+            ("elscreen-get-screen-list" function nil nil [19746 19876])
+            ("elscreen-screen-live-p" function (:arguments ("screen")) nil [19878 20005])
+            ("elscreen-get-window-configuration" function (:arguments ("screen")) nil [20007 20284])
+            ("elscreen-set-window-configuration" function (:arguments ("screen" "winconf")) nil [20286 20611])
+            ("elscreen-get-screen-nickname" function (:arguments ("screen")) nil [20613 20839])
+            ("elscreen-set-screen-nickname" function (:arguments ("screen" "nickname")) nil [20841 21121])
+            ("elscreen-delete-screen-nickname" function (:arguments ("screen")) nil [21123 21410])
+            ("elscreen-append-screen-to-history" function (:arguments ("screen")) nil [21412 21579])
+            ("elscreen-delete-screen-from-history" function (:arguments ("screen")) nil [21581 21816])
+            ("elscreen-set-current-screen" function (:arguments ("screen")) nil [21818 22059])
+            ("elscreen-get-current-screen" function nil nil [22061 22148])
+            ("elscreen-get-previous-screen" function nil nil [22150 22239])
+            ("elscreen-status-label" function (:arguments ("screen" "default")) nil [22241 22551])
+            ("elscreen-notify-screen-modification-suppress-flag" variable nil nil [22553 22615])
+            ("elscreen-notify-screen-modification-suppress" function (:arguments ("body")) nil [22616 22761])
+            ("elscreen-screen-update-hook" variable nil nil [22763 22803])
+            ("elscreen-run-screen-update-hook" function nil nil [22804 23041])
+            ("elscreen-screen-modified-p" function (:arguments ("inquirer")) nil [23043 23333])
+            ("elscreen-set-screen-modified" function nil nil [23335 23489])
+            ("elscreen-screen-modified-hook-pwc" variable nil nil [23491 23537])
+            ("elscreen-notify-screen-modification" function (:arguments ("mode")) nil [23538 24280])
+            ("elscreen-screen-modified-hook-setup" function (:arguments ("hooks-and-functions")) nil [24282 25208])
+            ("elscreen-screen-modified-hook-setup" code nil nil [25210 25471])
+            ("elscreen-get-screen-to-name-alist-cache" function nil nil [25473 25578])
+            ("elscreen-set-screen-to-name-alist-cache" function (:arguments ("alist")) nil [25580 25696])
+            ("elscreen-mode-to-nickname-alist-symbol-list" variable nil nil [25698 25754])
+            ("elscreen-mode-to-nickname-alist-internal" variable nil nil [25755 25808])
+            ("elscreen-rebuild-mode-to-nickname-alist" function nil nil [25809 26097])
+            ("elscreen-set-mode-to-nickname-alist" function (:arguments ("mode-to-nickname-alist-symbol")) nil [26098 26323])
+            ("elscreen-set-mode-to-nickname-alist" code nil nil [26324 26394])
+            ("elscreen-buffer-to-nickname-alist-symbol-list" variable nil nil [26396 26454])
+            ("elscreen-buffer-to-nickname-alist-internal" variable nil nil [26455 26510])
+            ("elscreen-rebuild-buffer-to-nickname-alist" function nil nil [26511 26805])
+            ("elscreen-set-buffer-to-nickname-alist" function (:arguments ("buffer-to-nickname-alist-symbol")) nil [26806 27041])
+            ("elscreen-set-buffer-to-nickname-alist" code nil nil [27042 27116])
+            ("elscreen-get-alist-to-nickname" function (:arguments ("alist" "op" "mode-or-buffer-name")) nil [27118 27900])
+            ("elscreen-get-screen-to-name-alist" function (:arguments ("truncate-length" "padding")) nil [27902 30871])
+            ("elscreen-truncate-screen-name" function (:arguments ("screen-name" "truncate-length" "padding")) nil [30873 31329])
+            ("elscreen-goto-internal" function (:arguments ("screen")) nil [31331 31624])
+            ("elscreen-create-hook" variable nil nil [31626 31659])
+            ("elscreen-create-internal" function (:arguments ("noerror")) nil [31660 32503])
+            ("elscreen-kill-internal" function (:arguments ("screen")) nil [32505 32643])
+            ("elscreen-find-screens" function (:arguments ("condition")) nil [32645 33177])
+            ("elscreen-find-screen" function (:arguments ("condition")) nil [33179 33432])
+            ("elscreen-find-screen-by-buffer" function (:arguments ("buffer" "create")) nil [33434 34356])
+            ("elscreen-find-screen-by-major-mode" function (:arguments ("major-mode-or-re")) nil [34358 35186])
+            ("elscreen-last-message" variable (:default-value "Welcome to ElScreen!") nil [35188 35265])
+            ("elscreen-message" function (:arguments ("message" "sec")) nil [35266 35520])
+            ("elscreen-create" function (:user-visible-flag t) nil [35545 35722])
+            ("elscreen-clone" function
+               (:user-visible-flag t
+                :arguments ("screen"))
+                nil [35724 36434])
+            ("elscreen-kill-hook" variable nil nil [36436 36467])
+            ("elscreen-kill" function
+               (:user-visible-flag t
+                :arguments ("screen"))
+                nil [36468 37163])
+            ("elscreen-kill-screen-and-buffers" function
+               (:user-visible-flag t
+                :arguments ("screen"))
+                nil [37165 37826])
+            ("elscreen-kill-others" function
+               (:user-visible-flag t
+                :arguments ("screen"))
+                nil [37828 39152])
+            ("elscreen-goto-hook" variable nil nil [39154 39185])
+            ("elscreen-goto" function
+               (:user-visible-flag t
+                :arguments ("screen"))
+                nil [39186 39740])
+            ("elscreen-next" function (:user-visible-flag t) nil [39742 40205])
+            ("elscreen-previous" function (:user-visible-flag t) nil [40207 40686])
+            ("elscreen-toggle" function (:user-visible-flag t) nil [40688 40988])
+            ("elscreen-jump" function (:user-visible-flag t) nil [40990 41222])
+            ("defalias" code nil nil [41223 41265])
+            ("defalias" code nil nil [41266 41308])
+            ("elscreen-swap" function (:user-visible-flag t) nil [41310 42044])
+            ("elscreen-screen-nickname" function
+               (:user-visible-flag t
+                :arguments ("nickname"))
+                nil [42046 42415])
+            ("elscreen-display-screen-name-list" function (:user-visible-flag t) nil [42417 42932])
+            ("elscreen-help-symbol-list" variable nil nil [42945 42983])
+            ("elscreen-set-help" function (:arguments ("help-symbol")) nil [42984 43080])
+            ("elscreen-set-help" code nil nil [43081 43115])
+            ("elscreen-help" function (:user-visible-flag t) nil [43117 43426])
+            ("elscreen-display-version" function (:user-visible-flag t) nil [43452 43600])
+            ("elscreen-toggle-display-screen-number" function (:user-visible-flag t) nil [43602 43838])
+            ("elscreen-toggle-display-tab" function (:user-visible-flag t) nil [43840 44040])
+            ("elscreen-display-last-message" function (:user-visible-flag t) nil [44042 44201])
+            ("elscreen-display-time" function (:user-visible-flag t) nil [44203 44525])
+            ("elscreen-select-and-goto" function nil nil [44527 48595])
+            ("elscreen-find-and-goto-by-buffer" function
+               (:user-visible-flag t
+                :arguments ("buffer" "create" "noselect"))
+                nil [48597 49479])
+            ("elscreen-find-file" function
+               (:user-visible-flag t
+                :arguments ("filename"))
+                nil [49481 49742])
+            ("elscreen-find-file-read-only" function
+               (:user-visible-flag t
+                :arguments ("filename"))
+                nil [49744 50073])
+            ("elscreen-dired" function (:arguments ("dirname" "switches")) nil [50075 50350])
+            ("elscreen-execute-extended-command" function (:arguments ("prefix-arg")) nil [50352 52202])
+            ("elscreen-mode-line-string" variable (:default-value "[0]") nil [52246 52286])
+            ("elscreen-mode-line-update" function nil nil [52287 52510])
+            ("let" code nil nil [52512 52838])
+            ("add-hook" code nil nil [52840 52906])
+            ("define-key-after" code nil nil [52919 53043])
+            ("elscreen-menu-bar-command-entries" variable (:default-value (list (list (quote elscreen-command-separator) (quote menu-item) "--") (list (quote elscreen-create) (quote menu-item) "Create Screen" (quote elscreen-create) :help "Create a new screen and switch to it") (list (quote elscreen-clone) (quote menu-item) "Clone Screen" (quote elscreen-clone) :help "Create a new screen with the window-configuration of current screen") (list (quote elscreen-kill) (quote menu-item) "Kill Screen" (quote elscreen-kill) :help "Kill current screen") (list (quote elscreen-kill-screen-and-buffers) (quote menu-item) "Kill Screen and Buffers" (quote elscreen-kill-screen-and-buffers) :help "Kill current screen and buffers") (list (quote elscreen-kill-others) (quote menu-item) "Kill Other Screens" (quote elscreen-kill-others) :help "Kill other screens") (list (quote elscreen-next) (quote menu-item) "Next Screen" (quote elscreen-next) :help "Switch to the \"next\" screen in a cyclic order") (list (quote elscreen-previous) (quote menu-item) "Previous Screen" (quote elscreen-previous) :help "Switch to the \"previous\" screen in a cyclic order") (list (quote elscreen-toggle) (quote menu-item) "Toggle Screen" (quote elscreen-toggle) :help "Toggle to the screen selected previously") (list (quote elscreen-command-separator) (quote menu-item) "--") (list (quote elscreen-toggle-display-screen-number) (quote menu-item) "Display Screen Number" (quote elscreen-toggle-display-screen-number) :help "Display screen number on the mode line" :button (quote (:toggle . elscreen-display-screen-number))) (list (quote elscreen-toggle-display-tab) (quote menu-item) "Display Tab" (quote elscreen-toggle-display-tab) :help "Display tab on the top of screen" :button (quote (:toggle . elscreen-display-tab))))) nil [53045 55297])
+            ("elscreen-menu-bar-update" function (:arguments ("force")) nil [55299 56619])
+            ("add-hook" code nil nil [56621 56686])
+            ("elscreen-tab-format" variable nil nil [56698 56730])
+            ("make-variable-buffer-local" code nil nil [56731 56780])
+            ("elscreen-tab-create-keymap" function (:arguments ("definitions")) nil [56782 57573])
+            ("elscreen-tab-width" function nil nil [57575 58021])
+            ("elscreen-tab-escape-%" function (:arguments ("string")) nil [58023 58569])
+            ("elscreen-tab-update" function (:arguments ("force")) nil [58571 63439])
+            ("add-hook" code nil nil [63441 63501])
+            ("elscreen-link" function nil nil [63533 64173])
+            ("elscreen-split" function nil nil [64175 64557])
+            ("elscreen-start" function nil nil [64595 64844])
+            ("elscreen" package nil nil [64846 64865]))          
+      :file "elscreen.el"
+      :pointmax 64893
+      :fsize 64892
+      :lastmodtime '(23227 19294 280920 149000)
+      :unmatched-syntax nil))
+  :file "!home!pfpro!tmp!dotfiles!.emacs.d!elpa!elscreen-20180320.1902!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

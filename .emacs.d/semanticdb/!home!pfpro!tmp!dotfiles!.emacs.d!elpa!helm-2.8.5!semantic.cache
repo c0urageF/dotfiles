@@ -1,0 +1,49 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [809 826])
+            ("helm" include nil nil [827 842])
+            ("helm-help" include nil nil [843 863])
+            ("eldoc" include nil nil [864 880])
+            ("edebug" include nil nil [881 898])
+            ("helm-eval" customgroup (:user-visible-flag t) nil [902 995])
+            ("helm-eldoc-in-minibuffer-show-fn" variable (:default-value (quote helm-show-info-in-mode-line)) nil [997 1191])
+            ("helm-show-info-in-mode-line-delay" variable (:default-value 12) nil [1193 1352])
+            ("if" code nil nil [1413 2341])
+            ("helm-eldoc-active-minibuffers-list" variable nil nil [2383 2430])
+            ("helm-eval-expression-map" variable (:default-value (let ((map (make-sparse-keymap))) (set-keymap-parent map helm-map) (define-key map (kbd "<C-return>") (quote helm-eval-new-line-and-indent)) (define-key map (kbd "<M-tab>") (quote lisp-indent-line)) (define-key map (kbd "<C-tab>") (quote helm-lisp-completion-at-point)) (define-key map (kbd "C-p") (quote previous-line)) (define-key map (kbd "C-n") (quote next-line)) (define-key map (kbd "<up>") (quote previous-line)) (define-key map (kbd "<down>") (quote next-line)) (define-key map (kbd "<right>") (quote forward-char)) (define-key map (kbd "<left>") (quote backward-char)) map)) nil [2432 3070])
+            ("helm-build-evaluation-result-source" function nil nil [3072 4505])
+            ("helm-eval-new-line-and-indent" function nil nil [4507 4594])
+            ("helm-eldoc-store-minibuffer" function nil nil [4596 4816])
+            ("helm-eldoc-show-in-eval" function nil nil [4818 5705])
+            ("helm-show-info-in-mode-line" function (:arguments ("str")) nil [5707 6014])
+            ("helm-source-calculation-result" variable (:default-value (helm-build-dummy-source "Calculation Result" :filtered-candidate-transformer (lambda (_candidates _source) (list (condition-case nil (calc-eval helm-pattern) (error "error")))) :nohighlight t :action (quote (("Copy result to kill-ring" lambda (candidate) (kill-new candidate) (message "Result \"%s\" copied to kill-ring" candidate)) ("Copy operation to kill-ring" lambda (_candidate) (kill-new helm-input) (message "Calculation copied to kill-ring")))))) nil [6045 6974])
+            ("helm-eval-expression" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [6991 7362])
+            ("eldoc-idle-delay" variable nil nil [7364 7389])
+            ("helm-eval-expression-with-eldoc" function (:user-visible-flag t) nil [7405 7962])
+            ("helm-calcul-expression" function (:user-visible-flag t) nil [7979 8171])
+            ("helm-eval" package nil nil [8173 8193]))          
+      :file "helm-eval.el"
+      :pointmax 8334
+      :fsize 8333
+      :lastmodtime '(23227 15847 892024 746000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :file "helm-help.el"
+      :fsize 59782
+      :lastmodtime '(23227 15847 892024 746000))
+    (semanticdb-table "semanticdb-table"
+      :file "helm-config.el"
+      :fsize 6790
+      :lastmodtime '(23227 15847 892024 746000)))
+  :file "!home!pfpro!tmp!dotfiles!.emacs.d!elpa!helm-2.8.5!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
