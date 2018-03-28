@@ -6,11 +6,6 @@
 (add-to-list 'load-path "~/.emacs.d/private-conf")
 (add-to-list 'load-path "~/.emacs.d/helm")
 
-;; proxy設定
-;; private-conf/myproxy.elがあるときだけプロキシ設定をロード
-;; 第2引数のtをつけると、ファイルが存在しなくてもエラーにならない
-(load "myproxy" t)
-
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
@@ -58,42 +53,8 @@
 
 ;;; uncomment for CJK utf-8 support for non-Asian users
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(flycheck-display-errors-delay 0.5)
- '(flycheck-display-errors-function
-   (lambda
-	 (errors)
-	 (let
-		 ((messages
-		   (mapcar
-			(function flycheck-error-message)
-			errors)))
-	   (popup-tip
-		(mapconcat
-		 (quote identity)
-		 messages "
-")))))
- '(helm-delete-minibuffer-contents-from-point t)
- '(helm-gtags-auto-update t)
- '(helm-gtags-ignore-case t)
- '(helm-mini-default-sources
-   (quote
-	(helm-source-buffers-list helm-source-ls-git-status helm-source-files-in-current-dir helm-source-ls-git helm-source-recentf helm-source-ghq)))
- '(helm-truncate-lines t t)
- '(initial-frame-alist (quote ((width . 110) (height . 140))))
- '(package-selected-packages
-   (quote
-	(elscreen yasnippet yaml-mode wgrep web-mode undohist undo-tree srefactor redo+ racer python-mode python py-autopep8 open-junk-file neotree multi-term moccur-edit json-mode js2-mode js-auto-format-mode jedi irony-eldoc igrep helm-swoop helm-ls-git helm-gtags helm-git-grep helm-ghq helm-ghc helm-company grep-a-lot grep+ flymake-python-pyflakes flycheck-rust flycheck-pyflakes flycheck-pycheckers flycheck-irony flycheck-haskell flycheck-cask company-web company-tern company-shell company-rtags company-jedi company-irony-c-headers company-irony company-ghc company-cmake company-cabal anzu add-node-modules-path ace-jump-mode ace-isearch abc-mode)))
- '(rtags-use-helm t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+ '(initial-frame-alist (quote ((width . 110) (height . 140)))))
+(custom-set-faces)
 
 ;; bat-mode
 (setq auto-mode-alist 
@@ -341,37 +302,6 @@ scroll-step 20)
 ;; igrepを扱う人向け
 (grep-a-lot-advise igrep)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; elscreen.el
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; プレフィクスキーはC-z
-(setq elscreen-prefix-key (kbd "C-z"))
-(elscreen-start)
-;;; タブの先頭に[X]を表示しない
-(setq elscreen-tab-display-kill-screen nil)
-;;; header-lineの先頭に[<->]を表示しない
-(setq elscreen-tab-display-control nil)
-;;; バッファ名・モード名からタブに表示させる内容を決定する(デフォルト設定)
-(setq elscreen-buffer-to-nickname-alist
-      '(("^dired-mode$" .
-         (lambda ()
-           (format "Dired(%s)" dired-directory)))
-        ("^Info-mode$" .
-         (lambda ()
-           (format "Info(%s)" (file-name-nondirectory Info-current-file))))
-        ("^mew-draft-mode$" .
-         (lambda ()
-           (format "Mew(%s)" (buffer-name (current-buffer)))))
-        ("^mew-" . "Mew")
-        ("^irchat-" . "IRChat")
-        ("^liece-" . "Liece")
-        ("^lookup-" . "Lookup")))
-(setq elscreen-mode-to-nickname-alist
-      '(("[Ss]hell" . "shell")
-        ("compilation" . "compile")
-        ("-telnet" . "telnet")
-        ("dict" . "OnlineDict")
-        ("*WL:Message*" . "Wanderlust")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; emacs lisp関連
@@ -477,7 +407,10 @@ scroll-step 20)
 
 (require 'helm-gtags)
 
-
+(custom-set-variables
+ ;'(helm-gtags-path-style 'relative)
+ '(helm-gtags-ignore-case t)
+ '(helm-gtags-auto-update t))
 
 (add-hook 'helm-gtags-mode-hook
           '(lambda ()
@@ -517,34 +450,6 @@ scroll-step 20)
   ;; Invoke 'helm-git-grep' from other helm.
   (eval-after-load 'helm
     '(define-key helm-map (kbd "C-x C-a") 'helm-git-grep-from-helm)))
-
-(require 'helm-swoop)
-;; キーバインドはお好みで
-(global-set-key (kbd "M-i") 'helm-swoop)
-(global-set-key (kbd "M-I") 'helm-swoop-back-to-last-point)
-(global-set-key (kbd "C-c M-i") 'helm-multi-swoop)
-(global-set-key (kbd "C-x M-i") 'helm-multi-swoop-all)
-
-;; Save buffer when helm-multi-swoop-edit complete
-(setq helm-multi-swoop-edit-save t)
-
-;; 値がtの場合はウィンドウ内に分割、nilなら別のウィンドウを使用
-(setq helm-swoop-split-with-multiple-windows nil)
-
-;; ウィンドウ分割方向 'split-window-vertically or 'split-window-horizontally
-(setq helm-swoop-split-direction 'split-window-horizontally)
-
-;; nilなら一覧のテキストカラーを失う代わりに、起動スピードをほんの少し上げる
-(setq helm-swoop-speed-or-color t)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ace-isearch
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(when (require 'ace-isearch)
-  (global-ace-isearch-mode +1)
-  (setq ace-isearch-use-function-from-isearch nil)
-  (define-key isearch-mode-map (kbd "M-o") 'helm-multi-swoop-all-from-isearch))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; neotree.el
@@ -697,7 +602,7 @@ scroll-step 20)
                 (local-set-key (kbd "M-@") 'rtags-find-references)
                 (local-set-key (kbd "M-,") 'rtags-location-stack-back)))))
 
-
+(custom-set-variables '(rtags-use-helm t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; semantic
@@ -862,35 +767,5 @@ scroll-step 20)
                              ;;; この辺の設定はお好みで
                              (set (make-variable-buffer-local 'company-idle-delay) 0.1)
                              (set (make-variable-buffer-local 'company-minimum-prefix-length) 0)))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; schene
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; run-schemeで動かす処理系
-;; (setq scheme-program-name "C:/Program Files (x86)/MzScheme/MzScheme.exe")
-
-(setq scheme-program-name "MzScheme.exe")
-
-(autoload 'run-scheme "cmuscheme" "Run an inferior Scheme process." t)
-
-;; C-c s で emacs 上で MzScheme が走るようにする
-(define-key global-map "\C-cs" 'run-scheme)
-
-;; 起動時にいきなり scheme 処理系を走らせる
-;; (run-scheme scheme-program-name)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
