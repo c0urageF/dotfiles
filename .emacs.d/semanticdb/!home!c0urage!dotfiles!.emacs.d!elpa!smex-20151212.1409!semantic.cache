@@ -1,0 +1,16 @@
+;; Object smex-20151212.1409/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "smex-20151212.1409/"
+  :tables
+  (list
+    (semanticdb-table "smex-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "smex-autoloads.el"
+      :pointmax 281
+      :fsize 635
+      :lastmodtime '(23227 45398 684964 512000)
+      :unmatched-syntax nil))
+  :file "!home!c0urage!dotfiles!.emacs.d!elpa!smex-20151212.1409!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

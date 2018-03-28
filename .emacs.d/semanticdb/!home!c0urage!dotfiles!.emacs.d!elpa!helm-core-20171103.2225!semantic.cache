@@ -1,0 +1,1590 @@
+;; Object helm-core-20171103.2225/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "helm-core-20171103.2225/"
+  :tables
+  (list
+    (semanticdb-table "helm.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [1276 1293])
+            ("async" include nil nil [1294 1310])
+            ("advice" include nil nil [1311 1328])
+            ("helm-lib" include nil nil [1373 1392])
+            ("helm-multi-match" include nil nil [1393 1420])
+            ("helm-source" include nil nil [1421 1443])
+            ("helm-define-multi-key" function (:arguments ("keymap" "key" "functions" "delay")) nil [1483 2331])
+            ("helm-multi-key-defun" function (:arguments ("name" "docstring" "funs" "delay")) nil [2348 2773])
+            ("helm-make-multi-command" function (:arguments ("functions" "delay")) nil [2775 3218])
+            ("helm-run-multi-key-command" function (:arguments ("functions" "iterator" "delay")) nil [3220 4039])
+            ("helm-multi-key-defun" code nil nil [4041 4310])
+            ("put" code nil nil [4311 4367])
+            ("helm-define-key-with-subkeys" function (:arguments ("map" "key" "subkey" "command" "other-subkeys" "prompt" "exit-fn")) nil [4384 6581])
+            ("helm-map" variable (:default-value (let ((map (make-sparse-keymap))) (set-keymap-parent map minibuffer-local-map) (define-key map (kbd "<down>") (quote helm-next-line)) (define-key map (kbd "<up>") (quote helm-previous-line)) (define-key map (kbd "C-n") (quote helm-next-line)) (define-key map (kbd "C-p") (quote helm-previous-line)) (define-key map (kbd "<C-down>") (quote helm-follow-action-forward)) (define-key map (kbd "<C-up>") (quote helm-follow-action-backward)) (define-key map (kbd "<prior>") (quote helm-previous-page)) (define-key map (kbd "<next>") (quote helm-next-page)) (define-key map (kbd "M-v") (quote helm-previous-page)) (define-key map (kbd "C-v") (quote helm-next-page)) (define-key map (kbd "M-<") (quote helm-beginning-of-buffer)) (define-key map (kbd "M->") (quote helm-end-of-buffer)) (define-key map (kbd "C-g") (quote helm-keyboard-quit)) (define-key map (kbd "<right>") (quote helm-next-source)) (define-key map (kbd "<left>") (quote helm-previous-source)) (define-key map (kbd "<RET>") (quote helm-maybe-exit-minibuffer)) (define-key map (kbd "C-i") (quote helm-select-action)) (define-key map (kbd "C-z") (quote helm-execute-persistent-action)) (define-key map (kbd "C-j") (quote helm-execute-persistent-action)) (define-key map (kbd "C-o") (quote helm-next-source)) (define-key map (kbd "M-o") (quote helm-previous-source)) (define-key map (kbd "C-l") (quote helm-recenter-top-bottom-other-window)) (define-key map (kbd "M-C-l") (quote helm-reposition-window-other-window)) (define-key map (kbd "C-M-v") (quote helm-scroll-other-window)) (define-key map (kbd "M-<next>") (quote helm-scroll-other-window)) (define-key map (kbd "C-M-y") (quote helm-scroll-other-window-down)) (define-key map (kbd "C-M-S-v") (quote helm-scroll-other-window-down)) (define-key map (kbd "M-<prior>") (quote helm-scroll-other-window-down)) (define-key map (kbd "<C-M-down>") (quote helm-scroll-other-window)) (define-key map (kbd "<C-M-up>") (quote helm-scroll-other-window-down)) (define-key map (kbd "C-@") (quote helm-toggle-visible-mark)) (define-key map (kbd "C-SPC") (quote helm-toggle-visible-mark)) (define-key map (kbd "M-SPC") (quote helm-toggle-visible-mark)) (define-key map (kbd "M-[") nil) (define-key map (kbd "M-(") (quote helm-prev-visible-mark)) (define-key map (kbd "M-)") (quote helm-next-visible-mark)) (define-key map (kbd "C-k") (quote helm-delete-minibuffer-contents)) (define-key map (kbd "C-x C-f") (quote helm-quit-and-find-file)) (define-key map (kbd "M-m") (quote helm-toggle-all-marks)) (define-key map (kbd "M-a") (quote helm-mark-all)) (define-key map (kbd "M-U") (quote helm-unmark-all)) (define-key map (kbd "C-M-a") (quote helm-show-all-in-this-source-only)) (define-key map (kbd "C-M-e") (quote helm-display-all-sources)) (define-key map (kbd "C-s") (quote undefined)) (define-key map (kbd "M-s") (quote undefined)) (define-key map (kbd "C-}") (quote helm-narrow-window)) (define-key map (kbd "C-{") (quote helm-enlarge-window)) (define-key map (kbd "C-c -") (quote helm-swap-windows)) (define-key map (kbd "C-c C-y") (quote helm-yank-selection)) (define-key map (kbd "C-c C-k") (quote helm-kill-selection-and-quit)) (define-key map (kbd "C-c C-i") (quote helm-copy-to-buffer)) (define-key map (kbd "C-c C-f") (quote helm-follow-mode)) (define-key map (kbd "C-c C-u") (quote helm-refresh)) (define-key map (kbd "C-c >") (quote helm-toggle-truncate-line)) (define-key map (kbd "M-p") (quote previous-history-element)) (define-key map (kbd "M-n") (quote next-history-element)) (define-key map (kbd "C-!") (quote helm-toggle-suspend-update)) (define-key map (kbd "C-x b") (quote helm-resume-previous-session-after-quit)) (define-key map (kbd "C-x C-b") (quote helm-resume-list-buffers-after-quit)) (helm-define-key-with-subkeys map (kbd "C-c n") 110 (quote helm-run-cycle-resume)) (define-key map (kbd "<C-tab>") (quote undefined)) (define-key map (kbd "C-t") (quote helm-toggle-resplit-and-swap-windows)) (define-key map (kbd "C-h C-d") (quote undefined)) (define-key map (kbd "C-h C-d") (quote helm-enable-or-switch-to-debug)) (define-key map (kbd "C-h c") (quote helm-customize-group)) (define-key map [f1] nil) (define-key map (kbd "C-h C-h") (quote undefined)) (define-key map (kbd "C-h h") (quote undefined)) (helm-define-key-with-subkeys map (kbd "C-w") 23 (quote helm-yank-text-at-point) (quote ((31 . helm-undo-yank-text-at-point)))) (cl-dolist (k (where-is-internal (quote describe-mode) global-map)) (define-key map k (quote helm-help))) (define-key map (kbd "C-c ?") (quote helm-help)) (cl-loop for n from 0 to 12 do (define-key map (kbd (format "<f%s>" (1+ n))) (\` (lambda nil (interactive) (helm-select-nth-action (\, n)))))) map)) nil [6601 11772])
+            ("helm-customize-group" function (:user-visible-flag t) nil [11774 11988])
+            ("put" code nil nil [11989 12029])
+            ("helm--action-at-nth-set-fn-1" function (:arguments ("value" "negative")) nil [12031 12492])
+            ("helm--action-at-nth-set-fn-" function (:arguments ("var" "val")) nil [12494 12602])
+            ("helm--action-at-nth-set-fn+" function (:arguments ("var" "val")) nil [12604 12702])
+            ("helm-action-at-nth-negative-prefix-key" variable (:default-value "C-x %d") nil [12704 13063])
+            ("helm-action-at-nth-positive-prefix-key" variable (:default-value "C-c %d") nil [13065 13424])
+            ("helm" customgroup (:user-visible-flag t) nil [13428 13500])
+            ("helm-completion-window-scroll-margin" variable (:default-value 5) nil [13502 13745])
+            ("helm-display-source-at-screen-top" variable (:default-value t) nil [13747 14016])
+            ("helm-candidate-number-limit" variable (:default-value 100) nil [14018 14486])
+            ("helm-input-idle-delay" variable (:default-value 0.01) nil [14488 14609])
+            ("helm-exit-idle-delay" variable nil nil [14611 14830])
+            ("helm-full-frame" variable nil nil [14832 14986])
+            ("defvaralias" code nil nil [14988 15035])
+            ("make-obsolete-variable" code nil nil [15036 15104])
+            ("helm-candidate-separator" variable (:default-value "--------------------") nil [15106 15246])
+            ("helm-save-configuration-functions" variable (:default-value (quote (set-window-configuration . current-window-configuration))) nil [15248 15854])
+            ("helm-display-function" variable (:default-value (quote helm-default-display-buffer)) nil [15856 16083])
+            ("helm-case-fold-search" variable (:default-value (quote smart)) nil [16085 16719])
+            ("helm-file-name-case-fold-search" variable (:default-value (if (memq system-type (quote (cygwin windows-nt ms-dos darwin))) t helm-case-fold-search)) nil [16721 17014])
+            ("helm-reuse-last-window-split-state" variable nil nil [17016 17333])
+            ("helm-split-window-preferred-function" variable (:default-value (quote helm-split-window-default-fn)) nil [17335 17494])
+            ("helm-split-window-default-side" variable (:default-value (quote below)) nil [17496 18288])
+            ("helm-display-buffer-default-height" variable nil nil [18290 18679])
+            ("helm-display-buffer-default-width" variable nil nil [18681 19070])
+            ("helm-split-window-inside-p" variable nil nil [19072 19393])
+            ("defvaralias" code nil nil [19394 19464])
+            ("make-obsolete-variable" code nil nil [19465 19554])
+            ("helm-always-two-windows" variable nil nil [19556 20073])
+            ("helm-sources-using-default-as-input" variable (:default-value (quote (helm-source-imenu helm-source-imenu-all helm-source-info-elisp helm-source-etags-select helm-source-man-pages helm-source-occur helm-source-moccur helm-source-grep-ag helm-source-grep-git helm-source-grep))) nil [20075 20986])
+            ("helm-delete-minibuffer-contents-from-point" variable (:default-value t) nil [20988 21256])
+            ("helm-follow-mode-persistent" variable nil nil [21258 21692])
+            ("helm-source-names-using-follow" variable nil nil [21694 22212])
+            ("helm-prevent-escaping-from-minibuffer" variable (:default-value t) nil [22214 22379])
+            ("helm-allow-mouse" variable nil nil [22381 22676])
+            ("helm-move-to-line-cycle-in-source" variable nil nil [22678 22890])
+            ("helm-fuzzy-match-fn" variable (:default-value (quote helm-fuzzy-match)) nil [22892 23047])
+            ("helm-fuzzy-search-fn" variable (:default-value (quote helm-fuzzy-search)) nil [23049 23211])
+            ("helm-fuzzy-sort-fn" variable (:default-value (quote helm-fuzzy-matching-default-sort-fn)) nil [23213 23402])
+            ("helm-fuzzy-matching-highlight-fn" variable (:default-value (quote helm-fuzzy-default-highlight-match)) nil [23404 23597])
+            ("helm-autoresize-max-height" variable (:default-value 40) nil [23599 23800])
+            ("helm-autoresize-min-height" variable (:default-value 10) nil [23802 24037])
+            ("helm-input-method-verbose-flag" variable nil nil [24039 24742])
+            ("helm-display-header-line" variable (:default-value t) nil [24744 24852])
+            ("helm-inherit-input-method" variable (:default-value t) nil [24854 25078])
+            ("helm-echo-input-in-header-line" variable nil nil [25080 25210])
+            ("helm-header-line-space-before-prompt" variable (:default-value (quote left-fringe)) nil [25212 25815])
+            ("helm-tramp-connection-min-time-diff" variable (:default-value 5) nil [25817 26427])
+            ("helm-debug-root-directory" variable nil nil [26429 26780])
+            ("helm-show-action-window-other-window" variable nil nil [26782 27381])
+            ("helm-cycle-resume-delay" variable (:default-value 1.0) nil [27383 27511])
+            ("helm-faces" customgroup (:user-visible-flag t) nil [27531 27643])
+            ("helm-source-header" variable
+               (:default-value (quote ((((background dark)) :background "#22083397778B" :foreground "white" :weight bold :height 1.3 :family "Sans Serif") (((background light)) :background "#abd7f0" :foreground "black" :weight bold :height 1.3 :family "Sans Serif")))
+                :type "face")
+                nil [27645 28007])
+            ("helm-visible-mark" variable
+               (:default-value (quote ((((min-colors 88) (background dark)) (:background "green1" :foreground "black")) (((background dark)) (:background "green" :foreground "black")) (((background light)) :background "#d1f5ea") (((min-colors 88)) (:background "green1")) (t (:background "green"))))
+                :type "face")
+                nil [28009 28379])
+            ("helm-header" variable
+               (:default-value (quote ((t (:inherit header-line))))
+                :type "face")
+                nil [28381 28501])
+            ("helm-candidate-number" variable
+               (:default-value (quote ((((background dark)) :background "Yellow" :foreground "black") (((background light)) :background "#faffb5" :foreground "black")))
+                :type "face")
+                nil [28503 28736])
+            ("helm-candidate-number-suspended" variable
+               (:default-value (quote ((t (:inherit helm-candidate-number :inverse-video t))))
+                :type "face")
+                nil [28738 28926])
+            ("helm-selection" variable
+               (:default-value (quote ((((background dark)) :background "ForestGreen" :distant-foreground "black") (((background light)) :background "#b5ffd1" :distant-foreground "black")))
+                :type "face")
+                nil [28928 29198])
+            ("helm-separator" variable
+               (:default-value (quote ((((background dark)) :foreground "red") (((background light)) :foreground "#ffbfb5")))
+                :type "face")
+                nil [29200 29380])
+            ("helm-action" variable
+               (:default-value (quote ((t (:underline t))))
+                :type "face")
+                nil [29382 29501])
+            ("helm-prefarg" variable
+               (:default-value (quote ((((background dark)) :foreground "green") (((background light)) :foreground "red")))
+                :type "face")
+                nil [29503 29684])
+            ("helm-match" variable
+               (:default-value (quote ((((background light)) :foreground "#b00000") (((background dark)) :foreground "gold1")))
+                :type "face")
+                nil [29686 29860])
+            ("helm-header-line-left-margin" variable
+               (:default-value (quote ((t (:foreground "black" :background "yellow"))))
+                :type "face")
+                nil [29862 30033])
+            ("helm-selection-overlay" variable nil nil [30058 30152])
+            ("helm-async-processes" variable nil nil [30154 30257])
+            ("helm-before-initialize-hook" variable nil nil [30259 30545])
+            ("helm-after-initialize-hook" variable nil nil [30547 30746])
+            ("defvaralias" code nil nil [30748 30803])
+            ("make-obsolete-variable" code nil nil [30804 30878])
+            ("helm-after-update-hook" variable nil nil [30880 30983])
+            ("helm-cleanup-hook" variable nil nil [30985 31180])
+            ("helm-select-action-hook" variable nil nil [31182 31259])
+            ("helm-before-action-hook" variable nil nil [31261 31446])
+            ("helm-after-action-hook" variable nil nil [31448 31516])
+            ("helm-exit-minibuffer-hook" variable nil nil [31518 31779])
+            ("helm-after-persistent-action-hook" variable nil nil [31781 31871])
+            ("helm-move-selection-before-hook" variable nil nil [31873 31968])
+            ("helm-move-selection-after-hook" variable nil nil [31970 32063])
+            ("helm-after-preselection-hook" variable nil nil [32065 32153])
+            ("helm-window-configuration-hook" variable nil nil [32155 32253])
+            ("helm-execute-action-at-once-if-one" variable nil nil [32255 32578])
+            ("helm-quit-if-no-candidate" variable nil nil [32580 32706])
+            ("helm-debug-variables" variable nil nil [32708 32882])
+            ("helm-debug-buffer" variable (:default-value "*Debug Helm Log*") nil [32884 32929])
+            ("helm-debug" variable nil nil [32931 33123])
+            ("helm-mode-line-string" variable (:default-value "\\<helm-map>\\[helm-help]:Help \\[helm-select-action]:Act \\[helm-maybe-exit-minibuffer]/f1/f2/f-n:NthAct \\[helm-toggle-suspend-update]:Tog.suspend") nil [33125 33559])
+            ("helm-minibuffer-set-up-hook" variable nil nil [33561 34000])
+            ("helm-help-message" variable (:default-value "* Helm Generic Help
+** Basics
+
+Helm narrows down the list of candidates as you type a filter pattern.
+
+Helm accepts multiple space-separated patterns.
+Helm also supports fuzzy matching in some places when specified.
+
+Helm generally uses familiar Emacs keys to navigate the list.
+Here follow some of the less obvious bindings:
+
+- `\\[helm-maybe-exit-minibuffer]' selects the candidate from the list, executes the default action
+upon exiting the Helm session.
+
+- `\\[helm-execute-persistent-action]' executes the default action but without exiting the Helm session.
+Not all sources support this.
+
+- `\\[helm-select-action]' displays a list of actions available on current candidate or all marked candidates.
+The default binding <tab> is ordinarily used for completion, but that would be
+redundant since Helm completes upon every character entered in the prompt.
+See [[https://github.com/emacs-helm/helm/wiki#helm-completion-vs-emacs-completion][Helm wiki]].
+
+Note: In addition to the default actions list, additional actions appear
+depending of the type of the selected candidate(s).  They are called filtered
+actions.
+
+** Helm mode
+
+`helm-mode' toggles Helm completion in native Emacs functions,
+so when you turn `helm-mode' on, commands like `switch-to-buffer' will use
+Helm completion instead of the usual Emacs completion buffer.
+
+*** What gets or does not get \"helmized\" when `helm-mode' is enabled?
+
+Helm provides generic completion on all Emacs functions using `completing-read',
+`completion-in-region' and their derivatives, e.g. `read-file-name'.  Helm
+exposes a user variable to control which function to use for a specific Emacs
+command: `helm-completing-read-handlers-alist'.  If the function for a specific
+command is nil, it turns off Helm completion.  See the variable documentation
+for more infos.
+
+*** Helm functions vs helmized Emacs functions
+
+While there are Helm functions that perform the same completion as other
+helmized Emacs functions, e.g. `switch-to-buffer' and `helm-buffers-list', the
+native Helm functions like `helm-buffers-list' can receive new features, the
+allow marking candidates, they have several actions, etc.  Whereas the helmized
+Emacs functions only have Helm completion, one action and no more then Emacs can
+provide for this function.  This is the intended behavior.
+
+Generally you are better off using the native Helm command
+than the helmized Emacs equivalent.
+
+** Helm help
+
+\\[helm-documentation]: Show all helm documentations concatenated in one org file.
+
+From a Helm session, just hit \\<helm-map>\\[helm-help] to have the
+documentation for the current source followed by the global Helm documentation.
+
+While in the help buffer, most of the regular keybindings are available in an
+Emacs buffers; the most important ones are shown in minibuffer.  However due to
+the implementation restrictions, no regular Emacs keymap is used (it runs in a
+loop when reading the help buffer) they are hardcoded and not modifiable.
+
+The hard-coded documentation bindings are:
+
+| Key       | Alternative keys | Command             |
+|-----------+------------------+---------------------|
+| C-v       | Space next       | Scroll up           |
+| M-v       | b prior          | Scroll down         |
+| C-s       |                  | Isearch forward     |
+| C-r       |                  | Isearch backward    |
+| C-a       |                  | Beginning of line   |
+| C-e       |                  | End of line         |
+| C-f       | right            | Forward char        |
+| C-b       | left             | Backward char       |
+| C-n       | down             | Next line           |
+| C-p       | up               | Previous line       |
+| M-a       |                  | Backward sentence   |
+| M-e       |                  | Forward sentence    |
+| M-f       |                  | Forward word        |
+| M-b       |                  | Backward word       |
+| M->       |                  | End of buffer       |
+| M-<       |                  | Beginning of buffer |
+| C-<SPACE> |                  | Toggle mark         |
+| TAB       |                  | Org cycle           |
+| M-<TAB>   |                  | Toggle visibility   |
+| M-w       |                  | Copy region         |
+| q         |                  | Quit                |
+
+** Customize Helm
+
+Helm provides a lot of user variables for extensive customization.
+From any Helm session, type \\<helm-map>\\[helm-customize-group] to jump to the current source `custom' group.
+Helm also has a special group for faces you can access via `M-x customize-group RET helm-faces'.
+
+Note: Some sources may not have their group set and default to the `helm' group.
+
+** Helm's basic operations and default key bindings
+
+| Key     | Alternative Keys | Command                                                              |
+|---------+------------------+----------------------------------------------------------------------|
+| C-p     | Up               | Previous line                                                        |
+| C-n     | Down             | Next line                                                            |
+| M-v     | prior            | Previous page                                                        |
+| C-v     | next             | Next page                                                            |
+| Enter   |                  | Execute first (default) action / Select                              |
+| M-<     |                  | First line                                                           |
+| M->     |                  | Last line                                                            |
+| C-M-S-v | M-prior, C-M-y   | Previous page (other-window)                                         |
+| C-M-v   | M-next           | Next page (other-window)                                             |
+| Tab     | C-i              | Show action list                                                     |
+| Left    |                  | Previous source                                                      |
+| Right   | C-o              | Next source                                                          |
+| C-k     |                  | Delete pattern (with prefix arg delete from point to end or all [1]) |
+| C-j     | C-z              | Persistent action (Execute and keep Helm session)                    |
+
+[1] Delete from point to end or all depending on the value of
+`helm-delete-minibuffer-contents-from-point'.
+
+** Shortcuts for n-th action
+
+f1-f12: Execute n-th action where n is 1 to 12.
+
+** Shortcuts for executing the default action on the n-th candidate
+
+C-x <n>: Execute default action on the n-th candidate before currently selected candidate.
+
+C-c <n>: Execute default action on the n-th candidate after current selected candidate.
+
+\"n\" is limited to 1-9.  For larger jumps use other navigation keys.  Helm does
+not display line numbers by default: enable them with the
+[[https://github.com/coldnew/linum-relative][linum-relative]] package and
+`helm-linum-relative-mode'.
+
+** Mouse control in Helm
+
+A basic support for the mouse is provided when the user sets `helm-allow-mouse' to non-nil.
+
+- mouse-1 selects the candidate.
+- mouse-2 executes the default action on selected candidate.
+- mouse-3 pops up the action menu.
+
+Note: When mouse control is enabled in Helm, it also lets you click around and lose
+the minibuffer focus: you'll have to click on the Helm buffer or the minibuffer
+to retrieve control of your Helm session.
+
+** Marked candidates
+
+You can mark candidates to execute an action on all of them instead of the
+current selected candidate only.  (See bindings below.)  Most Helm actions
+operate on marked candidates unless candidate-marking is explicitely forbidden
+for a specific source.
+
+To mark/unmark a candidate, use \\[helm-toggle-visible-mark].  (See bindings below.)
+To mark all visible unmarked candidates at once in current source use \\[helm-mark-all].
+To mark/unmark all candidates at once use \\[helm-toggle-all-marks].
+With a prefix argument, those bindings let you mark candidates in all sources.
+
+Note: When multiple candidates are selected across different sources, only the
+candidates of the current source will be used when executing most actions (as
+different sources can have different actions).  Some actions support
+multi-source marking however.
+
+** Follow candidates
+
+When `helm-follow-mode' is on (\\<helm-map>\\[helm-follow-mode] to toggle it),
+moving up and down the Helm session or updating the list of candidates will
+automatically execute the persistent-action as specified for the current source.
+
+If `helm-follow-mode-persistent' is non-nil, the state of the mode will be
+restored for the following Helm sessions.
+
+If you just want to follow candidates occasionally without enabling
+`helm-follow-mode', you can use \\<helm-map>\\[helm-follow-action-forward] or \\[helm-follow-action-backward] instead.
+Conversely, when `helm-follow-mode' is enabled, those commands
+go to previous/next line without executing the persistent action.
+
+** Frequently Used Commands
+
+\\[helm-toggle-resplit-and-swap-windows]		Toggle vertical/horizontal split on first hit and swap Helm window on second hit.
+\\[helm-quit-and-find-file]		Drop into `helm-find-files'.
+\\[helm-kill-selection-and-quit]		Kill display value of candidate and quit (with prefix arg, kill the real value).
+\\[helm-yank-selection]		Yank current selection into pattern.
+\\[helm-copy-to-buffer]		Copy selected candidate at point in current buffer.
+\\[helm-follow-mode]		Toggle automatic execution of persistent action.
+\\[helm-follow-action-forward]	Run persistent action then select next line.
+\\[helm-follow-action-backward]		Run persistent action then select previous line.
+\\[helm-refresh]		Recalculate and redisplay candidates.
+\\[helm-toggle-suspend-update]		Toggle candidate updates.
+
+** Moving in `helm-buffer'
+
+You can move in `helm-buffer' with the usual commands used in Emacs:
+(\\<helm-map>\\[helm-next-line], \\<helm-map>\\[helm-previous-line], etc.  See above basic commands.
+When `helm-buffer' contains more than one source, change source with \\<helm-map>\\[helm-next-source].
+
+Note: When reaching the end of a source, \\<helm-map>\\[helm-next-line] will *not* go to the next source unless
+variable `helm-move-to-line-cycle-in-source' is non-nil, so you will have to use \\<helm-map>\\[helm-next-source].
+
+** Resume previous session from current Helm session
+
+You can use `C-c n' (`helm-run-cycle-resume') to cycle in resumables sources.
+`C-c n' is a special key set with `helm-define-key-with-subkeys' which, after pressing it, allows you
+to keep cycling with further `n'.
+
+Tip: You can bound the same key in `global-map' to `helm-cycle-resume'
+     with `helm-define-key-with-subkeys' to let you transparently cycle
+     sessions, Helm fired up or not.
+     You can also bind the cycling commands to single key presses (e.g. `S-<f1>') this time
+     with a simple `define-key'.  (Note that `S-<f1>' is not available in terminals.)
+
+Note: `helm-define-key-with-subkeys' is available only once Helm is loaded.
+
+You can also use \\<helm-map>\\[helm-resume-previous-session-after-quit] to resume
+the previous session, or \\<helm-map>\\[helm-resume-list-buffers-after-quit]
+to have completion on all resumable buffers.
+
+** Global commands
+
+*** Resume Helm session from outside Helm
+
+\\<global-map>\\[helm-resume] revives the last `helm' session.  Binding a key to
+this command will greatly improve `helm' interactivity, e.g. when quitting Helm
+accidentally.
+
+You can call \\<global-map>\\[helm-resume] with a prefix argument to choose
+(with completion!) which session you'd like to resume.  You can also cycle in
+these sources with `helm-cycle-resume' (see above).
+
+** Debugging Helm
+
+Helm exposes the special variable `helm-debug': setting it to non-nil
+will enable Helm logging in a special outline-mode buffer.
+Helm resets the variable to nil at the end of each session.
+
+For convenience, \\<helm-map>\\[helm-enable-or-switch-to-debug]
+allows you to turn on debugging for this session only.
+To avoid accumulating log entries while you are typing patterns, you can use
+\\<helm-map>\\[helm-toggle-suspend-update] to turn off updating.  When you
+are ready turn it on again to resume logging.
+
+Once you exit your Helm session you can access the debug buffer with
+`helm-debug-open-last-log'.  It is possible to save logs to dated files when
+`helm-debug-root-directory' is set to a valid directory.
+
+Note: Be aware that Helm log buffers grow really fast, so use `helm-debug' only
+when needed.
+
+** Writing your own Helm sources
+
+Writing simple sources for your own usage is easy.  When calling the `helm'
+function, the sources are added the :sources slot which can be a symbol or a
+list of sources.  Sources can be built with different EIEIO classes depending
+what you want to do.  To simplify this, several `helm-build-*' macros are
+provided.  Below, simple examples to start with.
+
+We will not go further here, see [[https://github.com/emacs-helm/helm/wiki/Developing][Helm wiki]] and the source
+code for more information and more complex exapmles.
+
+#+begin_src elisp
+
+    ;; Candidates are stored in a list.
+    (helm :sources (helm-build-sync-source \"test\"
+                     ;; A function can be used as well
+                     ;; to provide candidates.
+                     :candidates '(\"foo\" \"bar\" \"baz\"))
+          :buffer \"*helm test*\")
+
+    ;; Candidates are stored in a buffer.
+    ;; Generally faster but doesn't allow a dynamic updating
+    ;; of the candidates list i.e the list is fixed on start.
+    (helm :sources (helm-build-in-buffer-source \"test\"
+                     :data '(\"foo\" \"bar\" \"baz\"))
+          :buffer \"*helm test*\")
+
+#+end_src
+
+** Helm Map
+\\{helm-map}") nil [34002 47918])
+            ("helm-autoresize-mode" variable nil nil [47920 47949])
+            ("helm-async-outer-limit-hook" variable nil nil [47998 48205])
+            ("helm-quit-hook" variable nil nil [48207 48274])
+            ("helm-source-filter" variable nil nil [48306 48549])
+            ("helm-current-prefix-arg" variable nil nil [48550 48643])
+            ("helm-saved-action" variable nil nil [48644 48731])
+            ("helm-saved-current-source" variable nil nil [48732 48833])
+            ("helm-compiled-sources" variable nil nil [48834 48908])
+            ("helm-in-persistent-action" variable nil nil [48909 48993])
+            ("helm-last-buffer" variable nil nil [48994 49071])
+            ("helm-saved-selection" variable nil nil [49072 49179])
+            ("helm-sources" variable nil nil [49180 49261])
+            ("helm-buffer-file-name" variable nil nil [49262 49352])
+            ("helm-candidate-cache" variable (:default-value (make-hash-table :test (quote equal))) nil [49353 49480])
+            ("helm--candidate-buffer-alist" variable nil nil [49481 49522])
+            ("helm-input" variable nil nil [49523 49590])
+            ("helm-input-local" variable nil nil [49591 49701])
+            ("helm--source-name" variable nil nil [49702 49732])
+            ("helm-current-source" variable nil nil [49733 49765])
+            ("helm-tick-hash" variable (:default-value (make-hash-table :test (quote equal))) nil [49766 49820])
+            ("helm-issued-errors" variable nil nil [49821 49852])
+            ("helm--last-log-file" variable nil nil [49853 49940])
+            ("helm--local-variables" variable nil nil [49941 49975])
+            ("helm-split-window-state" variable nil nil [49976 50012])
+            ("helm--window-side-state" variable nil nil [50013 50049])
+            ("helm-selection-point" variable nil nil [50050 50083])
+            ("helm-alive-p" variable nil nil [50084 50109])
+            ("helm-visible-mark-overlays" variable nil nil [50110 50149])
+            ("helm-update-blacklist-regexps" variable (:default-value (quote ("^" "^ *" "$" "!" " " "\\b" "\\<" "\\>" "\\_<" "\\_>" ".*" "??" "?*" "*?" "?"))) nil [50150 50349])
+            ("helm--force-updating-p" variable nil nil [50350 50433])
+            ("helm-exit-status" variable nil nil [50434 50760])
+            ("helm-minibuffer-confirm-state" variable nil nil [50761 50803])
+            ("helm-quit" variable nil nil [50804 50826])
+            ("helm-buffers" variable nil nil [50827 50908])
+            ("helm-current-position" variable nil nil [50909 51084])
+            ("helm-last-frame-or-window-configuration" variable nil nil [51085 51200])
+            ("helm-onewindow-p" variable nil nil [51201 51230])
+            ("helm-types" variable nil nil [51231 51254])
+            ("helm--mode-line-string-real" variable nil nil [51255 51295])
+            ("helm-persistent-action-display-window" variable nil nil [51334 51384])
+            ("helm-marked-candidates" variable nil nil [51385 51476])
+            ("helm--mode-line-display-prefarg" variable nil nil [51477 51521])
+            ("helm--temp-follow-flag" variable nil nil [51522 51632])
+            ("helm--reading-passwd-or-string" variable nil nil [51633 51676])
+            ("helm--in-update" variable nil nil [51677 51705])
+            ("helm--in-fuzzy" variable nil nil [51706 51733])
+            ("helm--maybe-use-default-as-input" variable nil nil [51734 52002])
+            ("helm--temp-hooks" variable nil nil [52003 52090])
+            ("helm-truncate-lines" variable nil nil [52091 52190])
+            ("helm--prompt" variable nil nil [52191 52216])
+            ("helm--file-completion-sources" variable (:default-value (quote ("Find Files" "Read File Name"))) nil [52217 52528])
+            ("helm--completing-file-name" variable nil nil [52529 52661])
+            ("helm--url-regexp" variable (:default-value "\\`\\(news\\(post\\)?:\\|mailto:\\|file:\\|\\(ftp\\|https?\\|telnet\\|gopher\\|www\\|wais\\)://\\)") nil [52748 52874])
+            ("helm--ignore-errors" variable nil nil [52875 53060])
+            ("helm--action-prompt" variable (:default-value "Select action: ") nil [53061 53107])
+            ("helm--cycle-resume-iterator" variable nil nil [53108 53148])
+            ("helm-log" function (:arguments ("format-string" "args")) nil [53171 54079])
+            ("helm-log-run-hook" function (:arguments ("hook")) nil [54081 54384])
+            ("helm-log-get-current-function" function nil nil [54386 54881])
+            ("helm-log-error" function (:arguments ("args")) nil [54883 55265])
+            ("helm-log-save-maybe" function nil nil [55267 56213])
+            ("helm-debug-open-last-log" function (:user-visible-flag t) nil [56230 56555])
+            ("helm-print-error-messages" function nil nil [56557 56784])
+            ("with-helm-time-after-update" function (:arguments ("body")) nil [56802 57378])
+            ("with-helm-default-directory" function (:arguments ("directory" "body")) nil [57394 57676])
+            ("helm-default-directory" function nil nil [57678 57846])
+            ("with-helm-temp-hook" function (:arguments ("hook" "body")) nil [57848 58311])
+            ("with-helm-after-update-hook" function (:arguments ("body")) nil [58313 58495])
+            ("with-helm-alive-p" function (:arguments ("body")) nil [58497 58739])
+            ("helm-attr" function (:arguments ("attribute-name" "source" "compute")) nil [58766 60183])
+            ("cl-defun" code nil nil [60185 60695])
+            ("helm-add-action-to-source" function (:arguments ("name" "fn" "source" "index")) nil [60697 61590])
+            ("helm-delete-action-from-source" function (:arguments ("action-or-name" "source")) nil [61592 62070])
+            ("cl-defun" code nil nil [62072 64367])
+            ("helm-set-source-filter" function (:arguments ("sources")) nil [64392 65747])
+            ("helm--normalize-filter-sources" function (:arguments ("sources")) nil [65749 65992])
+            ("helm-set-sources" function (:arguments ("sources" "no-init" "no-update")) nil [65994 66523])
+            ("helm-get-sources" function nil nil [66525 67012])
+            ("helm-get-selection" function (:arguments ("buffer" "force-display-part" "source")) nil [67014 68739])
+            ("helm-get-actions-from-current-source" function (:arguments ("source")) nil [68741 69903])
+            ("helm-get-current-source" function nil nil [69905 70899])
+            ("helm-buffer-is-modified" function (:arguments ("buffer")) nil [70901 71433])
+            ("helm-current-buffer-is-modified" function nil nil [71435 71598])
+            ("helm-run-after-exit" function (:arguments ("function" "args")) nil [71600 72206])
+            ("helm-exit-and-execute-action" function (:arguments ("action")) nil [72208 72674])
+            ("defalias" code nil nil [72676 72728])
+            ("make-obsolete" code nil nil [72729 72794])
+            ("defalias" code nil nil [72795 72865])
+            ("make-obsolete" code nil nil [72866 72949])
+            ("helm-interpret-value" function (:arguments ("value" "source" "compute")) nil [72951 73838])
+            ("helm-set-local-variable" function (:arguments ("args")) nil [73840 74702])
+            ("cl-defun" code nil nil [74720 74920])
+            ("helm-empty-source-p" function nil nil [74922 75437])
+            ("helm-funcall-with-source" function (:arguments ("source" "functions" "args")) nil [75453 76631])
+            ("helm-funcall-foreach" function (:arguments ("sym" "sources")) nil [76633 76928])
+            ("helm-normalize-sources" function (:arguments ("sources")) nil [76930 77204])
+            ("helm-get-candidate-number" function (:arguments ("in-current-source")) nil [77206 78799])
+            ("with-helm-quittable" function (:arguments ("body")) nil [78801 79215])
+            ("helm-argument-keys" variable
+               (:constant-flag t
+                :default-value (quote (:sources :input :prompt :resume :preselect :buffer :keymap :default :history)))
+                nil [79300 79415])
+            ("helm" function (:arguments ("plist")) nil [79432 83945])
+            ("helm--alive-p" function nil nil [83974 84347])
+            ("helm-parse-keys" function (:arguments ("keys")) nil [84349 85329])
+            ("helm-internal" function (:arguments ("any-sources" "any-input" "any-prompt" "any-resume" "any-preselect" "any-buffer" "any-keymap" "any-default" "any-history")) nil [85354 89902])
+            ("helm-resume" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [89928 91632])
+            ("helm-resume-previous-session-after-quit" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [91634 91971])
+            ("put" code nil nil [91972 92031])
+            ("helm-resume-list-buffers-after-quit" function (:user-visible-flag t) nil [92033 92333])
+            ("put" code nil nil [92334 92389])
+            ("helm-resume-p" function (:arguments ("any-resume")) nil [92391 92497])
+            ("helm-resume-select-buffer" function nil nil [92499 92888])
+            ("helm-cycle-resume" function (:user-visible-flag t) nil [92905 93499])
+            ("helm--resume-or-iter" function (:arguments ("from-helm")) nil [93501 94073])
+            ("helm-run-cycle-resume" function (:user-visible-flag t) nil [94075 94823])
+            ("put" code nil nil [94824 94865])
+            ("helm-other-buffer" function (:arguments ("any-sources" "any-buffer")) nil [94884 95099])
+            ("helm--nest" function (:arguments ("same-as-helm")) nil [95101 97852])
+            ("helm-current-position" function (:arguments ("save-or-restore")) nil [97873 98900])
+            ("helm-frame-or-window-configuration" function (:arguments ("save-or-restore")) nil [98903 101434])
+            ("helm-split-window-default-fn" function (:arguments ("window")) nil [101436 103360])
+            ("helm-window-in-direction" function (:arguments ("direction")) nil [103362 103564])
+            ("helm-display-buffer" function (:arguments ("buffer")) nil [103598 104634])
+            ("cl-defun" code nil nil [104636 104958])
+            ("helm-default-display-buffer" function (:arguments ("buffer")) nil [104960 105976])
+            ("helm-initialize" function (:arguments ("any-resume" "any-input" "any-default" "any-sources")) nil [105998 107510])
+            ("helm-initialize-overlays" function (:arguments ("buffer")) nil [107512 108069])
+            ("helm-restore-position-on-quit" function nil nil [108071 108207])
+            ("helm--recent-push" function (:arguments ("elm" "sym")) nil [108209 108433])
+            ("helm--current-buffer" function nil nil [108435 109440])
+            ("helm--run-init-hooks" function (:arguments ("hook")) nil [109442 110031])
+            ("helm-initial-setup" function (:arguments ("any-default")) nil [110033 112007])
+            ("define-derived-mode" code nil nil [112009 112178])
+            ("put" code nil nil [112179 112222])
+            ("put" code nil nil [112223 112258])
+            ("helm-create-helm-buffer" function nil nil [112260 113882])
+            ("define-minor-mode" code nil nil [113884 114186])
+            ("put" code nil nil [114187 114223])
+            ("helm--reset-default-pattern" function nil nil [114225 114334])
+            ("helm-read-pattern-maybe" function (:arguments ("any-prompt" "any-input" "any-preselect" "any-resume" "any-keymap" "any-default" "any-history")) nil [114336 120203])
+            ("helm-toggle-suspend-update" function (:user-visible-flag t) nil [120205 120793])
+            ("put" code nil nil [120794 120840])
+            ("helm--advice-tramp-read-passwd" function (:arguments ("old--fn" "args")) nil [120842 121293])
+            ("helm--advice-ange-ftp-get-passwd" function (:arguments ("old--fn" "args")) nil [121295 121666])
+            ("cua-delete-region--advice" function (:arguments ("old--fn" "args")) nil [121686 121783])
+            ("copy-region-as-kill--advice" function (:arguments ("old--fn" "args")) nil [121785 121927])
+            ("helm--maybe-update-keymap" function (:arguments ("map")) nil [121929 122904])
+            ("helm--remap-mouse-mode-map" variable (:default-value (let ((map (make-sparse-keymap))) (cl-loop for k in (quote ([mouse-1] [mouse-2] [mouse-3] [down-mouse-1] [down-mouse-2] [down-mouse-3] [drag-mouse-1] [drag-mouse-2] [drag-mouse-3] [double-mouse-1] [double-mouse-2] [double-mouse-3] [triple-mouse-1] [triple-mouse-2] [triple-mouse-3])) do (define-key map k (quote ignore))) map)) nil [122953 123420])
+            ("define-minor-mode" code nil nil [123422 123774])
+            ("put" code nil nil [123775 123817])
+            ("helm-cleanup" function nil nil [123833 125217])
+            ("helm-clean-up-minibuffer" function nil nil [125219 125559])
+            ("helm-check-minibuffer-input" function nil nil [125588 125840])
+            ("helm-check-new-input" function (:arguments ("input")) nil [125842 126220])
+            ("helm--reset-update-flag" function nil nil [126222 126350])
+            ("helm-get-candidates" function (:arguments ("source")) nil [126438 129191])
+            ("helm-while-no-input" function (:arguments ("body")) nil [129193 129496])
+            ("helm-get-cached-candidates" function (:arguments ("source")) nil [129498 130488])
+            ("helm-process-candidate-transformer" function (:arguments ("candidates" "source")) nil [130520 130783])
+            ("helm-process-filtered-candidate-transformer" function (:arguments ("candidates" "source")) nil [130785 131082])
+            ("helm--maybe-process-filter-one-by-one-candidate" function (:arguments ("candidate" "source")) nil [131084 131731])
+            ("helm--initialize-one-by-one-candidates" function (:arguments ("candidates" "source")) nil [131733 132173])
+            ("helm-process-filtered-candidate-transformer-maybe" function (:arguments ("candidates" "source" "process-p")) nil [132175 132621])
+            ("helm-process-real-to-display" function (:arguments ("candidates" "source")) nil [132623 133229])
+            ("helm-transform-candidates" function (:arguments ("candidates" "source" "process-p")) nil [133231 133977])
+            ("helm-candidate-number-limit" function (:arguments ("source")) nil [134005 134618])
+            ("helm-candidate-get-display" function (:arguments ("candidate")) nil [134620 134972])
+            ("helm-process-pattern-transformer" function (:arguments ("pattern" "source")) nil [134974 135227])
+            ("helm-default-match-function" function (:arguments ("candidate")) nil [135229 135427])
+            ("helm--fuzzy-regexp-cache" variable (:default-value (make-hash-table :test (quote eq))) nil [135456 135517])
+            ("helm--fuzzy-match-maybe-set-pattern" function nil nil [135518 136705])
+            ("helm-fuzzy-match" function (:arguments ("candidate")) nil [136707 137225])
+            ("helm-fuzzy-search" function (:arguments ("pattern")) nil [137227 138938])
+            ("helm-score-candidate-for-pattern" function (:arguments ("candidate" "pattern")) nil [138940 140354])
+            ("helm-fuzzy-matching-default-sort-fn-1" function (:arguments ("candidates" "use-real" "basename" "preserve-tie-order")) nil [140356 142990])
+            ("helm-fuzzy-matching-default-sort-fn" function (:arguments ("candidates" "_source")) nil [142992 143192])
+            ("helm-fuzzy-matching-sort-fn-preserve-ties-order" function (:arguments ("candidates" "_source")) nil [143194 143637])
+            ("helm--maybe-get-migemo-pattern" function (:arguments ("pattern")) nil [143639 143796])
+            ("helm-fuzzy-default-highlight-match" function (:arguments ("candidate")) nil [143798 147004])
+            ("helm-fuzzy-highlight-matches" function (:arguments ("candidates" "_source")) nil [147006 147277])
+            ("helm-match-functions" function (:arguments ("source")) nil [147311 147607])
+            ("helm-search-functions" function (:arguments ("source")) nil [147609 147796])
+            ("helm-take-first-elements" function (:arguments ("seq" "n")) nil [147798 148034])
+            ("helm-match-from-candidates" function (:arguments ("cands" "matchfns" "match-part-fn" "limit" "source")) nil [148036 150602])
+            ("helm-compute-matches" function (:arguments ("source")) nil [150604 152433])
+            ("helm--candidates-in-buffer-p" function (:arguments ("matchfns")) nil [152435 152513])
+            ("helm-render-source" function (:arguments ("source" "matches")) nil [152515 153413])
+            ("helm--maybe-use-while-no-input" function (:arguments ("body")) nil [153415 153837])
+            ("helm--collect-matches" function (:arguments ("src-list")) nil [153839 154467])
+            ("cl-defun" code nil nil [154498 155230])
+            ("helm-set-case-fold-search-1" function (:arguments ("pattern")) nil [155232 155445])
+            ("helm-update" function (:arguments ("preselect" "source" "candidates")) nil [155468 158605])
+            ("helm-update-source-p" function (:arguments ("source")) nil [158607 159662])
+            ("helm--update-move-first-line" function nil nil [159664 159898])
+            ("cl-defun" code nil nil [159900 160904])
+            ("helm-refresh" function (:user-visible-flag t) nil [160906 161041])
+            ("put" code nil nil [161042 161074])
+            ("helm-force-update--reinit" function (:arguments ("source")) nil [161076 161687])
+            ("helm-redisplay-buffer" function nil nil [161689 164776])
+            ("helm-remove-candidate-cache" function (:arguments ("source")) nil [164778 164931])
+            ("helm-insert-match" function (:arguments ("match" "insert-function" "num" "source")) nil [164933 166945])
+            ("helm--mouse-reset-selection-help-echo" function nil nil [166947 167441])
+            ("helm--bind-mouse-for-selection" function (:arguments ("pos")) nil [167443 168095])
+            ("helm-mouse-select-candidate" function (:arguments ("event")) nil [168097 169019])
+            ("put" code nil nil [169020 169067])
+            ("helm-insert-header-from-source" function (:arguments ("source")) nil [169069 169449])
+            ("helm-insert-header" function (:arguments ("name" "display-string")) nil [169451 170165])
+            ("helm-insert-candidate-separator" function nil nil [170167 170454])
+            ("helm-output-filter" function (:arguments ("process" "output-string")) nil [170479 170689])
+            ("helm-output-filter-1" function (:arguments ("process-assoc" "output-string")) nil [170691 171355])
+            ("helm-output-filter--process-source" function (:arguments ("process" "output-string" "source" "limit")) nil [171357 172517])
+            ("helm-output-filter--collect-candidates" function (:arguments ("lines" "incomplete-line-info")) nil [172519 173988])
+            ("helm-output-filter--post-process" function nil nil [173990 174458])
+            ("helm-process-deferred-sentinel-hook" function (:arguments ("process" "event" "file")) nil [174460 175962])
+            ("helm-kill-async-processes" function nil nil [175964 176222])
+            ("helm-kill-async-process" function (:arguments ("process")) nil [176224 176398])
+            ("helm-execute-selection-action" function nil nil [176417 176779])
+            ("helm-execute-selection-action-1" function (:arguments ("selection" "action" "preserve-saved-action")) nil [176781 178019])
+            ("helm-coerce-selection" function (:arguments ("selection" "source")) nil [178021 178276])
+            ("helm-get-default-action" function (:arguments ("action")) nil [178278 178459])
+            ("helm-select-action" function (:user-visible-flag t) nil [178461 180596])
+            ("put" code nil nil [180597 180635])
+            ("helm--set-action-prompt" function (:arguments ("restore")) nil [180637 181068])
+            ("helm-show-action-buffer" function (:arguments ("actions")) nil [181070 182926])
+            ("helm-display-source-at-screen-top-maybe" function (:arguments ("unit")) nil [182958 183294])
+            ("helm-skip-noncandidate-line" function (:arguments ("direction")) nil [183296 183706])
+            ("helm-skip-header-and-separator-line" function (:arguments ("direction")) nil [183735 184293])
+            ("helm-display-mode-line" function (:arguments ("source" "force")) nil [184295 188279])
+            ("helm--set-header-line" function (:arguments ("update")) nil [188281 190093])
+            ("helm--update-header-line" function nil nil [190095 190287])
+            ("helm-hide-minibuffer-maybe" function nil nil [190289 190861])
+            ("helm-show-candidate-number" function (:arguments ("name")) nil [190863 191661])
+            ("cl-defun" code nil nil [191663 193710])
+            ("helm-move--beginning-of-multiline-candidate" function nil nil [193712 194103])
+            ("helm-move--previous-multi-line-fn" function nil nil [194105 194307])
+            ("helm-move--previous-line-fn" function nil nil [194309 194839])
+            ("helm-move--next-multi-line-fn" function nil nil [194841 195190])
+            ("helm-move--next-line-fn" function nil nil [195192 195713])
+            ("helm-move--previous-page-fn" function nil nil [195715 195846])
+            ("helm-move--next-page-fn" function nil nil [195848 195967])
+            ("helm-move--beginning-of-buffer-fn" function nil nil [195969 196039])
+            ("helm-move--end-of-buffer-fn" function nil nil [196041 196105])
+            ("helm-move--end-of-source" function nil nil [196107 196257])
+            ("helm-move--beginning-of-source" function nil nil [196259 196431])
+            ("helm-move--previous-source-fn" function nil nil [196433 196653])
+            ("helm-move--next-source-fn" function nil nil [196655 197024])
+            ("helm-move--goto-source-fn" function (:arguments ("source-or-name")) nil [197026 197496])
+            ("helm-candidate-number-at-point" function nil nil [197498 197698])
+            ("helm--next-or-previous-line" function (:arguments ("direction" "arg")) nil [197700 198500])
+            ("helm-previous-line" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [198502 198755])
+            ("put" code nil nil [198756 198794])
+            ("helm-next-line" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [198796 199108])
+            ("put" code nil nil [199109 199143])
+            ("helm-previous-page" function (:user-visible-flag t) nil [199145 199319])
+            ("put" code nil nil [199320 199358])
+            ("helm-next-page" function (:user-visible-flag t) nil [199360 199529])
+            ("put" code nil nil [199530 199564])
+            ("helm-beginning-of-buffer" function (:user-visible-flag t) nil [199566 199737])
+            ("put" code nil nil [199738 199782])
+            ("helm-end-of-buffer" function (:user-visible-flag t) nil [199784 199948])
+            ("put" code nil nil [199949 199987])
+            ("helm-previous-source" function (:user-visible-flag t) nil [199989 200170])
+            ("put" code nil nil [200171 200211])
+            ("helm-next-source" function (:user-visible-flag t) nil [200213 200382])
+            ("put" code nil nil [200383 200419])
+            ("helm-goto-source" function (:arguments ("source-or-name")) nil [200421 200688])
+            ("helm--follow-action" function (:arguments ("arg")) nil [200690 201530])
+            ("helm-follow-action-forward" function (:user-visible-flag t) nil [201532 201682])
+            ("put" code nil nil [201683 201729])
+            ("helm-follow-action-backward" function (:user-visible-flag t) nil [201731 201887])
+            ("put" code nil nil [201888 201935])
+            ("helm-mark-current-line" function (:arguments ("resumep" "nomouse")) nil [201937 202865])
+            ("helm-confirm-and-exit-minibuffer" function (:user-visible-flag t) nil [202867 205247])
+            ("put" code nil nil [205248 205300])
+            ("add-hook" code nil nil [205302 205364])
+            ("helm-confirm-and-exit-hook" function nil nil [205366 205649])
+            ("helm-read-string" function (:arguments ("prompt" "initial-input" "history" "default-value" "inherit-input-method")) nil [205651 205987])
+            ("helm--updating-p" function nil nil [205989 206292])
+            ("helm-maybe-exit-minibuffer" function nil nil [206294 206605])
+            ("put" code nil nil [206606 206652])
+            ("helm-exit-minibuffer" function nil nil [206654 206931])
+            ("helm-keyboard-quit" function (:user-visible-flag t) nil [206933 207224])
+            ("put" code nil nil [207225 207263])
+            ("helm-get-next-header-pos" function nil nil [207265 207408])
+            ("helm-get-previous-header-pos" function nil nil [207410 207565])
+            ("helm-pos-multiline-p" function nil nil [207567 207724])
+            ("helm-get-next-candidate-separator-pos" function nil nil [207726 208287])
+            ("helm-get-previous-candidate-separator-pos" function nil nil [208289 208483])
+            ("helm-pos-header-line-p" function nil nil [208485 208688])
+            ("helm-pos-candidate-separator-p" function nil nil [208690 208853])
+            ("helm-debug-output" function (:user-visible-flag t) nil [208877 209062])
+            ("put" code nil nil [209063 209100])
+            ("helm-debug-output-function" function (:arguments ("vars")) nil [209102 209618])
+            ("helm-enable-or-switch-to-debug" function (:user-visible-flag t) nil [209620 209976])
+            ("put" code nil nil [209977 210027])
+            ("helm-kill-buffer-hook" function nil nil [210039 210407])
+            ("add-hook" code nil nil [210408 210459])
+            ("helm-preselect" function (:arguments ("candidate-or-regexp" "source")) nil [210461 212173])
+            ("helm-delete-current-selection" function nil nil [212175 213218])
+            ("helm-end-of-source-1" function (:arguments ("n" "at-point")) nil [213220 213554])
+            ("helm-end-of-source-p" function (:arguments ("at-point")) nil [213556 213697])
+            ("helm-beginning-of-source-p" function (:arguments ("at-point")) nil [213699 213853])
+            ("helm--edit-current-selection-internal" function (:arguments ("func")) nil [213855 214528])
+            ("helm-edit-current-selection" function (:arguments ("forms")) nil [214530 214786])
+            ("helm--delete-minibuffer-contents-from" function (:arguments ("from-str")) nil [214788 215214])
+            ("helm-delete-minibuffer-contents" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [215216 215853])
+            ("helm-candidates-in-buffer" function (:arguments ("source")) nil [215887 218441])
+            ("helm-candidates-in-buffer-search-default-fn" function (:arguments ("pattern")) nil [218443 218666])
+            ("helm-candidates-in-buffer-1" function (:arguments ("buffer" "pattern" "get-line-fn" "search-fns" "limit" "match-part-fn" "source")) nil [218668 219403])
+            ("helm-search-from-candidate-buffer" function (:arguments ("pattern" "get-line-fn" "search-fns" "limit" "start-point" "match-part-fn" "source")) nil [219406 222550])
+            ("helm-search-match-part" function (:arguments ("candidate" "pattern")) nil [222552 223819])
+            ("helm-initial-candidates-from-candidate-buffer" function (:arguments ("get-line-fn" "limit")) nil [223821 224133])
+            ("helm--search-from-candidate-buffer-1" function (:arguments ("search-fn")) nil [224135 224749])
+            ("helm-candidate-buffer" function (:arguments ("buffer-spec")) nil [224751 229327])
+            ("helm-init-candidates-in-buffer" function (:arguments ("buffer-spec" "data")) nil [229329 230874])
+            ("helm-toggle-resplit-window" function (:user-visible-flag t) nil [230908 233394])
+            ("put" code nil nil [233395 233441])
+            ("helm-enlarge-window-1" function (:arguments ("n")) nil [233475 233749])
+            ("helm-narrow-window" function (:user-visible-flag t) nil [233751 233873])
+            ("put" code nil nil [233874 233912])
+            ("helm-enlarge-window" function (:user-visible-flag t) nil [233914 234037])
+            ("put" code nil nil [234038 234077])
+            ("helm-swap-windows" function (:user-visible-flag t) nil [234079 236700])
+            ("put" code nil nil [236701 236738])
+            ("helm--get-window-side-state" function nil nil [236740 237219])
+            ("helm-replace-buffer-in-window" function (:arguments ("window" "buffer1" "buffer2")) nil [237221 237465])
+            ("helm-select-nth-action" function (:arguments ("n")) nil [237508 238061])
+            ("helm-get-nth-action" function (:arguments ("n" "action")) nil [238063 238400])
+            ("helm-execute-selection-action-at-nth" function (:arguments ("linum")) nil [238402 238731])
+            ("helm-initialize-persistent-action" function nil nil [238759 238876])
+            ("cl-defun" code nil nil [238878 241751])
+            ("put" code nil nil [241752 241802])
+            ("helm-persistent-action-display-window" function (:arguments ("split-onewindow")) nil [241804 242522])
+            ("helm-select-persistent-action-window" function (:arguments ("split-onewindow")) nil [242524 242995])
+            ("helm-other-window-base" function (:arguments ("command" "arg")) nil [243032 243222])
+            ("helm-scroll-other-window" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [243224 243498])
+            ("put" code nil nil [243499 243543])
+            ("helm-scroll-other-window-down" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [243545 243836])
+            ("put" code nil nil [243837 243886])
+            ("helm-recenter-top-bottom-other-window" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [243888 244227])
+            ("put" code nil nil [244228 244285])
+            ("helm-reposition-window-other-window" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [244287 244618])
+            ("put" code nil nil [244619 244674])
+            ("helm-clear-visible-mark" function nil nil [244704 244898])
+            ("helm-this-visible-mark" function nil nil [244900 245042])
+            ("helm-delete-visible-mark" function (:arguments ("overlay")) nil [245044 245389])
+            ("helm-make-visible-mark" function (:arguments ("src" "selection")) nil [245391 246351])
+            ("helm-toggle-visible-mark" function (:user-visible-flag t) nil [246353 246904])
+            ("put" code nil nil [246905 246949])
+            ("helm-file-completion-source-p" function (:arguments ("source")) nil [246951 247356])
+            ("helm-mark-all" function
+               (:user-visible-flag t
+                :arguments ("all"))
+                nil [247358 248271])
+            ("put" code nil nil [248272 248305])
+            ("helm-mark-all-1" function (:arguments ("ensure-beg-of-source")) nil [248307 251428])
+            ("helm-unmark-all" function (:user-visible-flag t) nil [251430 251768])
+            ("put" code nil nil [251769 251804])
+            ("helm-toggle-all-marks" function
+               (:user-visible-flag t
+                :arguments ("all"))
+                nil [251806 252313])
+            ("put" code nil nil [252314 252355])
+            ("helm--compute-marked" function (:arguments ("real" "source" "wildcard")) nil [252357 253142])
+            ("cl-defun" code nil nil [253144 254473])
+            ("helm--remove-marked-and-update-mode-line" function (:arguments ("elm")) nil [254475 254735])
+            ("helm-current-source-name=" function (:arguments ("name")) nil [254737 254889])
+            ("helm-revive-visible-mark" function nil nil [254891 256435])
+            ("add-hook" code nil nil [256436 256496])
+            ("helm-next-point-in-list" function (:arguments ("curpos" "points" "prev")) nil [256498 257156])
+            ("helm-next-visible-mark" function
+               (:user-visible-flag t
+                :arguments ("prev"))
+                nil [257158 257572])
+            ("put" code nil nil [257573 257615])
+            ("helm-prev-visible-mark" function (:user-visible-flag t) nil [257617 257756])
+            ("put" code nil nil [257757 257799])
+            ("helm-yank-selection" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [257833 258141])
+            ("put" code nil nil [258142 258181])
+            ("helm-kill-selection-and-quit" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [258183 258843])
+            ("put" code nil nil [258844 258892])
+            ("helm-copy-to-buffer" function (:user-visible-flag t) nil [258894 259347])
+            ("put" code nil nil [259348 259387])
+            ("helm-follow-input-idle-delay" variable nil nil [259455 259666])
+            ("helm-follow-mode" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [259668 263703])
+            ("put" code nil nil [263704 263740])
+            ("helm-follow-execute-persistent-action-maybe" function (:arguments ("delay")) nil [263742 264998])
+            ("helm-follow-mode-p" function (:arguments ("source")) nil [265000 265135])
+            ("helm-follow-mode-set-source" function (:arguments ("value" "source")) nil [265137 265289])
+            ("helm--autoresize-hook" function (:arguments ("max-height" "min-height")) nil [265316 265745])
+            ("define-minor-mode" code nil nil [265747 266417])
+            ("helm-help" function (:user-visible-flag t) nil [266419 267264])
+            ("put" code nil nil [267265 267294])
+            ("helm-toggle-truncate-line" function (:user-visible-flag t) nil [267296 267601])
+            ("put" code nil nil [267602 267647])
+            ("helm" package nil nil [267649 267664]))          
+      :file "helm.el"
+      :pointmax 267800
+      :fsize 267799
+      :lastmodtime '(23227 37266 588700 755000)
+      :unmatched-syntax nil)
+    (semanticdb-table "helm-lib.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [992 1009])
+            ("wdired" include nil nil [1029 1046])
+            ("declare-function" code nil nil [1049 1094])
+            ("declare-function" code nil nil [1095 1146])
+            ("declare-function" code nil nil [1147 1194])
+            ("declare-function" code nil nil [1195 1233])
+            ("declare-function" code nil nil [1234 1275])
+            ("declare-function" code nil nil [1276 1321])
+            ("declare-function" code nil nil [1322 1361])
+            ("helm-current-position" variable nil nil [1362 1392])
+            ("wdired-old-marks" variable nil nil [1393 1418])
+            ("helm-file-globstar" variable (:default-value t) nil [1439 1661])
+            ("helm-yank-text-at-point-function" variable nil nil [1663 2056])
+            ("helm-scroll-amount" variable nil nil [2058 2327])
+            ("helm-help-full-frame" variable (:default-value t) nil [2329 2622])
+            ("helm-yank-point" variable nil nil [2647 2675])
+            ("helm-pattern" variable nil nil [2676 2754])
+            ("helm-buffer" variable (:default-value "*helm*") nil [2755 2816])
+            ("helm-current-buffer" variable nil nil [2817 2892])
+            ("helm-suspend-update-flag" variable nil nil [2893 2930])
+            ("helm-action-buffer" variable (:default-value "*helm action*") nil [2931 3002])
+            ("helm-add-face-text-properties" function (:arguments ("beg" "end" "face" "append" "object")) nil [3027 3513])
+            ("helm--advice-wdired-finish-edit" function nil nil [3694 7265])
+            ("helm--advice-wdired-get-filename" function (:arguments ("no-dir" "old")) nil [7792 9139])
+            ("helm--advice-push-mark" function (:arguments ("location" "nomsg" "activate")) nil [9288 10685])
+            ("helm-advice-push-mark" variable (:default-value t) nil [10687 11030])
+            ("helm-with-gensyms" function (:arguments ("symbols" "body")) nil [11055 11634])
+            ("helm-this-command" function nil nil [11664 12570])
+            ("cl-defmacro" code nil nil [12591 13243])
+            ("helm-iter-list" function (:arguments ("seq")) nil [13245 13420])
+            ("helm-iter-circular" function (:arguments ("seq")) nil [13422 13624])
+            ("cl-defun" code nil nil [13626 13960])
+            ("helm-iter-next" function (:arguments ("iterator")) nil [13962 14064])
+            ("helm-aif" function (:arguments ("test-form" "then-form" "else-forms")) nil [14093 14419])
+            ("helm-awhile" function (:arguments ("sexp" "body")) nil [14421 14908])
+            ("helm-acond" function (:arguments ("clauses")) nil [14910 15537])
+            ("helm-aand" function (:arguments ("conditions")) nil [15539 15814])
+            ("helm--mapconcat-pattern" function (:arguments ("pattern")) nil [15848 16647])
+            ("helm--collect-pairs-in-string" function (:arguments ("string")) nil [16649 16829])
+            ("helm-help-internal" function (:arguments ("bufname" "insert-content-fn")) nil [16854 17619])
+            ("helm-help-scroll-up" function (:arguments ("amount")) nil [17621 17768])
+            ("helm-help-scroll-down" function (:arguments ("amount")) nil [17770 17921])
+            ("helm-help-next-line" function nil nil [17923 18070])
+            ("helm-help-previous-line" function nil nil [18072 18227])
+            ("helm-help-toggle-mark" function nil nil [18229 18338])
+            ("helm-help-event-loop" function nil nil [18472 20161])
+            ("helm-multiline-transformer" function (:arguments ("candidates" "_source")) nil [20194 20544])
+            ("helm--multiline-get-truncated-candidate" function (:arguments ("candidate" "offset")) nil [20546 21148])
+            ("helm-flatten-list" function (:arguments ("seq" "omit-nulls")) nil [21174 21897])
+            ("helm-mklist" function (:arguments ("obj")) nil [21899 22092])
+            ("cl-defun" code nil nil [22094 22663])
+            ("helm--string-join" function (:arguments ("strings" "separator")) nil [22665 22803])
+            ("helm--concat-regexps" function (:arguments ("regexp-list")) nil [22805 23023])
+            ("helm-skip-entries" function (:arguments ("seq" "black-regexp-list" "white-regexp-list")) nil [23066 23570])
+            ("helm-boring-directory-p" function (:arguments ("directory" "black-list")) nil [23572 24028])
+            ("helm-shadow-entries" function (:arguments ("seq" "regexp-list")) nil [24030 24422])
+            ("helm-remove-if-not-match" function (:arguments ("regexp" "seq")) nil [24424 24809])
+            ("helm-remove-if-match" function (:arguments ("regexp" "seq")) nil [24811 25188])
+            ("helm-transform-mapcar" function (:arguments ("function" "args")) nil [25190 25704])
+            ("helm-append-at-nth" function (:arguments ("seq" "elm" "index")) nil [25706 26120])
+            ("helm-source-by-name" function (:arguments ("name" "sources")) nil [26122 26845])
+            ("helm-make-actions" function (:arguments ("args")) nil [26847 27282])
+            ("helm-stringify" function (:arguments ("elm")) nil [27312 27537])
+            ("helm-substring" function (:arguments ("str" "width")) nil [27539 27813])
+            ("helm-substring-by-width" function (:arguments ("str" "width" "endstr")) nil [27815 28296])
+            ("helm-string-multibyte-p" function (:arguments ("str")) nil [28298 28456])
+            ("helm-get-pid-from-process-name" function (:arguments ("process-name")) nil [28458 28797])
+            ("helm-ff-find-printers" function nil nil [28799 29237])
+            ("helm-region-active-p" function nil nil [29239 29330])
+            ("helm-quote-whitespace" function (:arguments ("candidate")) nil [29332 29476])
+            ("helm-current-line-contents" function nil nil [29478 29624])
+            ("helm--replace-regexp-in-buffer-string" function (:arguments ("regexp" "rep" "str" "fixedcase" "literal" "subexp" "start")) nil [29626 31189])
+            ("helm-symbolify" function (:arguments ("str-or-sym")) nil [31216 31350])
+            ("helm-symbol-name" function (:arguments ("obj")) nil [31352 31507])
+            ("helm-describe-function" function (:arguments ("func")) nil [31509 31674])
+            ("helm-describe-variable" function (:arguments ("var")) nil [31676 31838])
+            ("helm-describe-face" function (:arguments ("face")) nil [31840 32142])
+            ("helm-elisp--persistent-help" function (:arguments ("candidate" "fun" "name")) nil [32144 33368])
+            ("helm-find-function" function (:arguments ("func")) nil [33370 33473])
+            ("helm-find-variable" function (:arguments ("var")) nil [33475 33575])
+            ("helm-find-face-definition" function (:arguments ("face")) nil [33577 33694])
+            ("helm-kill-new" function (:arguments ("candidate" "replace")) nil [33696 33867])
+            ("helm-same-major-mode-p" function (:arguments ("start-buffer" "alist")) nil [33884 35710])
+            ("helm-file-name-sans-extension" function (:arguments ("filename")) nil [35735 36085])
+            ("helm-basename" function (:arguments ("fname" "ext")) nil [36087 36845])
+            ("helm-basedir" function (:arguments ("fname")) nil [36847 37096])
+            ("helm-current-directory" function nil nil [37098 37346])
+            ("helm-shadow-boring-files" function (:arguments ("files")) nil [37348 37557])
+            ("helm-skip-boring-files" function (:arguments ("files")) nil [37559 37716])
+            ("helm-skip-current-file" function (:arguments ("files")) nil [37718 37846])
+            ("helm-w32-pathname-transformer" function (:arguments ("args")) nil [37848 38232])
+            ("helm-w32-prepare-filename" function (:arguments ("file")) nil [38234 38513])
+            ("helm-w32-shell-execute-open-file" function (:arguments ("file")) nil [38515 38647])
+            ("helm-walk-ignore-directories" variable (:default-value (quote ("SCCS/" "RCS/" "CVS/" "MCVS/" ".svn/" ".git/" ".hg/" ".bzr/" "_MTN/" "_darcs/" "{arch}/" ".gvfs/"))) nil [38691 38835])
+            ("helm--dir-file-name" function (:arguments ("file" "dir")) nil [38837 38944])
+            ("helm--dir-name-p" function (:arguments ("str")) nil [38946 39026])
+            ("cl-defun" code nil nil [39028 41548])
+            ("helm-file-expand-wildcards" function (:arguments ("pattern" "full")) nil [41550 42436])
+            ("helm-set-pattern" function (:arguments ("pattern" "noupdate")) nil [42461 42796])
+            ("helm-minibuffer-completion-contents" function nil nil [42798 43004])
+            ("with-helm-buffer" function (:arguments ("body")) nil [43006 43170])
+            ("with-helm-current-buffer" function (:arguments ("body")) nil [43172 43540])
+            ("helm-buffer-get" function nil nil [43542 43703])
+            ("helm-window" function nil nil [43705 43798])
+            ("helm-action-window" function nil nil [43800 43915])
+            ("with-helm-window" function (:arguments ("body")) nil [43917 44090])
+            ("helm-yank-text-at-point" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [44123 45361])
+            ("put" code nil nil [45362 45405])
+            ("helm-undo-yank-text-at-point" function (:user-visible-flag t) nil [45407 45549])
+            ("put" code nil nil [45550 45598])
+            ("helm-reset-yank-point" function nil nil [45600 45661])
+            ("add-hook" code nil nil [45663 45715])
+            ("add-hook" code nil nil [45716 45777])
+            ("helm--ansi-color-regexp" variable (:default-value "\\[\\(K\\|[0-9;]*m\\)") nil [45794 45856])
+            ("helm--ansi-color-drop-regexp" variable (:default-value "\\[\\([ABCDsuK]\\|[12][JK]\\|=[0-9]+[hI]\\|[0-9;]*[Hf]\\)") nil [45857 45960])
+            ("helm--ansi-color-apply" function (:arguments ("string")) nil [45961 47788])
+            ("helm-lib" package nil nil [47790 47809]))          
+      :file "helm-lib.el"
+      :pointmax 47946
+      :fsize 47945
+      :lastmodtime '(23227 37266 588700 755000)
+      :unmatched-syntax '((close-paren 1046 . 1047) (symbol 1011 . 1028) (open-paren 1010 . 1011)))
+    (semanticdb-table "helm-multi-match.el"
+      :file "helm-multi-match.el"
+      :fsize 13550
+      :lastmodtime '(23227 37266 588700 755000))
+    (semanticdb-table "helm-source.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [1239 1256])
+            ("eieio" include nil nil [1257 1273])
+            ("helm-lib" include nil nil [1274 1293])
+            ("helm-fuzzy-sort-fn" variable nil nil [1295 1322])
+            ("helm-fuzzy-match-fn" variable nil nil [1323 1351])
+            ("helm-fuzzy-search-fn" variable nil nil [1352 1381])
+            ("declare-function" code nil nil [1383 1442])
+            ("declare-function" code nil nil [1443 1492])
+            ("declare-function" code nil nil [1493 1550])
+            ("helm--setup-source" function nil nil [1554 1666])
+            ("helm-setup-user-source" function nil nil [1668 1776])
+            ("helm-source" type
+               (:members 
+                  ( ("name" variable
+                       (:documentation "  The name of the source.
+  A string which is also the heading which appears
+  above the list of matches from the source. Must be unique."
+                        :default-value "nil")
+                        nil nil)
+                    ("header-name" variable
+                       (:documentation "  A function returning the display string of the header.
+  Its argument is the name of the source. This attribute is useful to
+  add an additional information with the source name.
+  It doesn't modify the name of the source."
+                        :default-value "nil")
+                        nil nil)
+                    ("init" variable
+                       (:documentation "  Function called with no parameters when helm is started.
+  It is useful for collecting current state information which can be
+  used to create the list of candidates later.
+  Initialization of `candidates-in-buffer' is done here
+  with `helm-init-candidates-in-buffer'."
+                        :default-value "nil")
+                        nil nil)
+                    ("candidates" variable
+                       (:documentation "  Specifies how to retrieve candidates from the source.
+  It can either be a variable name, a function called with no parameters
+  or the actual list of candidates.
+
+  The list must be a list whose members are strings, symbols
+  or (DISPLAY . REAL) pairs.
+
+  In case of (DISPLAY . REAL) pairs, the DISPLAY string is shown
+  in the Helm buffer, but the REAL one is used as action
+  argument when the candidate is selected. This allows a more
+  readable presentation for candidates which would otherwise be,
+  for example, too long or have a common part shared with other
+  candidates which can be safely replaced with an abbreviated
+  string for display purposes.
+
+  Note that if the (DISPLAY . REAL) form is used then pattern
+  matching is done on the displayed string, not on the real
+  value."
+                        :default-value "nil")
+                        nil nil)
+                    ("update" variable
+                       (:documentation "  Function called with no parameters at before \"init\" function
+  when `helm-force-update' is called."
+                        :default-value "nil")
+                        nil nil)
+                    ("cleanup" variable
+                       (:documentation "  Function called with no parameters when *helm* buffer is
+  closed. It is useful for killing unneeded candidates buffer.
+
+  Note that the function is executed BEFORE performing action."
+                        :default-value "nil")
+                        nil nil)
+                    ("keymap" variable
+                       (:documentation "  Specific keymap for this source.
+  default value is `helm-map'."
+                        :default-value "helm-map")
+                        nil nil)
+                    ("action" variable
+                       (:documentation "  An alist of (DISPLAY . FUNCTION) pairs, a variable name  or a function.
+  FUNCTION is called with one parameter: the selected candidate.
+
+  An action other than the default can be chosen from this list
+  of actions for the currently selected candidate (by default
+  with TAB). The DISPLAY string is shown in the completions
+  buffer and the FUNCTION is invoked when an action is
+  selected. The first action of the list is the default.
+
+  You should use `helm-make-actions' to build this alist easily."
+                        :default-value "(quote identity)")
+                        nil nil)
+                    ("persistent-action" variable
+                       (:documentation "  Can be a either a Function called with one parameter (the
+  selected candidate) or a cons cell where first element is this
+  same function and second element a symbol (e.g never-split)
+  that inform `helm-execute-persistent-action'to not split his
+  window to execute this persistent action."
+                        :default-value "nil")
+                        nil nil)
+                    ("persistent-help" variable
+                       (:documentation "  A string to explain persistent-action of this source. It also
+  accepts a function or a variable name.
+  It will be displayed in `header-line'.
+  Have no effect when `helm-echo-input-in-header-line' is non--nil."
+                        :default-value "nil")
+                        nil nil)
+                    ("help-message" variable
+                       (:documentation "  Help message for this source.
+  If not present, `helm-help-message' value will be used."
+                        :default-value "nil")
+                        nil nil)
+                    ("multiline" variable
+                       (:documentation "  Allow multiline candidates.
+  When non-nil candidates will be separated by `helm-candidate-separator'.
+  You can customize the color of this separator with `helm-separator' face.
+  Value of multiline can be an integer which specify the maximum size of the
+  multiline string to display, if multiline string is longer than this value
+  it will be truncated."
+                        :default-value "nil")
+                        nil nil)
+                    ("requires-pattern" variable
+                       (:documentation "  If present matches from the source are shown only if the
+  pattern is not empty. Optionally, it can have an integer
+  parameter specifying the required length of input which is
+  useful in case of sources with lots of candidates."
+                        :default-value "nil")
+                        nil nil)
+                    ("candidate-transformer" variable
+                       (:documentation "  It's a function or a list of functions called with one argument
+  when the completion list from the source is built. The argument
+  is the list of candidates retrieved from the source. The
+  function should return a transformed list of candidates which
+  will be used for the actual completion.  If it is a list of
+  functions, it calls each function sequentially.
+
+  This can be used to transform or remove items from the list of
+  candidates.
+
+  Note that `candidates' is run already, so the given transformer
+  function should also be able to handle candidates with (DISPLAY
+  . REAL) format."
+                        :default-value "nil")
+                        nil nil)
+                    ("filtered-candidate-transformer" variable
+                       (:documentation "  It has the same format as `candidate-transformer', except the
+  function is called with two parameters: the candidate list and
+  the source.
+
+  This transformer is run on the candidate list which is already
+  filtered by the current pattern. While `candidate-transformer'
+  is run only once, it is run every time the input pattern is
+  changed.
+
+  It can be used to transform the candidate list dynamically, for
+  example, based on the current pattern.
+
+  In some cases it may also be more efficent to perform candidate
+  transformation here, instead of with `candidate-transformer'
+  even if this transformation is done every time the pattern is
+  changed.  For example, if a candidate set is very large then
+  `candidate-transformer' transforms every candidate while only
+  some of them will actually be displayed due to the limit
+  imposed by `helm-candidate-number-limit'.
+
+  Note that `candidates' and `candidate-transformer' is run
+  already, so the given transformer function should also be able
+  to handle candidates with (DISPLAY . REAL) format."
+                        :default-value "nil")
+                        nil nil)
+                    ("filter-one-by-one" variable
+                       (:documentation "  A transformer function that treat candidates one by one.
+  It is called with one arg the candidate.
+  It is faster than `filtered-candidate-transformer' or
+  `candidate-transformer', but should be used only in sources
+  that recompute constantly their candidates, e.g `helm-source-find-files'.
+  Filtering happen early and candidates are treated
+  one by one instead of re-looping on the whole list.
+  If used with `filtered-candidate-transformer' or `candidate-transformer'
+  these functions should treat the candidates transformed by the
+  `filter-one-by-one' function in consequence."
+                        :default-value "nil")
+                        nil nil)
+                    ("display-to-real" variable
+                       (:documentation "  Transform the selected candidate when passing it to action.
+
+  Function called with one parameter, the selected candidate.
+
+  Avoid recomputing all candidates with candidate-transformer
+  or filtered-candidate-transformer to give a new value to REAL,
+  instead the selected candidate is transformed only when passing it
+  to action.
+
+  Note that this is NOT a transformer,
+  so the display will not be modified by this function."
+                        :default-value "nil")
+                        nil nil)
+                    ("real-to-display" variable
+                       (:documentation "  Recompute all candidates computed previously with other transformers.
+
+  Function called with one parameter, the selected candidate.
+
+  The real value of candidates will be shown in display.
+  Note: This have nothing to do with display-to-real.
+  It is unuseful as the same can be performed by using more than
+  one function in transformers, it is kept only for backward compatibility."
+                        :default-value "nil")
+                        nil nil)
+                    ("action-transformer" variable
+                       (:documentation "  It's a function or a list of functions called with two
+  arguments when the action list from the source is
+  assembled. The first argument is the list of actions, the
+  second is the current selection.  If it is a list of functions,
+  it calls each function sequentially.
+
+  The function should return a transformed action list.
+
+  This can be used to customize the list of actions based on the
+  currently selected candidate."
+                        :default-value "nil")
+                        nil nil)
+                    ("pattern-transformer" variable
+                       (:documentation "  It's a function or a list of functions called with one argument
+  before computing matches. Its argument is `helm-pattern'.
+  Functions should return transformed `helm-pattern'.
+
+  It is useful to change interpretation of `helm-pattern'."
+                        :default-value "nil")
+                        nil nil)
+                    ("candidate-number-limit" variable
+                       (:documentation "  Override `helm-candidate-number-limit' only for this source."
+                        :default-value "nil")
+                        nil nil)
+                    ("volatile" variable
+                       (:documentation "  Indicates the source assembles the candidate list dynamically,
+  so it shouldn't be cached within a single Helm
+  invocation. It is only applicable to synchronous sources,
+  because asynchronous sources are not cached."
+                        :default-value "nil")
+                        nil nil)
+                    ("match" variable
+                       (:documentation "  List of functions called with one parameter: a candidate. The
+  function should return non-nil if the candidate matches the
+  current pattern (see variable `helm-pattern').
+
+  When using `candidates-in-buffer' its default value is `identity' and
+  don't have to be changed, use the `search' slot instead.
+
+  This attribute allows the source to override the default
+  pattern matching based on `string-match'. It can be used, for
+  example, to implement a source for file names and do the
+  pattern matching on the basename of files, since it's more
+  likely one is typing part of the basename when searching for a
+  file, instead of some string anywhere else in its path.
+
+  If the list contains more than one function then the list of
+  matching candidates from the source is constructed by appending
+  the results after invoking the first function on all the
+  potential candidates, then the next function, and so on. The
+  matching candidates supplied by the first function appear first
+  in the list of results and then results from the other
+  functions, respectively.
+
+  This attribute has no effect for asynchronous sources (see
+  attribute `candidates'), since they perform pattern matching
+  themselves.
+
+  Note that FUZZY-MATCH slot will overhide value of this slot."
+                        :default-value "nil")
+                        nil nil)
+                    ("fuzzy-match" variable
+                       (:documentation "  Enable fuzzy matching in this source.
+  This will overwrite settings in MATCH slot, and for
+  sources built with child class `helm-source-in-buffer' the SEARCH slot.
+  This is an easy way of enabling fuzzy matching, but you can use the MATCH
+  or SEARCH slots yourself if you want something more elaborated, mixing
+  different type of match (See `helm-source-buffers' class for example).
+
+  This attribute is not supported for asynchronous sources
+  since they perform pattern matching themselves."
+                        :default-value "nil")
+                        nil nil)
+                    ("redisplay" variable
+                       (:documentation "  A function or a list of functions to apply to current list
+  of candidates when redisplaying buffer with `helm-redisplay-buffer'.
+  This is only interesting for modifying and redisplaying the whole list
+  of candidates in async sources.
+  It uses `identity' by default for when async sources are mixed with
+  normal sources, in this case these normal sources are not modified and
+  redisplayed as they are."
+                        :default-value "(quote identity)")
+                        nil nil)
+                    ("nomark" variable
+                       (:documentation "  Don't allow marking candidates when this attribute is present."
+                        :default-value "nil")
+                        nil nil)
+                    ("nohighlight" variable
+                       (:documentation "  Disable highlighting matches in this source.
+  This will disable generic highlighting of matches,
+  but some specialized highlighting can be done from elsewhere,
+  i.e from `filtered-candidate-transformer' or `filter-one-by-one' slots.
+  So use this to either disable completely highlighting in your source,
+  or to disable highlighting and use a specialized highlighting matches
+  function for this source.
+  Remember that this function should run AFTER all filter functions if those
+  filter functions are modifying face properties, though it is possible to
+  avoid this by using new `add-face-text-property' in your filter functions."
+                        :default-value "nil")
+                        nil nil)
+                    ("allow-dups" variable
+                       (:documentation "  Allow helm collecting duplicates candidates."
+                        :default-value "nil")
+                        nil nil)
+                    ("history" variable
+                       (:documentation "  Allow passing history variable to helm from source.
+  It should be a quoted symbol.
+  Passing the history variable here have no effect
+  so add it also in the `helm' call with the :history keyword.
+  The main point of adding the variable here
+  is to make it available when resuming."
+                        :default-value "nil")
+                        nil nil)
+                    ("coerce" variable
+                       (:documentation "  It's a function called with one argument: the selected candidate.
+  This function is intended for type convertion. In normal case,
+  the selected candidate (string) is passed to action
+  function. If coerce function is specified, it is called just
+  before action function.
+
+  Example: converting string to symbol
+    (coerce . intern)"
+                        :default-value "nil")
+                        nil nil)
+                    ("mode-line" variable
+                       (:documentation "  Source local `helm-mode-line-string' (included in
+  `mode-line-format'). It accepts also variable/function name."
+                        :default-value "nil")
+                        nil nil)
+                    ("header-line" variable
+                       (:documentation "  Source local `header-line-format'.
+  Have no effect when `helm-echo-input-in-header-line' is non--nil.
+  It accepts also variable/function name."
+                        :default-value "nil")
+                        nil nil)
+                    ("resume" variable
+                       (:documentation "  Function called with no parameters at end of initialization
+  when `helm-resume' is started.
+  If this function try to do something against `helm-buffer', (e.g updating,
+  searching etc...) probably you should run it in a timer to ensure
+  `helm-buffer' is ready."
+                        :default-value "nil")
+                        nil nil)
+                    ("follow" variable
+                       (:documentation "  Enable `helm-follow-mode' for this source only.
+With a value of 1 enable, a value of -1 or nil disable the mode.
+  See `helm-follow-mode' for more infos."
+                        :default-value "nil")
+                        nil nil)
+                    ("follow-delay" variable
+                       (:documentation "  `helm-follow-mode' will execute persistent-action after this delay.
+  Otherwise value of `helm-follow-input-idle-delay' is used if non--nil,
+  If none of these are found fallback to `helm-input-idle-delay'."
+                        :default-value "nil")
+                        nil nil)
+                    ("multimatch" variable
+                       (:documentation "  Use the multi-match algorithm when non-nil.
+  I.e Allow specifying multiple patterns separated by spaces.
+  When a pattern is prefixed by \"!\" the negation of this pattern is used,
+  i.e match anything but this pattern.
+  It is the standard way of matching in helm and is enabled by default.
+  It can be used with fuzzy-matching enabled, but as soon helm detect a space,
+  each pattern will match by regexp and will not be fuzzy."
+                        :default-value "t")
+                        nil nil)
+                    ("match-part" variable
+                       (:documentation "  Allow matching only one part of candidate.
+  If source contain match-part attribute, match is computed only
+  on part of candidate returned by the call of function provided
+  by this attribute. The function should have one arg, candidate,
+  and return only a specific part of candidate.
+  On async sources, as matching is done by the backend, this have
+  no effect apart for highlighting matches."
+                        :default-value "nil")
+                        nil nil)
+                    ("before-init-hook" variable
+                       (:documentation "  A local hook that run at beginning of initilization of this source.
+  i.e Before the creation of `helm-buffer'.
+
+  Should be a variable (defined with defvar).
+  Can be also an anonymous function or a list of functions
+  directly added to slot, this is not recommended though."
+                        :default-value "nil")
+                        nil nil)
+                    ("after-init-hook" variable
+                       (:documentation "  A local hook that run at end of initilization of this source.
+  i.e After the creation of `helm-buffer'.
+
+  Should be a variable.
+  Can be also an anonymous function or a list of functions
+  directly added to slot, this is not recommended though."
+                        :default-value "nil")
+                        nil nil)
+                    ("delayed" variable
+                       (:documentation "  This slot have no more effect and is just kept for backward compatibility.
+  Please don't use it."
+                        :default-value "nil")
+                        nil nil)
+                    ("group" variable
+                       (:documentation "  The current source group, default to `helm' when not specified."
+                        :default-value "helm")
+                        nil nil))                  
+                :type "class")
+                nil [1810 20048])
+            ("helm-source-sync" type
+               (:superclasses "helm-source"
+                :members 
+                  ( ("candidates" variable (:default-value "(quote (\"ERROR: You must specify the `candidates' slot, either with a list or a function\"))") nil nil)
+                    ("migemo" variable
+                       (:documentation "  Enable migemo.
+  When multimatch is disabled, you can give the symbol 'nomultimatch as value
+  to force not using generic migemo matching function.
+  In this case you have to provide your own migemo matching funtion
+  that kick in when `helm-migemo-mode' is enabled.
+  Otherwise it will be available for this source once `helm-migemo-mode'
+  is enabled when non-nil."
+                        :default-value "nil")
+                        nil nil)
+                    ("match-strict" variable
+                       (:documentation "  When specifying a match function within a source and
+  helm-multi-match is enabled, the result of all matching
+  functions will be concatened, which in some cases is not what
+  is wanted. When using `match-strict' only this or these
+  functions will be used. You can specify those functions as a
+  list of functions or a single symbol function.
+
+  NOTE: This have the same effect as using :MULTIMATCH nil."
+                        :default-value "nil")
+                        nil nil))                  
+                :type "class")
+                nil [20050 21434])
+            ("helm-source-async" type
+               (:superclasses "helm-source"
+                :members 
+                  ( ("candidates-process" variable
+                       (:documentation "  This attribute is used to define a process as candidate.
+  The value must be a process.
+
+  NOTE:
+  When building the source at runtime you can give directly a process
+  as value, otherwise wrap the process call into a function.
+  The process buffer should be nil, otherwise, if you use
+  `helm-buffer' give to the process a sentinel."
+                        :default-value "nil")
+                        nil nil)
+                    ("multimatch" variable (:default-value "nil") nil nil))                  
+                :type "class")
+                nil [21436 22141])
+            ("helm-source-in-buffer" type
+               (:superclasses "helm-source"
+                :members 
+                  ( ("init" variable (:default-value "(quote helm-default-init-source-in-buffer-function)") nil nil)
+                    ("data" variable
+                       (:documentation "  A string, a list or a buffer that will be used to feed the `helm-candidates-buffer'.
+  This data will be passed in a function added to the init slot and
+  the buffer will be build with `helm-init-candidates-in-buffer' or directly
+  with `helm-candidates-buffer' if data is a buffer.
+  This is an easy and fast method to build a `candidates-in-buffer' source."
+                        :default-value "nil")
+                        nil nil)
+                    ("migemo" variable
+                       (:documentation "  Enable migemo.
+  When multimatch is disabled, you can give the symbol 'nomultimatch as value
+  to force not using generic migemo matching function.
+  In this case you have to provide your own migemo matching funtion
+  that kick in when `helm-migemo-mode' is enabled.
+  Otherwise it will be available for this source once `helm-migemo-mode'
+  is enabled when non-nil."
+                        :default-value "nil")
+                        nil nil)
+                    ("candidates" variable (:default-value "(quote helm-candidates-in-buffer)") nil nil)
+                    ("volatile" variable (:default-value "t") nil nil)
+                    ("match" variable (:default-value "(quote (identity))") nil nil)
+                    ("get-line" variable
+                       (:documentation "  A function like `buffer-substring-no-properties' or `buffer-substring'.
+  This function converts region from point at line-beginning and point
+  at line-end in the `helm-candidate-buffer' to a string which will be displayed
+  in the `helm-buffer', it takes two args BEG and END.
+  By default, `helm-candidates-in-buffer' uses
+  `buffer-substring-no-properties' which does no conversion and doesn't carry
+  text properties."
+                        :default-value "(quote buffer-substring-no-properties)")
+                        nil nil)
+                    ("search" variable
+                       (:documentation "  List of functions like `re-search-forward' or `search-forward'.
+  Buffer search function used by `helm-candidates-in-buffer'.
+  By default, `helm-candidates-in-buffer' uses `re-search-forward'.
+  The function should take one arg PATTERN.
+  If your search function needs to handle negation like multimatch,
+  this function should returns in such case a cons cell of two integers defining
+  the beg and end positions to match in the line previously matched by
+  `re-search-forward' or similar, and move point to next line
+  (See how the `helm-mm-3-search-base' and `helm-fuzzy-search' functions are working).
+
+  NOTE: FUZZY-MATCH slot will overhide value of this slot."
+                        :default-value "(quote (helm-candidates-in-buffer-search-default-fn))")
+                        nil nil)
+                    ("search-strict" variable
+                       (:documentation "  When specifying a search function within a source and
+  helm-multi-match is enabled, the result of all searching
+  functions will be concatened, which in some cases is not what
+  is wanted. When using `search-strict' only this or these
+  functions will be used. You can specify those functions as a
+  list of functions or a single symbol function.
+
+  NOTE: This have the same effect as using a nil value for
+        :MULTIMATCH slot."
+                        :default-value "nil")
+                        nil nil))                  
+                :type "class")
+                nil [22143 25875])
+            ("helm-source-dummy" type
+               (:superclasses "helm-source"
+                :members 
+                  ( ("candidates" variable (:default-value "(quote (\"dummy\"))") nil nil)
+                    ("filtered-candidate-transformer" variable (:default-value "(lambda (_candidates _source) (list helm-pattern))") nil nil)
+                    ("multimatch" variable (:default-value "nil") nil nil)
+                    ("accept-empty" variable
+                       (:documentation "  Allow exiting with an empty string.
+  You should keep the default value."
+                        :default-value "t")
+                        nil nil)
+                    ("match" variable (:default-value "(quote identity)") nil nil)
+                    ("volatile" variable (:default-value "t") nil nil))                  
+                :type "class")
+                nil [25877 26347])
+            ("helm-source-in-file" type
+               (:superclasses "helm-source-in-buffer"
+                :members 
+                  ( ("init" variable (:default-value "(lambda nil (let ((file (helm-attr (quote candidates-file))) (count 1)) (with-current-buffer (helm-candidate-buffer (quote global)) (insert-file-contents file) (goto-char (point-min)) (while (not (eobp)) (add-text-properties (point-at-bol) (point-at-eol) (\\` (helm-linum (\\, count)))) (cl-incf count) (forward-line 1)))))") nil nil)
+                    ("get-line" variable (:default-value "(function buffer-substring)") nil nil)
+                    ("candidates-file" variable
+                       (:documentation "  A filename.
+  Each line number of FILE is accessible with helm-linum property
+  from candidate display part."
+                        :default-value "nil")
+                        nil nil))                  
+                :type "class")
+                nil [26349 27341])
+            ("helm-default-init-source-in-buffer-function" function nil nil [27371 27561])
+            ("helm--create-source" function (:arguments ("object")) nil [27603 27912])
+            ("helm-make-source" function (:arguments ("name" "class" "args")) nil [27914 28481])
+            ("helm-make-type" function (:arguments ("class" "args")) nil [28483 28684])
+            ("helm-mm-default-search-functions" variable nil nil [28686 28727])
+            ("helm-mm-default-match-functions" variable nil nil [28728 28768])
+            ("helm-source-mm-get-search-or-match-fns" function (:arguments ("source" "method")) nil [28770 30288])
+            ("cl-defun" code nil nil [30309 31554])
+            ("helm-source--persistent-help-string" function (:arguments ("string" "source")) nil [31594 31847])
+            ("helm-source--header-line" function (:arguments ("source")) nil [31849 33229])
+            ("helm--setup-source" function
+               (:parent "helm-source"
+                :arguments ("_source"))
+                nil [33231 33294])
+            ("helm--setup-source" function
+               (:parent "helm-source"
+                :arguments ("source"))
+                nil [33296 34859])
+            ("helm-setup-user-source" function
+               (:parent "helm-source"
+                :arguments ("_source"))
+                nil [34861 34919])
+            ("helm--setup-source" function
+               (:parent "helm-source-sync"
+                :arguments ("source"))
+                nil [34921 35713])
+            ("helm--setup-source" function
+               (:parent "helm-source-in-buffer"
+                :arguments ("source"))
+                nil [35715 37467])
+            ("helm--setup-source" function
+               (:parent "helm-source-async"
+                :arguments ("source"))
+                nil [37469 37897])
+            ("helm--setup-source" function
+               (:parent "helm-source-dummy"
+                :arguments ("source"))
+                nil [37899 38484])
+            ("helm-build-sync-source" function (:arguments ("name" "args")) nil [38522 38756])
+            ("helm-build-async-source" function (:arguments ("name" "args")) nil [38758 38996])
+            ("helm-build-in-buffer-source" function (:arguments ("name" "args")) nil [38998 39271])
+            ("helm-build-dummy-source" function (:arguments ("name" "args")) nil [39273 39519])
+            ("helm-build-in-file-source" function (:arguments ("name" "file" "args")) nil [39521 39908])
+            ("helm-source" package nil nil [39911 39933]))          
+      :file "helm-source.el"
+      :pointmax 40073
+      :fsize 40072
+      :lastmodtime '(23227 37266 588700 755000)
+      :unmatched-syntax nil))
+  :file "!home!c0urage!dotfiles!.emacs.d!elpa!helm-core-20171103.2225!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

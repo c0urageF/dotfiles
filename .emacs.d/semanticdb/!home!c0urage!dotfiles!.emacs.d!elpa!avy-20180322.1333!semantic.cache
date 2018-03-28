@@ -1,0 +1,16 @@
+;; Object avy-20180322.1333/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "avy-20180322.1333/"
+  :tables
+  (list
+    (semanticdb-table "avy-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "avy-autoloads.el"
+      :pointmax 279
+      :fsize 7642
+      :lastmodtime '(23227 42227 365642 808000)
+      :unmatched-syntax nil))
+  :file "!home!c0urage!dotfiles!.emacs.d!elpa!avy-20180322.1333!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

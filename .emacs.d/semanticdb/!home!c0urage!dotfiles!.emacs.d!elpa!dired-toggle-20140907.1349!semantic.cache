@@ -1,0 +1,16 @@
+;; Object dired-toggle-20140907.1349/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "dired-toggle-20140907.1349/"
+  :tables
+  (list
+    (semanticdb-table "dired-toggle-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "dired-toggle-autoloads.el"
+      :pointmax 297
+      :fsize 550
+      :lastmodtime '(23227 43226 143432 780000)
+      :unmatched-syntax nil))
+  :file "!home!c0urage!dotfiles!.emacs.d!elpa!dired-toggle-20140907.1349!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

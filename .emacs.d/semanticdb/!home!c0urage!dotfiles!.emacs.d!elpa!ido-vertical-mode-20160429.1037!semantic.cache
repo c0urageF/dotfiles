@@ -1,0 +1,16 @@
+;; Object ido-vertical-mode-20160429.1037/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "ido-vertical-mode-20160429.1037/"
+  :tables
+  (list
+    (semanticdb-table "ido-vertical-mode-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "ido-vertical-mode-autoloads.el"
+      :pointmax 307
+      :fsize 954
+      :lastmodtime '(23227 45376 649195 28000)
+      :unmatched-syntax nil))
+  :file "!home!c0urage!dotfiles!.emacs.d!elpa!ido-vertical-mode-20160429.1037!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

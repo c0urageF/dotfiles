@@ -1,0 +1,16 @@
+;; Object ccc-20151205.543/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "ccc-20151205.543/"
+  :tables
+  (list
+    (semanticdb-table "ccc-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "ccc-autoloads.el"
+      :pointmax 279
+      :fsize 532
+      :lastmodtime '(23227 39562 784668 96000)
+      :unmatched-syntax nil))
+  :file "!home!c0urage!dotfiles!.emacs.d!elpa!ccc-20151205.543!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

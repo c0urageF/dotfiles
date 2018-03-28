@@ -1,0 +1,176 @@
+;; Object language/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "language/"
+  :tables
+  (list
+    (semanticdb-table "ind-util.el.gz"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("indian-tml-itrans-v5-hash" variable (:default-value (indian-make-hash indian-tml-base-table indian-itrans-v5-table-for-tamil)) nil [18222 18337])
+            ("indian-mlm-itrans-v5-hash" variable (:default-value (indian-make-hash indian-mlm-base-table indian-itrans-v5-table)) nil [18115 18220])
+            ("indian-knd-itrans-v5-hash" variable (:default-value (indian-make-hash indian-knd-base-table indian-itrans-v5-table)) nil [18008 18113])
+            ("indian-tlg-itrans-v5-hash" variable (:default-value (indian-make-hash indian-tlg-base-table indian-itrans-v5-table)) nil [17901 18006])
+            ("indian-asm-itrans-v5-hash" variable (:default-value (indian-make-hash indian-asm-base-table indian-itrans-v5-table)) nil [17794 17899])
+            ("indian-bng-itrans-v5-hash" variable (:default-value (indian-make-hash indian-bng-base-table indian-itrans-v5-table)) nil [17687 17792])
+            ("indian-ori-itrans-v5-hash" variable (:default-value (indian-make-hash indian-ori-base-table indian-itrans-v5-table)) nil [17580 17685])
+            ("indian-gjr-itrans-v5-hash" variable (:default-value (indian-make-hash indian-gjr-base-table indian-itrans-v5-table)) nil [17473 17578])
+            ("indian-pnj-itrans-v5-hash" variable (:default-value (indian-make-hash indian-pnj-base-table indian-itrans-v5-table)) nil [17366 17471])
+            ("indian-dev-aiba-hash" variable (:default-value (indian-make-hash indian-dev-base-table indian-aiba-table)) nil [17269 17364])
+            ("indian-dev-kyoto-harvard-hash" variable (:default-value (indian-make-hash indian-dev-base-table indian-kyoto-harvard-table)) nil [17155 17268])
+            ("indian-dev-itrans-v5-hash" variable (:default-value (indian-make-hash indian-dev-base-table indian-itrans-v5-table)) nil [17049 17154])
+            ("indian-make-hash" function (:arguments ("table" "trans-table")) nil [16133 17047])
+            ("indian--puthash-cv" function (:arguments ("c" "trans-c" "v" "trans-v" "hashtbls")) nil [15557 16131])
+            ("indian--puthash-m" function (:arguments ("m" "trans-m" "hashtbls")) nil [15409 15555])
+            ("indian--puthash-c" function (:arguments ("c" "trans-c" "halant" "hashtbls")) nil [15185 15407])
+            ("indian--puthash-v" function (:arguments ("v" "trans-v" "hashtbls")) nil [15031 15183])
+            ("indian--map" function (:arguments ("f" "l1" "l2")) nil [14953 15029])
+            ("indian--puthash-char" function (:arguments ("char" "trans-char" "hashtbls")) nil [14393 14951])
+            ("combinatorial" function (:arguments ("head" "tail")) nil [14193 14391])
+            ("indian-aiba-table" variable (:default-value (quote (("a" "aa" "i" "ii" "u" "uu" ".r" ".l" nil nil "e" "ai" nil nil "o" "au" "~r" "~l") ("k" "kh" "g" "gh" "^n" "c" "ch" "j" "jh" "~n" ".t" ".th" ".d" ".dh" ".n" "t" "th" "d" "dh" "n" nil "p" "ph" "b" "bh" "m" "y" "r" nil "l" nil nil "v" "^s" ".s" "s" "h" nil nil nil nil nil nil nil nil nil nil) (nil ".m" ".h" "'" nil "." nil)))) nil [13618 14191])
+            ("indian-tokyo-table" variable (:default-value (quote (("a" ("A" "aa") "i" ("I" "ii") "u" ("U" "uu") "R" ("L" "lR") nil nil "e" "ai" nil nil "o" "au" ("Q" "RR" "q") ("E" "LL" "lRR")) ("k" "kh" "g" "gh" "G" "c" "ch" "j" "jh" "J" "T" "Th" "D" "Dh" "N" "t" "th" "d" "dh" "n" nil "p" "ph" "b" "bh" "m" "y" "r" nil "l" "L" nil "v" ("Z" "z") "S" "s" "h" nil nil nil nil nil nil nil nil nil nil) (nil "M" "H" "'" nil "." nil)))) nil [12990 13616])
+            ("indian-harvard-table" variable (:default-value (quote (("a" ("A" "aa") "i" ("I" "ii") "u" ("U" "uu") "R" ("L" "lR") nil nil "e" "ai" nil nil "o" "au" ("RR" "q" "Q") ("LL" "E" "lRR")) ("k" "kh" "g" "gh" "G" "c" "ch" "j" "jh" "J" "T" "Th" "D" "Dh" "N" "t" "th" "d" "dh" "n" nil "p" "ph" "b" "bh" "m" "y" "r" nil "l" "L" nil "v" ("z" "Z") "S" "s" "h" nil nil nil nil nil nil nil nil nil nil) (nil "M" "H" "'" nil "." nil)))) nil [12360 12988])
+            ("indian-kyoto-harvard-table" variable (:default-value (quote (("a" ("A" "aa") "i" ("I" "ii") "u" ("U" "uu") "R" ("L" "lR") nil nil "e" "ai" nil nil "o" "au" ("q" "RR" "Q") ("E" "LL" "lRR")) ("k" "kh" "g" "gh" "G" "c" "ch" "j" "jh" "J" "T" "Th" "D" "Dh" "N" "t" "th" "d" "dh" "n" nil "p" "ph" "b" "bh" "m" "y" "r" nil "l" "L" nil "v" ("z" "Z") "S" "s" "h" nil nil nil nil nil nil nil nil nil nil) (nil "M" "H" "'" nil "." nil)))) nil [11724 12358])
+            ("indian-itrans-v5-table-for-tamil" variable (:default-value (quote (("a" ("aa" "A") "i" ("ii" "I") "u" ("uu" "U") ("RRi" "R^i") ("LLi" "L^i") (".c" "e.c") "E" "e" "ai" "o.c" "O" "o" "au" ("RRI" "R^I") ("LLI" "L^I")) ("k" "kh" "g" "gh" ("~N" "N^") "ch" ("Ch" "chh") "j" "jh" ("~n" "JN") "T" "Th" "D" "Dh" "N" "t" "th" "d" "dh" "n" "nh" "p" "ph" "b" "bh" "m" "y" "r" "rh" "l" ("L" "ld") ("J" "z") ("v" "w") "sh" ("Sh" "shh") "s" "h" "q" "K" "G" nil ".D" ".Dh" "f" ("Y" "yh") ("GY" "dny") "x") (".N" (".n" "M") "H" ".a" ".h" ("AUM" "OM") "..")))) nil [11016 11722])
+            ("indian-itrans-v5-table" variable (:default-value (quote (("a" ("aa" "A") "i" ("ii" "I") "u" ("uu" "U") ("RRi" "R^i") ("LLi" "L^i") (".c" "e.c") "E" "e" "ai" "o.c" "O" "o" "au" ("RRI" "R^I") ("LLI" "L^I")) ("k" "kh" "g" "gh" ("~N" "N^") "ch" ("Ch" "chh") "j" "jh" ("~n" "JN") "T" "Th" "D" "Dh" "N" "t" "th" "d" "dh" "n" "nh" "p" "ph" "b" "bh" "m" "y" "r" "rh" "l" ("L" "ld") nil ("v" "w") "sh" ("Sh" "shh") "s" "h" "q" "K" "G" ("J" "z") ".D" ".Dh" "f" ("Y" "yh") ("GY" "dny") "x") (".N" (".n" "M") "H" ".a" ".h" ("AUM" "OM") "..")))) nil [10318 11014])
+            ("indian-base-table-to-language-alist" variable (:default-value (quote ((indian-dev-base-table . "Devanagari") (indian-pnj-base-table . "Punjabi") (indian-ori-base-table . "Oriya") (indian-bng-base-table . "Bengali") (indian-asm-base-table . "Assamese") (indian-tlg-base-table . "Telugu") (indian-knd-base-table . "Kannada") (indian-mlm-base-table . "Malayalam") (indian-tml-base-table . "Tamil")))) nil [9910 10316])
+            ("indian-tml-base-table" variable (:default-value (quote (((2949 nil) (2950 3006) (2951 3007) (2952 3008) (2953 3009) (2954 3010) nil nil nil (2959 3015) (2958 3014) (2960 3016) nil (2963 3019) (2962 3018) (2964 3020) nil nil) (2965 nil nil nil 2969 2970 nil 2972 nil 2974 2975 nil nil nil 2979 2980 nil nil nil 2984 2985 2986 nil nil nil 2990 2991 2992 2993 2994 2995 2996 2997 nil 2999 3000 3001 nil nil nil nil nil nil nil nil "%Gà®œà¯à®%@" "%Gà®•à¯à®·%@") (nil 2946 2947 nil 3021 nil nil) (3046 3047 3048 3049 3050 3051 3052 3053 3054 3055) ("%Gà¯à®°%@" "%Gà®°à¯%@" "%Gà®¤à¯à®°%@" nil nil)))) nil [9098 9908])
+            ("indian-mlm-base-table" variable (:default-value (quote (((3333 nil) (3334 3390) (3335 3391) (3336 3392) (3337 3393) (3338 3394) (3339 3395) (3340 nil) nil (3343 3399) (3342 3398) (3344 3400) nil (3347 3403) (3346 3402) (3348 3404) nil nil) (3349 3350 3351 3352 3353 3354 3355 3356 3357 3358 3359 3360 3361 3362 3363 3364 3365 3366 3367 3368 nil 3370 3371 3372 3373 3374 3375 3376 3377 3378 3379 3380 3381 3382 3383 3384 3385 nil nil nil nil nil nil nil nil "%Gà´œàµà´%@" "%Gà´•àµà´·%@") (nil 3330 3331 nil 3405 nil nil) (3430 3431 3432 3433 3434 3435 3436 3437 3438 3439) ("%Gàµà´°%@" "%Gà´°àµ%@" "%Gà´¤àµà´°%@" "%Gà´¶àµà´°%@" nil)))) nil [8289 9096])
+            ("indian-knd-base-table" variable (:default-value (quote (((3205 nil) (3206 3262) (3207 3263) (3208 3264) (3209 3265) (3210 3266) (3211 3267) (3212 nil) nil (3215 3271) (3214 3270) (3216 3272) nil (3219 3275) (3218 3274) (3220 3276) (3296 3268) (3297 nil)) (3221 3222 3223 3224 3225 3226 3227 3228 3229 3230 3231 3232 3233 3234 3235 3236 3237 3238 3239 3240 nil 3242 3243 3244 3245 3246 3247 3248 3249 3250 3251 nil 3253 3254 3255 3256 3257 nil nil nil nil nil nil 3294 nil "%Gà²œà³à²%@" "%Gà²•à³à²·%@") (nil 3202 3203 nil 3277 nil nil) (3302 3303 3304 3305 3306 3307 3308 3309 3310 3311) ("%Gà³à²°%@" "%Gà²°à³%@" "%Gà²¤à³à²°%@" "%Gà²¶à³à²°%@" nil)))) nil [7471 8287])
+            ("indian-tlg-base-table" variable (:default-value (quote (((3077 nil) (3078 3134) (3079 3135) (3080 3136) (3081 3137) (3082 3138) (3083 3139) (3084 nil) nil (3087 3143) (3086 3142) (3088 3144) nil (3091 3147) (3090 3146) (3092 3148) (3168 3140) (3169 nil)) (3093 3094 3095 3096 3097 3098 3099 3100 3101 3102 3103 3104 3105 3106 3107 3108 3109 3110 3111 3112 nil 3114 3115 3116 3117 3118 3119 3120 3121 3122 3123 nil 3125 3126 3127 3128 3129 nil nil nil nil nil nil nil nil "%Gà°œà±à°%@" "%Gà°•à±à°·%@") (3073 3074 3075 nil 3149 nil nil) (3174 3175 3176 3177 3178 3179 3180 3181 3182 3183) ("%Gà±à°°%@" "%Gà°°à±%@" "%Gà°¤à±à°°%@" "%Gà°¶à±à°°%@" nil)))) nil [6653 7469])
+            ("indian-asm-base-table" variable (:default-value (quote (((2437 nil) (2438 2494) (2439 2495) (2440 2496) (2441 2497) (2442 2498) (2443 2499) (2444 2530) nil nil (2447 2503) (2448 2504) nil nil (2451 2507) (2452 2508) (2528 2500) (2529 2531)) (2453 2454 2455 2456 2457 2458 2459 2460 2461 2462 2463 2464 2465 2466 2467 2468 2469 2470 2471 2472 nil 2474 2475 2476 2477 2478 2479 2544 nil 2482 nil nil 2545 2486 2487 2488 2489 nil nil nil nil 2524 2525 nil 2527 "%Gà¦œà§à¦%@" "%Gà¦•à§à¦·%@") (2433 2434 2435 nil 2509 nil nil) (2534 2535 2536 2537 2538 2539 2540 2541 2542 2543) ("%Gà§à§°%@" "%Gà§°à§%@" "%Gà¦¤à§à§°%@" "%Gà¦¶à§à§°%@" "%Gà¦¼%@")))) nil [5846 6651])
+            ("indian-bng-base-table" variable (:default-value (quote (((2437 nil) (2438 2494) (2439 2495) (2440 2496) (2441 2497) (2442 2498) (2443 2499) (2444 2530) nil nil (2447 2503) (2448 2504) nil nil (2451 2507) (2452 2508) (2528 2500) (2529 2531)) (2453 2454 2455 2456 2457 2458 2459 2460 2461 2462 2463 2464 2465 2466 2467 2468 2469 2470 2471 2472 nil 2474 2475 2476 2477 2478 2479 2480 nil 2482 nil nil nil 2486 2487 2488 2489 nil nil nil nil 2524 2525 nil 2527 "%Gà¦œà§à¦%@" "%Gà¦•à§à¦·%@") (2433 2434 2435 nil 2509 nil nil) (2534 2535 2536 2537 2538 2539 2540 2541 2542 2543) ("%Gà§à¦°%@" "%Gà¦°à§%@" "%Gà¦¤à§à¦°%@" "%Gà¦¶à§à¦°%@" "%Gà¦¼%@")))) nil [5038 5844])
+            ("indian-ori-base-table" variable (:default-value (quote (((2821 nil) (2822 2878) (2823 2879) (2824 2880) (2825 2881) (2826 2882) (2827 2883) (2828 nil) nil nil (2831 2887) (2832 2888) nil nil (2835 2891) (2836 2892) (2912 nil) (2913 nil)) (2837 2838 2839 2840 2841 2842 2843 2844 2845 2846 2847 2848 2849 2850 2851 2852 2853 2854 2855 2856 nil 2858 2859 2860 2861 2862 2863 2864 nil 2866 2867 nil nil 2870 2871 2872 2873 nil nil nil nil 2908 2909 nil 2911 "%Gà¬œà­à¬%@" "%Gà¬•à­à¬·%@") (2817 2818 2819 2877 2893 nil nil) (2918 2919 2920 2921 2922 2923 2924 2925 2926 2927) ("%Gà­à¬°%@" "%Gà¬°à­%@" "%Gà¬¤à­à¬°%@" "%Gà¬¶à­à¬°%@" "%Gà¬¼%@")))) nil [4229 5036])
+            ("indian-gjr-base-table" variable (:default-value (quote (((2693 nil) (2694 2750) (2695 2751) (2696 2752) (2697 2753) (2698 2754) (2699 2755) nil (2701 2757) nil (2703 2759) (2704 2760) (2705 2761) nil (2707 2763) (2708 2764) (2784 2756) nil) (2709 2710 2711 2712 2713 2714 2715 2716 2717 2718 2719 2720 2721 2722 2723 2724 2725 2726 2727 2728 nil 2730 2731 2732 2733 2734 2735 2736 nil 2738 2739 nil 2741 2742 2743 2744 2745 nil nil nil nil nil nil nil nil "%Gàªœà«àª%@" "%Gàª•à«àª·%@") (2689 2690 2691 2749 2765 2768 nil) (2790 2791 2792 2793 2794 2795 2796 2797 2798 2799) ("%Gà«àª°%@" "%Gàª°à«%@" "%Gàª¤à«àª°%@" "%Gàª¶à«àª°%@" "%Gàª¼%@")))) nil [3418 4227])
+            ("indian-pnj-base-table" variable (:default-value (quote (((2565 nil) (2566 2622) (2567 2623) (2568 2624) (2569 2625) (2570 2626) nil nil nil nil (2575 2631) (2576 2632) nil nil (2579 2635) (2580 2636) nil nil) (2581 2582 2583 2584 2585 2586 2587 2588 2589 2590 2591 2592 2593 2594 2595 2596 2597 2598 2599 2600 nil 2602 2603 2604 2605 2606 2607 2608 nil 2610 2611 nil 2613 2614 nil 2616 2617 nil 2649 2650 2651 2652 nil 2654 nil "%Gà¨œà©à¨%@" nil) (nil 2562 nil nil 2637 nil nil) (2662 2663 2664 2665 2666 2667 2668 2669 2670 2671) ("%Gà©à¨°%@" "%Gà¨°à©%@" "%Gà¨¤à©à¨°%@" "%Gà¨¶à©à¨°%@" "%Gà¨¼%@")))) nil [2607 3416])
+            ("indian-dev-base-table" variable (:default-value (quote (((2309 nil) (2310 2366) (2311 2367) (2312 2368) (2313 2369) (2314 2370) (2315 2371) (2316 2402) (2317 2373) (2318 2374) (2319 2375) (2320 2376) (2321 2377) (2322 2378) (2323 2379) (2324 2380) (2400 2372) (2401 2403)) (2325 2326 2327 2328 2329 2330 2331 2332 2333 2334 2335 2336 2337 2338 2339 2340 2341 2342 2343 2344 2345 2346 2347 2348 2349 2350 2351 2352 2353 2354 2355 2356 2357 2358 2359 2360 2361 2392 2393 2394 2395 2396 2397 2398 2399 "%Gà¤œà¥à¤%@" "%Gà¤•à¥à¤·%@") (2305 2306 2307 2365 2381 2384 2404) (2406 2407 2408 2409 2410 2411 2412 2413 2414 2415) ("%Gà¥à¤°%@" "%Gà¤°à¥%@" "%Gà¤¤à¥à¤°%@" "%Gà¤¶à¥à¤°%@" "%Gà¤¼%@")))) nil [1703 2567])
+            ("indian-regexp-of-hashtbl-keys" function (:arguments ("hashtbl")) nil [1506 1701])
+            ("indian-translate-region" function (:arguments ("from" "to" "hashtable" "encode-p")) nil [18341 18843])
+            ("indian-dev-itrans-v5-encode-region" function (:arguments ("from" "to")) nil [18850 18989])
+            ("indian-dev-itrans-v5-decode-region" function (:arguments ("from" "to")) nil [18991 19132])
+            ("indian-dev-kyoto-harvard-encode-region" function (:arguments ("from" "to")) nil [19134 19281])
+            ("indian-dev-kyoto-harvard-decode-region" function (:arguments ("from" "to")) nil [19283 19432])
+            ("indian-dev-aiba-encode-region" function (:arguments ("from" "to")) nil [19434 19563])
+            ("indian-dev-aiba-decode-region" function (:arguments ("from" "to")) nil [19565 19696])
+            ("let" code nil nil [19797 23399])
+            ("is13194-default-repertory" variable (:default-value (quote devanagari)) nil [23401 23447])
+            ("is13194-repertory-to-ucs-script" variable (:default-value (\` ((DEF 64 (\, is13194-default-repertory)) (RMN 65 (\, is13194-default-repertory)) (DEV 66 devanagari) (BNG 67 bengali) (TML 68 tamil) (TLG 69 telugu) (ASM 70 bengali) (ORI 71 oriya) (KND 72 kannada) (MLM 73 malayalam) (GJR 74 gujarati) (PNJ 75 gurmukhi)))) nil [23449 23818])
+            ("is13194-to-ucs-devanagari-hashtbl" variable nil nil [23859 23905])
+            ("is13194-to-ucs-devanagari-regexp" variable nil nil [23906 23951])
+            ("is13194-to-ucs-bengali-hashtbl" variable nil nil [23952 23995])
+            ("is13194-to-ucs-bengali-regexp" variable nil nil [23996 24038])
+            ("is13194-to-ucs-assamese-hashtbl" variable nil nil [24039 24083])
+            ("is13194-to-ucs-assamese-regexp" variable nil nil [24084 24127])
+            ("is13194-to-ucs-gurmukhi-hashtbl" variable nil nil [24128 24172])
+            ("is13194-to-ucs-gurmukhi-regexp" variable nil nil [24173 24216])
+            ("is13194-to-ucs-gujarati-hashtbl" variable nil nil [24217 24261])
+            ("is13194-to-ucs-gujarati-regexp" variable nil nil [24262 24305])
+            ("is13194-to-ucs-oriya-hashtbl" variable nil nil [24306 24347])
+            ("is13194-to-ucs-oriya-regexp" variable nil nil [24348 24388])
+            ("is13194-to-ucs-tamil-hashtbl" variable nil nil [24389 24430])
+            ("is13194-to-ucs-tamil-regexp" variable nil nil [24431 24471])
+            ("is13194-to-ucs-telugu-hashtbl" variable nil nil [24472 24514])
+            ("is13194-to-ucs-telugu-regexp" variable nil nil [24515 24556])
+            ("is13194-to-ucs-malayalam-hashtbl" variable nil nil [24557 24602])
+            ("is13194-to-ucs-malayalam-regexp" variable nil nil [24603 24647])
+            ("is13194-to-ucs-kannada-hashtbl" variable nil nil [24648 24691])
+            ("is13194-to-ucs-kannada-regexp" variable nil nil [24692 24734])
+            ("ucs-to-is13194-regexp" variable (:default-value (concat "[" (char-to-string 2304) "-" (char-to-string 2431) "]")) nil [24736 24924])
+            ("ucs-to-iscii-region" function
+               (:user-visible-flag t
+                :arguments ("from" "to"))
+                nil [24926 25448])
+            ("iscii-to-ucs-region" function
+               (:user-visible-flag t
+                :arguments ("from" "to"))
+                nil [25450 26213])
+            ("indian-compose-region" function
+               (:user-visible-flag t
+                :arguments ("from" "to"))
+                nil [26230 26727])
+            ("indian-compose-string" function (:arguments ("string")) nil [26744 26895])
+            ("in-is13194-post-read-conversion" function (:arguments ("len")) nil [26912 27063])
+            ("in-is13194-pre-write-conversion" function (:arguments ("from" "to")) nil [27080 27352])
+            ("indian-2-colum-to-ucs" variable
+               (:constant-flag t
+                :default-value (quote (("%Gö„€€%@" . "%Gà¤%@") ("%Gö„€%@" . "%Gà¤‚%@") ("%Gö„€‚%@" . "%Gà¤ƒ%@") ("%Gö„€ƒ%@" . "%Gà¤…%@") ("%Gö„€„%@" . "%Gà¤†%@") ("%Gö„€…%@" . "%Gà¤‡%@") ("%Gö„€†%@" . "%Gà¤ˆ%@") ("%Gö„€‡%@" . "%Gà¤‰%@") ("%Gö„€ˆ%@" . "%Gà¤Š%@") ("%Gö„€‰%@" . "%Gà¤‹%@") ("%Gö„€‰ö„‚­%@" . "%Gà¤°à¥ƒ%@") ("%Gö„€Š%@" . "%Gà¤%@") ("%Gö„€‹%@" . "%Gà¤%@") ("%Gö„€Œ%@" . "%Gà¤%@") ("%Gö„€%@" . "%Gà¤%@") ("%Gö„€%@" . "%Gà¤’%@") ("%Gö„€%@" . "%Gà¤“%@") ("%Gö„€%@" . "%Gà¤”%@") ("%Gö„€‘%@" . "%Gà¤‘%@") ("%Gö„€’%@" . "%Gà¤•%@") ("%Gö„€“%@" . "%Gà¤–%@") ("%Gö„€”%@" . "%Gà¤—%@") ("%Gö„€•%@" . "%Gà¤˜%@") ("%Gö„€–%@" . "%Gà¤™%@") ("%Gö„€—%@" . "%Gà¤š%@") ("%Gö„€˜%@" . "%Gà¤›%@") ("%Gö„€™%@" . "%Gà¤œ%@") ("%Gö„€š%@" . "%Gà¤%@") ("%Gö„€›%@" . "%Gà¤%@") ("%Gö„€œ%@" . "%Gà¤Ÿ%@") ("%Gö„€%@" . "%Gà¤ %@") ("%Gö„€%@" . "%Gà¤¡%@") ("%Gö„€Ÿ%@" . "%Gà¤¢%@") ("%Gö„€ %@" . "%Gà¤£%@") ("%Gö„€¡%@" . "%Gà¤¤%@") ("%Gö„€¢%@" . "%Gà¤¥%@") ("%Gö„€£%@" . "%Gà¤¦%@") ("%Gö„€¤%@" . "%Gà¤§%@") ("%Gö„€¥%@" . "%Gà¤¨%@") ("%Gö„€¦%@" . "%Gà¤©%@") ("%Gö„€§%@" . "%Gà¤ª%@") ("%Gö„€¨%@" . "%Gà¤«%@") ("%Gö„€©%@" . "%Gà¤¬%@") ("%Gö„€ª%@" . "%Gà¤­%@") ("%Gö„€«%@" . "%Gà¤®%@") ("%Gö„€¬%@" . "%Gà¤¯%@") ("%Gö„€­%@" . "%Gà¥Ÿ%@") ("%Gö„€®%@" . "%Gà¤°%@") ("%Gö„€¯%@" . "%Gà¤±%@") ("%Gö„€°%@" . "%Gà¤²%@") ("%Gö„€±%@" . "%Gà¤³%@") ("%Gö„€²%@" . "%Gà¤´%@") ("%Gö„€³%@" . "%Gà¤µ%@") ("%Gö„€´%@" . "%Gà¤¶%@") ("%Gö„€µ%@" . "%Gà¤·%@") ("%Gö„€¶%@" . "%Gà¤¸%@") ("%Gö„€·%@" . "%Gà¤¹%@") ("%Gö„€¹%@" . "%Gà¤¾%@") ("%Gö„€º%@" . "%Gà¤¿%@") ("%Gö„€»%@" . "%Gà¥€%@") ("%Gö„€¼%@" . "%Gà¥%@") ("%Gö„€½%@" . "%Gà¥‚%@") ("%Gö„€¾%@" . "%Gà¥ƒ%@") ("%Gö„€¿%@" . "%Gà¥†%@") ("%Gö„€%@" . "%Gà¥‡%@") ("%Gö„%@" . "%Gà¥ˆ%@") ("%Gö„‚%@" . "%Gà¥…%@") ("%Gö„ƒ%@" . "%Gà¥Š%@") ("%Gö„„%@" . "%Gà¥‹%@") ("%Gö„…%@" . "%Gà¥Œ%@") ("%Gö„†%@" . "%Gà¥‰%@") ("%Gö„‡%@" . "%Gà¥%@") ("%Gö„ˆ%@" . "%Gà¤¼%@") ("%Gö„‰%@" . "%Gà¥¤%@") ("%Gö„‰ö„‰%@" . "%Gà¥¥%@") ("%Gö„%@" . "%Gà¥¦%@") ("%Gö„‘%@" . "%Gà¥§%@") ("%Gö„’%@" . "%Gà¥¨%@") ("%Gö„“%@" . "%Gà¥©%@") ("%Gö„”%@" . "%Gà¥ª%@") ("%Gö„•%@" . "%Gà¥«%@") ("%Gö„–%@" . "%Gà¥¬%@") ("%Gö„—%@" . "%Gà¥­%@") ("%Gö„˜%@" . "%Gà¥®%@") ("%Gö„™%@" . "%Gà¥¯%@") ("%Gö„%@" . "%Gà¥›à¥à¤°%@") ("%Gö„Ÿ%@" . "%Gà¥à¥à¤°%@") ("%Gö„ %@" . "%Gà¤•à¥à¤°%@") ("%Gö„¡%@" . "%Gà¤—à¥à¤°%@") ("%Gö„¢%@" . "%Gà¤¤à¥à¤°%@") ("%Gö„£%@" . "%Gà¤ªà¥à¤°%@") ("%Gö„¤%@" . "%Gà¤«à¥à¤°%@") ("%Gö„¦%@" . "%Gà¤¶à¥à¤°%@") ("%Gö„©%@" . "%Gà¤°à¥%@") ("%Gö„ª%@" . "%Gà¤°à¥‚%@") ("%Gö„«%@" . "%Gà¤±à¥%@") ("%Gö„¬%@" . "%Gà¤±à¥‚%@") ("%Gö„°%@" . "%Gà¤•à¥%@") ("%Gö„±%@" . "%Gà¤–à¥%@") ("%Gö„²%@" . "%Gà¤—à¥%@") ("%Gö„³%@" . "%Gà¤˜à¥%@") ("%Gö„µ%@" . "%Gà¤šà¥%@") ("%Gö„µö„‚®%@" . "%Gà¤šà¥à¤°à¥%@") ("%Gö„·%@" . "%Gà¤œà¥%@") ("%Gö„¸%@" . "%Gà¤à¥%@") ("%Gö„¹%@" . "%Gà¤à¥%@") ("%Gö„¹%@" . "%Gà¤à¥%@") ("%Gö„¾%@" . "%Gà¤£à¥%@") ("%Gö„¿%@" . "%Gà¤¤à¥%@") ("%Gö„‚€%@" . "%Gà¤¥à¥%@") ("%Gö„‚‚%@" . "%Gà¤§à¥%@") ("%Gö„‚ƒ%@" . "%Gà¤¨à¥%@") ("%Gö„‚„%@" . "%Gà¤©à¥%@") ("%Gö„‚…%@" . "%Gà¤ªà¥%@") ("%Gö„‚†%@" . "%Gà¤«à¥%@") ("%Gö„‚‡%@" . "%Gà¤¬à¥%@") ("%Gö„‚‡%@" . "%Gà¤¬à¥%@") ("%Gö„‚ˆ%@" . "%Gà¤­à¥%@") ("%Gö„‚‰%@" . "%Gà¤®à¥%@") ("%Gö„‚Š%@" . "%Gà¤¯à¥%@") ("%Gö„‚‹%@" . "%Gà¥Ÿà¥%@") ("%Gö„‚%@" . "%Gà¤²à¥%@") ("%Gö„‚%@" . "%Gà¤³à¥%@") ("%Gö„‚%@" . "%Gà¤´à¥%@") ("%Gö„‚‘%@" . "%Gà¤µà¥%@") ("%Gö„‚’%@" . "%Gà¤¶à¥%@") ("%Gö„‚“%@" . "%Gà¤·à¥%@") ("%Gö„‚”%@" . "%Gà¤¸à¥%@") ("%Gö„‚š%@" . "%Gà¥à¤¯%@") ("%Gö„‚%@" . "%Gà¤—à¥à¤°à¥%@") ("%Gö„‚%@" . "%Gà¤˜à¥à¤¨à¥%@") ("%Gö„‚ %@" . "%Gà¤¤à¥à¤¤à¥%@") ("%Gö„‚¡%@" . "%Gà¤¤à¥à¤°à¥%@") ("%Gö„‚¢%@" . "%Gà¤§à¥à¤¨à¥%@") ("%Gö„‚£%@" . "%Gà¤§à¥à¤°à¥%@") ("%Gö„‚¤%@" . "%Gà¤ªà¥à¤¤à¥%@") ("%Gö„‚¥%@" . "%Gà¤¶à¥à¤šà¥%@") ("%Gö„‚¦%@" . "%Gà¤¶à¥à¤°à¥%@") ("%Gö„‚§%@" . "%Gà¤¶à¥à¤µà¥%@") ("%Gö„‚¨%@" . "%Gà¤¨à¥à¤¨à¥%@") ("%Gö„‚©%@" . "%Gà¤•à¥à¤·à¥%@") ("%Gö„‚ª%@" . "%Gà¤œà¥à¤à¥%@") ("%Gö„‚­%@" . "%Gà¤°à¥%@") ("%Gö„‚®%@" . "%Gà¥à¤°%@") ("%Gö„‚¯%@" . "%Gà¥à¤°%@") ("%Gö„‚°%@" . "%Gà¥˜à¥%@") ("%Gö„‚±%@" . "%Gà¥™à¥%@") ("%Gö„‚²%@" . "%Gà¥šà¥%@") ("%Gö„‚¶%@" . "%Gà¥à¥%@") ("%Gö„‚·%@" . "%Gà¥›à¥%@") ("%Gö„‚¼%@" . "%Gà¥%@") ("%Gö„ƒ%@" . "%Gà¤Œ%@") ("%Gö„ƒö„‚­%@" . "%Gà¤°à¥„%@") ("%Gö„ƒ‚%@" . "%Gà¥¡%@") ("%Gö„ƒ‚ö„‚­%@" . "%Gà¤°à¥£%@") ("%Gö„ƒ…%@" . "%Gà¥ %@") ("%Gö„ƒ…ö„‚­%@" . "%Gà¤°à¥¢%@") ("%Gö„ƒ%@" . "%Gà¥˜%@") ("%Gö„ƒ%@" . "%Gà¥™%@") ("%Gö„ƒ%@" . "%Gà¥š%@") ("%Gö„ƒ•%@" . "%Gà¥›%@") ("%Gö„ƒš%@" . "%Gà¥œ%@") ("%Gö„ƒ›%@" . "%Gà¥%@") ("%Gö„ƒ¤%@" . "%Gà¥%@") ("%Gö„ƒ¥%@" . "%Gà¤½%@") ("%Gö„ƒ¦%@" . "%Gà¥„%@") ("%Gö„ƒ§%@" . "%Gà¥¢%@") ("%Gö„ƒ¨%@" . "%Gà¥£%@") ("%Gö„ƒ«%@" . "%Gà¤®à¥à¤¨%@") ("%Gö„ƒ¬%@" . "%Gà¤®à¥à¤²%@") ("%Gö„ƒ­%@" . "%Gà¤¹à¥ƒ%@") ("%Gö„ƒ»%@" . "%Gà¤²à¥à¤²%@") ("%Gö„ƒ¼%@" . "%Gà¤µà¥à¤¨%@") ("%Gö„ƒ½%@" . "%Gà¤µà¥à¤µ%@") ("%Gö„ƒ¾%@" . "%Gà¤¶à¥à¤š%@") ("%Gö„ƒ¿%@" . "%Gà¤¶à¥à¤¨%@") ("%Gö„„€%@" . "%Gà¤¶à¥à¤¬%@") ("%Gö„„%@" . "%Gà¤¶à¥à¤²%@") ("%Gö„„‚%@" . "%Gà¤¶à¥à¤µ%@") ("%Gö„„ƒ%@" . "%Gà¤·à¥à¤Ÿà¥à¤°à¥à¤¯%@") ("%Gö„„„%@" . "%Gà¤·à¥à¤Ÿà¥à¤¯%@") ("%Gö„„…%@" . "%Gà¤·à¥à¤Ÿà¥à¤µ%@") ("%Gö„„†%@" . "%Gà¤·à¥à¤Ÿ%@") ("%Gö„„‡%@" . "%Gà¤·à¥à¤ %@") ("%Gö„„ˆ%@" . "%Gà¤¸à¥à¤¨%@") ("%Gö„„‰%@" . "%Gà¤¸à¥à¤°%@") ("%Gö„„‹%@" . "%Gà¤¹à¥à¤£%@") ("%Gö„„Œ%@" . "%Gà¤¹à¥à¤¨%@") ("%Gö„„%@" . "%Gà¤¹à¥à¤®%@") ("%Gö„„%@" . "%Gà¤¹à¥à¤¯%@") ("%Gö„„%@" . "%Gà¤¹à¥à¤°%@") ("%Gö„„%@" . "%Gà¤¹à¥à¤²%@") ("%Gö„„‘%@" . "%Gà¤¹à¥à¤µ%@") ("%Gö„„š%@" . "%Gà¤•à¥à¤¤à¥à¤°à¥à¤¯%@") ("%Gö„„›%@" . "%Gà¤•à¥à¤¤à¥à¤µ%@") ("%Gö„„œ%@" . "%Gà¤•à¥à¤¤à¥à¤¯%@") ("%Gö„„%@" . "%Gà¤•à¥à¤¨à¥à¤¯%@") ("%Gö„„%@" . "%Gà¤•à¥à¤°à¥à¤¯%@") ("%Gö„„Ÿ%@" . "%Gà¤•à¥à¤µà¥à¤¯%@") ("%Gö„„ %@" . "%Gà¤•à¥à¤•%@") ("%Gö„„¡%@" . "%Gà¤•à¥à¤¤%@") ("%Gö„„¢%@" . "%Gà¤•à¥à¤¨%@") ("%Gö„„£%@" . "%Gà¤•à¥à¤®%@") ("%Gö„„¤%@" . "%Gà¤•à¥à¤¯%@") ("%Gö„„¥%@" . "%Gà¤•à¥à¤²%@") ("%Gö„„¦%@" . "%Gà¤•à¥à¤µ%@") ("%Gö„„§%@" . "%Gà¤•à¥à¤·%@") ("%Gö„„¨%@" . "%Gà¤˜à¥à¤¨%@") ("%Gö„„©%@" . "%Gà¤™à¥à¤•à¥à¤¤à¥à¤¯%@") ("%Gö„„ª%@" . "%Gà¤™à¥à¤•à¥à¤·à¥à¤µ%@") ("%Gö„„«%@" . "%Gà¤™à¥à¤•à¥à¤¤%@") ("%Gö„„¬%@" . "%Gà¤™à¥à¤•à¥à¤·%@") ("%Gö„„­%@" . "%Gà¤™à¥à¤˜à¥à¤°%@") ("%Gö„„®%@" . "%Gà¤™à¥à¤•à¥à¤¯%@") ("%Gö„„¯%@" . "%Gà¤™à¥à¤–à¥à¤¯%@") ("%Gö„„°%@" . "%Gà¤™à¥à¤—à¥à¤¯%@") ("%Gö„„±%@" . "%Gà¤™à¥à¤˜à¥à¤¯%@") ("%Gö„„²%@" . "%Gà¤™à¥à¤•%@") ("%Gö„„³%@" . "%Gà¤™à¥à¤–%@") ("%Gö„„´%@" . "%Gà¤™à¥à¤—%@") ("%Gö„„µ%@" . "%Gà¤™à¥à¤˜%@") ("%Gö„„¶%@" . "%Gà¤™à¥à¤™%@") ("%Gö„„·%@" . "%Gà¤™à¥à¤¨%@") ("%Gö„„¸%@" . "%Gà¤™à¥à¤®%@") ("%Gö„„¹%@" . "%Gà¤™à¥à¤¯%@") ("%Gö„„º%@" . "%Gà¤šà¥à¤š%@") ("%Gö„„»%@" . "%Gà¤šà¥à¤%@") ("%Gö„„¼%@" . "%Gà¤›à¥à¤¯%@") ("%Gö„„½%@" . "%Gà¤œà¥à¤°%@") ("%Gö„„¾%@" . "%Gà¤œà¥à¤%@") ("%Gö„„¿%@" . "%Gà¤à¥à¤š%@") ("%Gö„…€%@" . "%Gà¤à¥à¤œ%@") ("%Gö„…%@" . "%Gà¤Ÿà¥à¤•%@") ("%Gö„…‚%@" . "%Gà¤Ÿà¥à¤Ÿ%@") ("%Gö„…ƒ%@" . "%Gà¤Ÿà¥à¤ %@") ("%Gö„…„%@" . "%Gà¤Ÿà¥à¤¯%@") ("%Gö„……%@" . "%Gà¤ à¥à¤¯%@") ("%Gö„…†%@" . "%Gà¤¡à¥à¤—à¥à¤¯%@") ("%Gö„…‡%@" . "%Gà¤¡à¥à¤˜à¥à¤°%@") ("%Gö„…ˆ%@" . "%Gà¤¡à¥à¤°à¥à¤¯%@") ("%Gö„…‰%@" . "%Gà¤¡à¥à¤—%@") ("%Gö„…Š%@" . "%Gà¤¡à¥à¤˜%@") ("%Gö„…‹%@" . "%Gà¤¡à¥à¤¡%@") ("%Gö„…Œ%@" . "%Gà¤¡à¥à¤®%@") ("%Gö„…%@" . "%Gà¤¡à¥à¤¯%@") ("%Gö„…™%@" . "%Gà¤¢à¥à¤¯%@") ("%Gö„…š%@" . "%Gà¤¤à¥à¤¤%@") ("%Gö„…›%@" . "%Gà¤¤à¥à¤¨%@") ("%Gö„…œ%@" . "%Gà¤¦à¥à¤¦à¥à¤¯%@") ("%Gö„…%@" . "%Gà¤¦à¥à¤§à¥à¤¯%@") ("%Gö„…%@" . "%Gà¤¦à¥à¤­à¥à¤¯%@") ("%Gö„…Ÿ%@" . "%Gà¤¦à¥à¤°à¥à¤¯%@") ("%Gö„… %@" . "%Gà¤¦à¥à¤µà¥à¤¯%@") ("%Gö„…¡%@" . "%Gà¤¦à¥à¤—à¥à¤°%@") ("%Gö„…¢%@" . "%Gà¤¦à¥à¤˜à¥à¤°%@") ("%Gö„…£%@" . "%Gà¤¦à¥à¤¦à¥à¤µ%@") ("%Gö„…¤%@" . "%Gà¤¦à¥à¤§à¥à¤µ%@") ("%Gö„…¥%@" . "%Gà¤¦à¥à¤—%@") ("%Gö„…¦%@" . "%Gà¤¦à¥à¤˜%@") ("%Gö„…§%@" . "%Gà¤¦à¥à¤¦%@") ("%Gö„…¨%@" . "%Gà¤¦à¥à¤§%@") ("%Gö„…©%@" . "%Gà¤¦à¥à¤¨%@") ("%Gö„…ª%@" . "%Gà¤¦à¥à¤¬%@") ("%Gö„…«%@" . "%Gà¤¦à¥à¤­%@") ("%Gö„…¬%@" . "%Gà¤¦à¥à¤®%@") ("%Gö„…­%@" . "%Gà¤¦à¥à¤¯%@") ("%Gö„…®%@" . "%Gà¤¦à¥à¤µ%@") ("%Gö„…¯%@" . "%Gà¤§à¥à¤¨%@") ("%Gö„…°%@" . "%Gà¤¨à¥à¤¨%@") ("%Gö„…±%@" . "%Gà¤ªà¥à¤¤%@") ("%Gö„…²%@" . "%Gà¤ªà¥à¤¨%@") ("%Gö„…³%@" . "%Gà¤ªà¥à¤²%@") ("%Gö„…´%@" . "%Gà¤¬à¥à¤¨%@") ("%Gö„…µ%@" . "%Gà¤¬à¥à¤¬%@") ("%Gö„…¶%@" . "%Gà¤¬à¥à¤µ%@") ("%Gö„…·%@" . "%Gà¤­à¥à¤¨%@"))))
+                nil [27506 33434])
+            ("indian-2-column-to-ucs-regexp" variable
+               (:constant-flag t
+                :default-value "%Gö„‰ö„‰%@\\|%Gö„µö„‚®%@\\|[%Gö„ƒö„ƒ‚ö„€‰ö„ƒ…%@]%Gö„‚­%@\\|[%Gö„€€%@-%Gö„…·%@]")
+                nil [33436 33506])
+            ("put" code nil nil [33508 33573])
+            ("indian-2-column-to-ucs-chartable" variable
+               (:constant-flag t
+                :default-value (let ((table (make-char-table (quote indian-2-column-to-ucs-chartable))) (alist nil)) (dolist (elt indian-2-colum-to-ucs) (if (= (length (car elt)) 1) (aset table (aref (car elt) 0) (cdr elt)) (setq alist (cons elt alist)))) (set-char-table-extra-slot table 0 alist) table))
+                nil [33574 33909])
+            ("indian-2-column-to-ucs-region" function
+               (:user-visible-flag t
+                :arguments ("from" "to"))
+                nil [33926 34655])
+            ("ind-util" package nil nil [34657 34676]))          
+      :file "ind-util.el.gz"
+      :pointmax 34704
+      :fsize 10558
+      :lastmodtime '(21885 55889 0 0)
+      :unmatched-syntax '((close-paren 18338 . 18339) (symbol 1488 . 1504) (open-paren 1487 . 1488)))
+    (semanticdb-table "indian.el.gz"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("define-coding-system" code nil nil [1277 1631])
+            ("define-coding-system-alias" code nil nil [1633 1696])
+            ("set-language-info-alist" code nil nil [1698 1986])
+            ("set-language-info-alist" code nil nil [1988 2288])
+            ("set-language-info-alist" code nil nil [2290 2563])
+            ("set-language-info-alist" code nil nil [2565 2841])
+            ("set-language-info-alist" code nil nil [2843 3147])
+            ("set-language-info-alist" code nil nil [3149 3404])
+            ("set-language-info-alist" code nil nil [3406 3668])
+            ("set-language-info-alist" code nil nil [3670 3996])
+            ("set-language-info-alist" code nil nil [3998 4281])
+            ("indian-compose-regexp" function (:arguments ("regexp" "table")) nil [4410 4601])
+            ("devanagari-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("a" . "[%Gà¤€%@-%Gà¤‚%@]") ("A" . "%Gà¤ƒ%@") ("V" . "[%Gà¤„%@-%Gà¤”à¥ %@-%Gà¥¡à¥²%@]") ("C" . "[%Gà¤•%@-%Gà¤¹à¥˜%@-%Gà¥Ÿà¥¹%@-%Gà¥¿%@]") ("R" . "%Gà¤°%@") ("n" . "%Gà¤¼%@") ("v" . "[%Gà¤¾%@-%Gà¥Œà¥à¥•à¥¢%@-%Gà¥£%@]") ("H" . "%Gà¥%@") ("s" . "[%Gà¥‘%@-%Gà¥’%@]") ("t" . "[%Gà¥“%@-%Gà¥”%@]") ("N" . "%Gâ€Œ%@") ("J" . "%Gâ€%@") ("X" . "[%Gà¤€%@-%Gà¥¿%@]"))))) (indian-compose-regexp (concat "\\(?:RH\\)?Vn?\\(?:J?HR\\)?v*n?a?s?t?A?\\|" "Cn?\\(?:J?HJ?Cn?\\)*\\(?:H[NJ]?\\|v*n?a?s?t?A?\\)\\|" "JHR\\|" "X") table)))
+                nil [4603 5664])
+            ("bengali-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("a" . "%Gà¦%@") ("A" . "[%Gà¦‚%@-%Gà¦ƒ%@]") ("V" . "[%Gà¦…%@-%Gà¦”à§ %@-%Gà§¡%@]") ("C" . "[%Gà¦•%@-%Gà¦¹à§œ%@-%Gà§Ÿà§±%@]") ("B" . "[%Gà¦¬à¦¯%@-%Gà¦°à§°%@]") ("R" . "[%Gà¦°à§°%@]") ("n" . "%Gà¦¼%@") ("v" . "[%Gà¦¾%@-%Gà§Œà§—à§¢%@-%Gà§£%@]") ("H" . "%Gà§%@") ("T" . "%Gà§%@") ("N" . "%Gâ€Œ%@") ("J" . "%Gâ€%@") ("X" . "[%Gà¦€%@-%Gà§¿%@]"))))) (indian-compose-regexp (concat "\\(?:RH\\)?Vn?\\(?:J?HB\\)?v*n?a?A?\\|" "Cn?\\(?:J?HJ?Cn?\\)*\\(?:H[NJ]?\\|v*[NJ]?v?a?A?\\)\\|" "\\(?:RH\\)?T\\|" "JHB\\|" "X") table)))
+                nil [5666 6791])
+            ("gurmukhi-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("a" . "[%Gà¨%@-%Gà¨‚à©°%@]") ("A" . "%Gà¨ƒ%@") ("V" . "[%Gà¨…%@-%Gà¨”%@]") ("C" . "[%Gà¨•%@-%Gà¨¹à©™%@-%Gà©%@]") ("Y" . "[%Gà¨¯%@-u0A30%Gà¨µà¨¹%@]") ("n" . "%Gà¨¼%@") ("v" . "[%Gà¨¾%@-%Gà©Œ%@]") ("H" . "%Gà©%@") ("N" . "%Gâ€Œ%@") ("J" . "%Gâ€%@") ("X" . "[%Gà¨€%@-%Gà©¿%@]"))))) (indian-compose-regexp (concat "Cn?\\(?:J?HJ?Cn?\\)*\\(?:H[NJ]?\\|v*n?a?A?\\)\\|" "Vn?\\(?:J?HY\\)?v*n?a?A?\\|" "JHY\\|" "X") table)))
+                nil [6793 7727])
+            ("gujarati-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("a" . "[%Gàª%@-%Gàª‚%@]") ("A" . "%Gàªƒ%@") ("V" . "[%Gàª…%@-%Gàª”à« %@-%Gà«¡%@]") ("C" . "[%Gàª•%@-%Gàª¹%@]") ("R" . "%Gàª°%@") ("n" . "%Gàª¼%@") ("v" . "[%Gàª¾%@-%Gà«Œà«¢%@-%Gà«£%@]") ("H" . "%Gà«%@") ("N" . "%Gâ€Œ%@") ("J" . "%Gâ€%@") ("X" . "[%Gàª€%@-%Gà«¿%@]"))))) (indian-compose-regexp (concat "\\(?:RH\\)?Vn?\\(?:J?HR\\)?v*n?a?A?\\|" "Cn?\\(?:J?HJ?Cn?\\)*\\(?:H[NJ]?\\|v*n?a?A?\\)\\|" "JHR\\|" "X") table)))
+                nil [7729 8647])
+            ("oriya-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("a" . "%Gà¬%@") ("A" . "[%Gà¬‚%@-%Gà¬ƒ%@]") ("V" . "[%Gà¬…%@-%Gà¬”à­ %@-%Gà­¡%@]") ("C" . "[%Gà¬•%@-%Gà¬¹à­œ%@-%Gà­à­±%@]") ("B" . "[%Gà¬•%@-%Gà¬—à¬›%@-%Gà¬à¬Ÿ%@-%Gà¬¡à¬£%@-%Gà¬¤à¬§%@-%Gà¬°à¬²%@-%Gà¬µà¬¸%@-%Gà¬¹%@]") ("R" . "%Gà¬°%@") ("n" . "%Gà¬¼%@") ("v" . "[%Gà¬¾%@-%Gà­Œà­–%@-%Gà­—à­¢%@-%Gà­£%@]") ("H" . "%Gà­%@") ("N" . "%Gâ€Œ%@") ("J" . "%Gâ€%@") ("X" . "[%Gà¬€%@-%Gà­¿%@]"))))) (indian-compose-regexp (concat "\\(?:RH\\)?Vn?\\(?:J?HB\\)?v*n?a?A?\\|" "Cn?\\(?:J?HJ?Cn?\\)*\\(?:H[NJ]?\\|v*n?a?A?\\)\\|" "JHB\\|" "X") table)))
+                nil [8649 9729])
+            ("tamil-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("a" . "%Gà®‚%@") ("V" . "[%Gà®…%@-%Gà®”%@]") ("C" . "[%Gà®•%@-%Gà®¹%@]") ("v" . "[%Gà®¾%@-%Gà¯Œà¯—%@]") ("H" . "%Gà¯%@") ("N" . "%Gâ€Œ%@") ("J" . "%Gâ€%@") ("X" . "[%Gà®€%@-%Gà¯¿%@]"))))) (indian-compose-regexp (concat "C\\(?:J?HJ?C\\)*\\(?:H[NJ]?\\|v*a?\\)\\|" "Vv*a?\\|" "X") table)))
+                nil [9731 10417])
+            ("telugu-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("a" . "[%Gà°%@-%Gà°ƒ%@]") ("V" . "[%Gà°…%@-%Gà°”à± %@-%Gà±¡%@]") ("C" . "[%Gà°•%@-%Gà°¹à±˜%@-%Gà±™%@]") ("v" . "[%Gà°¾%@-%Gà±Œà±•%@-%Gà±–à±¢%@-%Gà±£%@]") ("H" . "%Gà±%@") ("N" . "%Gâ€Œ%@") ("J" . "%Gâ€%@") ("X" . "[%Gà°€%@-%Gà±¿%@]"))))) (indian-compose-regexp (concat "C\\(?:J?HJ?C\\)*\\(?:H[NJ]?\\|v*a?\\)\\|" "V\\(?:J?HC\\)?v*a?\\|" "JHC\\|" "X") table)))
+                nil [10419 11239])
+            ("kannada-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("A" . "[%Gà²‚%@-%Gà²ƒ%@]") ("V" . "[%Gà²…%@-%Gà²”à³ %@-%Gà³¡%@]") ("C" . "[%Gà²•%@-%Gà²¹à³%@]") ("R" . "%Gà²°%@") ("n" . "%Gà²¼%@") ("v" . "[%Gà²¾%@-%Gà³Œà³•%@-%Gà³–à³¢%@-%Gà³£%@]") ("H" . "%Gà³%@") ("N" . "%Gâ€Œ%@") ("J" . "%Gâ€%@") ("X" . "[%Gà²€%@-%Gà³¿%@]"))))) (indian-compose-regexp (concat "\\(?:RH\\)?Vn?\\(?:J?HC\\)?v?A?\\|" "Cn?\\(?:J?HJ?Cn?\\)*\\(?:H[NJ]?\\|v*n?A?\\)\\|" "JHC\\|" "X") table)))
+                nil [11241 12131])
+            ("malayalam-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("A" . "[%Gà´‚%@-%Gà´ƒ%@]") ("V" . "[%Gà´…%@-%Gà´”àµ %@-%Gàµ¡%@]") ("C" . "[%Gà´•%@-%Gà´¹%@]") ("Y" . "[%Gà´¯%@-%Gà´°à´²à´µ%@]") ("v" . "[%Gà´¾%@-%GàµŒàµ—àµ¢%@-%Gàµ£%@]") ("H" . "%Gàµ%@") ("N" . "%Gâ€Œ%@") ("J" . "%Gâ€%@") ("X" . "[%Gà´€%@-%Gàµ¿%@]"))))) (indian-compose-regexp (concat "C\\(?:J?HJ?C\\)*\\(?:H[NJ]?\\|v?A?\\)\\|" "V\\(?:J?HY\\)?v*?A?\\|" "JHY\\|" "X") table)))
+                nil [12133 13022])
+            ("let" code nil nil [13024 13695])
+            ("indian" package nil nil [13697 13714]))          
+      :file "indian.el.gz"
+      :pointmax 13740
+      :fsize 3284
+      :lastmodtime '(21885 55889 0 0)
+      :unmatched-syntax nil))
+  :file "!usr!share!emacs!24.5!lisp!language!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,554 @@
+;; Object emacs-lisp/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "emacs-lisp/"
+  :tables
+  (list
+    (semanticdb-table "cl.el.gz"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [1047 1064])
+            ("macroexp" include nil nil [1065 1084])
+            ("gv" include nil nil [1085 1098])
+            ("cl-unload-function" function nil nil [3594 3752])
+            ("dolist" code nil nil [3789 4502])
+            ("dolist" code nil nil [4504 9695])
+            ("cl--wrap-in-nil-block" function (:arguments ("fun" "args")) nil [9697 9779])
+            ("advice-add" code nil nil [9780 9832])
+            ("advice-add" code nil nil [9833 9886])
+            ("cl--pass-args-to-cl-declare" function (:arguments ("specs")) nil [9888 9976])
+            ("advice-add" code nil nil [9977 10035])
+            ("cl-closure-vars" variable nil nil [10195 10223])
+            ("cl--function-convert-cache" variable nil nil [10224 10263])
+            ("cl--function-convert" function (:arguments ("f")) nil [10265 12578])
+            ("lexical-let" function (:arguments ("bindings" "body")) nil [12580 14610])
+            ("lexical-let*" function (:arguments ("bindings" "body")) nil [14612 15142])
+            ("flet" function (:arguments ("bindings" "body")) nil [15221 16975])
+            ("labels" function (:arguments ("bindings" "body")) nil [16977 17921])
+            ("cl--gv-adapt" function (:arguments ("cl-gv" "do")) nil [18117 19007])
+            ("define-setf-expander" function (:arguments ("name" "arglist" "body")) nil [19009 19912])
+            ("defsetf" function (:arguments ("name" "arg1" "args")) nil [19914 21529])
+            ("make-obsolete" code nil nil [23443 23495])
+            ("define-modify-macro" function (:arguments ("name" "arglist" "func" "doc")) nil [23497 24256])
+            ("define-obsolete-function-alias" code nil nil [24358 24426])
+            ("define-obsolete-variable-alias" code nil nil [24427 24519])
+            ("define-obsolete-function-alias" code nil nil [24520 24596])
+            ("cl-not-hash-table" function (:arguments ("x" "y" "_z")) nil [24734 24883])
+            ("cl-builtin-gethash" variable (:default-value (symbol-function (quote gethash))) nil [24885 24939])
+            ("make-obsolete-variable" code nil nil [24940 24995])
+            ("cl-builtin-remhash" variable (:default-value (symbol-function (quote remhash))) nil [24996 25050])
+            ("make-obsolete-variable" code nil nil [25051 25106])
+            ("cl-builtin-clrhash" variable (:default-value (symbol-function (quote clrhash))) nil [25107 25161])
+            ("make-obsolete-variable" code nil nil [25162 25217])
+            ("cl-builtin-maphash" variable (:default-value (symbol-function (quote maphash))) nil [25218 25272])
+            ("make-obsolete-variable" code nil nil [25274 25329])
+            ("define-obsolete-function-alias" code nil nil [25330 25396])
+            ("define-obsolete-function-alias" code nil nil [25397 25461])
+            ("define-obsolete-function-alias" code nil nil [25462 25522])
+            ("define-obsolete-function-alias" code nil nil [25523 25583])
+            ("define-obsolete-function-alias" code nil nil [25584 25644])
+            ("define-obsolete-function-alias" code nil nil [25645 25705])
+            ("define-obsolete-function-alias" code nil nil [25706 25766])
+            ("define-obsolete-function-alias" code nil nil [25767 25843])
+            ("define-obsolete-function-alias" code nil nil [25844 25914])
+            ("define-obsolete-function-alias" code nil nil [25915 25993])
+            ("define-obsolete-function-alias" code nil nil [25995 26091])
+            ("define-obsolete-function-alias" code nil nil [26092 26168])
+            ("define-obsolete-function-alias" code nil nil [26169 26242])
+            ("define-obsolete-function-alias" code nil nil [26243 26309])
+            ("cl-maclisp-member" function (:arguments ("item" "list")) nil [26311 26466])
+            ("cl-struct-setf-expander" function (:arguments ("x" "name" "accessor" "pred-form" "pos")) nil [26517 27451])
+            ("cl" package nil nil [27453 27466])
+            ("run-hooks" code nil nil [27468 27493]))          
+      :file "cl.el.gz"
+      :pointmax 27515
+      :fsize 7986
+      :lastmodtime '(21885 55889 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "timer.el.gz"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [1046 1063])
+            ("cl-defstruct" code nil nil [1066 1818])
+            ("timerp" function (:arguments ("object")) nil [1820 1925])
+            ("timer--check" function (:arguments ("timer")) nil [1927 2032])
+            ("timer--time-setter" function (:arguments ("timer" "time")) nil [2034 2468])
+            ("timer--time" function (:arguments ("timer")) nil [2494 2680])
+            ("timer-set-time" function (:arguments ("timer" "time" "delta")) nil [2682 3077])
+            ("timer-set-idle-time" function (:arguments ("timer" "secs" "repeat")) nil [3079 3578])
+            ("timer-next-integral-multiple-of-time" function (:arguments ("time" "secs")) nil [3580 4585])
+            ("timer-relative-time" function (:arguments ("time" "secs" "usecs" "psecs")) nil [4587 5028])
+            ("timer--time-less-p" function (:arguments ("t1" "t2")) nil [5030 5172])
+            ("timer-inc-time" function (:arguments ("timer" "secs" "usecs" "psecs")) nil [5174 5506])
+            ("timer-set-time-with-usecs" function (:arguments ("timer" "time" "usecs" "delta")) nil [5508 6161])
+            ("timer-set-function" function (:arguments ("timer" "function" "args")) nil [6163 6393])
+            ("timer--activate" function (:arguments ("timer" "triggered-p" "reuse-cell" "idle")) nil [6396 7395])
+            ("timer-activate" function (:arguments ("timer" "triggered-p" "reuse-cell")) nil [7397 7913])
+            ("timer-activate-when-idle" function (:arguments ("timer" "dont-wait" "reuse-cell")) nil [7915 8793])
+            ("defalias" code nil nil [8795 8836])
+            ("cancel-timer" function (:arguments ("timer")) nil [8838 9042])
+            ("cancel-timer-internal" function (:arguments ("timer")) nil [9044 9466])
+            ("cancel-function-timers" function
+               (:user-visible-flag t
+                :arguments ("function"))
+                nil [9468 10006])
+            ("timer-event-last" variable nil nil [10055 10113])
+            ("timer-event-last-1" variable nil nil [10114 10182])
+            ("timer-event-last-2" variable nil nil [10183 10252])
+            ("timer-max-repeats" variable (:default-value 10) nil [10254 10631])
+            ("timer-until" function (:arguments ("timer" "time")) nil [10633 10890])
+            ("timer-event-handler" function (:arguments ("timer")) nil [10892 13826])
+            ("timeout-event-p" function (:arguments ("event")) nil [13889 14013])
+            ("declare-function" code nil nil [14017 14068])
+            ("run-at-time" function
+               (:user-visible-flag t
+                :arguments ("time" "repeat" "function" "args"))
+                nil [14070 16363])
+            ("run-with-timer" function
+               (:user-visible-flag t
+                :arguments ("secs" "repeat" "function" "args"))
+                nil [16365 16851])
+            ("add-timeout" function (:arguments ("secs" "function" "object" "repeat")) nil [16853 17157])
+            ("run-with-idle-timer" function
+               (:user-visible-flag t
+                :arguments ("secs" "repeat" "function" "args"))
+                nil [17159 18310])
+            ("with-timeout-timers" variable nil nil [18313 18416])
+            ("with-timeout" function (:arguments ("list" "body")) nil [18418 19897])
+            ("with-timeout-suspend" function nil nil [19899 20362])
+            ("with-timeout-unsuspend" function (:arguments ("timer-spec-list")) nil [20364 20707])
+            ("y-or-n-p-with-timeout" function (:arguments ("prompt" "seconds" "default-value")) nil [20709 20949])
+            ("timer-duration-words" variable
+               (:constant-flag t
+                :default-value (list (cons "microsec" 1e-06) (cons "microsecond" 1e-06) (cons "millisec" 0.001) (cons "millisecond" 0.001) (cons "sec" 1) (cons "second" 1) (cons "min" 60) (cons "minute" 60) (cons "hour" (* 60 60)) (cons "day" (* 24 60 60)) (cons "week" (* 7 24 60 60)) (cons "fortnight" (* 14 24 60 60)) (cons "month" (* 30 24 60 60)) (cons "year" (* 365.25 24 60 60))))
+                nil [20952 21468])
+            ("timer-duration" function (:arguments ("string")) nil [21470 22172])
+            ("internal-timer-start-idle" function nil nil [22174 22401])
+            ("timer" package nil nil [22404 22420]))          
+      :file "timer.el.gz"
+      :pointmax 22445
+      :fsize 7169
+      :lastmodtime '(21885 55889 0 0)
+      :unmatched-syntax '((close-paren 1063 . 1064) (symbol 1028 . 1045) (open-paren 1027 . 1028)))
+    (semanticdb-table "macroexp.el.gz"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("macroexpand-all-environment" variable nil nil [1230 1270])
+            ("macroexp--cons" function (:arguments ("car" "cdr" "original-cons")) nil [1272 1485])
+            ("macroexp--accumulate" function (:arguments ("var+list" "body")) nil [1719 2775])
+            ("macroexp--all-forms" function (:arguments ("forms" "skip")) nil [2777 3118])
+            ("macroexp--all-clauses" function (:arguments ("clauses" "skip")) nil [3120 3493])
+            ("macroexp--compiler-macro" function (:arguments ("handler" "form")) nil [3495 3690])
+            ("macroexp--funcall-if-compiled" function (:arguments ("_form")) nil [3692 4020])
+            ("put" code nil nil [4021 4163])
+            ("macroexp--compiling-p" function nil nil [4165 4543])
+            ("macroexp--warn-and-return" function (:arguments ("msg" "form")) nil [4546 5008])
+            ("macroexp--obsolete-warning" function (:arguments ("fun" "obsolescence-data" "type")) nil [5010 5417])
+            ("macroexp--expand-all" function (:arguments ("form")) nil [5419 10806])
+            ("macroexpand-all" function (:arguments ("form" "environment")) nil [10823 11217])
+            ("macroexp-progn" function (:arguments ("exps")) nil [11258 11388])
+            ("macroexp-unprogn" function (:arguments ("exp")) nil [11390 11539])
+            ("macroexp-let*" function (:arguments ("bindings" "exp")) nil [11541 11782])
+            ("macroexp-if" function (:arguments ("test" "then" "else")) nil [11784 12537])
+            ("macroexp-let2" function (:arguments ("test" "var" "exp" "exps")) nil [12539 13370])
+            ("macroexp--maxsize" function (:arguments ("exp" "size")) nil [13372 13978])
+            ("macroexp-small-p" function (:arguments ("exp")) nil [13980 14096])
+            ("macroexp--const-symbol-p" function (:arguments ("symbol" "any-value")) nil [14098 14659])
+            ("macroexp-const-p" function (:arguments ("exp")) nil [14661 15165])
+            ("macroexp-copyable-p" function (:arguments ("exp")) nil [15167 15304])
+            ("macroexp--backtrace" function nil nil [15745 16018])
+            ("macroexp--trim-backtrace-frame" function (:arguments ("frame")) nil [16020 16507])
+            ("macroexp--pending-eager-loads" variable nil nil [16509 16614])
+            ("internal-macroexpand-for-load" function (:arguments ("form")) nil [16616 18077])
+            ("add-hook" code nil nil [18510 18765])
+            ("macroexp" package nil nil [18768 18787]))          
+      :file "macroexp.el.gz"
+      :pointmax 18815
+      :fsize 6265
+      :lastmodtime '(21885 55889 0 0)
+      :unmatched-syntax '((close-paren 18765 . 18766) (symbol 18490 . 18507) (open-paren 18489 . 18490)))
+    (semanticdb-table "lisp-mode.el.gz"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("font-lock-comment-face" variable nil nil [1065 1096])
+            ("font-lock-doc-face" variable nil nil [1097 1124])
+            ("font-lock-keywords-case-fold-search" variable nil nil [1125 1169])
+            ("font-lock-string-face" variable nil nil [1170 1200])
+            ("lisp-mode-abbrev-table" variable nil nil [1202 1237])
+            ("define-abbrev-table" code nil nil [1238 1318])
+            ("emacs-lisp-mode-abbrev-table" variable nil nil [1320 1361])
+            ("define-abbrev-table" code nil nil [1362 1542])
+            ("emacs-lisp-mode-syntax-table" variable (:default-value (let ((table (make-syntax-table)) (i 0)) (while (< i 48) (modify-syntax-entry i "_   " table) (setq i (1+ i))) (setq i (1+ 57)) (while (< i 65) (modify-syntax-entry i "_   " table) (setq i (1+ i))) (setq i (1+ 90)) (while (< i 97) (modify-syntax-entry i "_   " table) (setq i (1+ i))) (setq i (1+ 122)) (while (< i 128) (modify-syntax-entry i "_   " table) (setq i (1+ i))) (modify-syntax-entry 32 "    " table) (modify-syntax-entry 2208 "    " table) (modify-syntax-entry 9 "    " table) (modify-syntax-entry 12 "    " table) (modify-syntax-entry 10 ">   " table) (modify-syntax-entry 59 "<   " table) (modify-syntax-entry 96 "'   " table) (modify-syntax-entry 39 "'   " table) (modify-syntax-entry 44 "'   " table) (modify-syntax-entry 64 "_ p" table) (modify-syntax-entry 46 "_   " table) (modify-syntax-entry 35 "'   " table) (modify-syntax-entry 34 "\"    " table) (modify-syntax-entry 92 "\\   " table) (modify-syntax-entry 40 "()  " table) (modify-syntax-entry 41 ")(  " table) (modify-syntax-entry 91 "(]  " table) (modify-syntax-entry 93 ")[  " table) table)) nil [1544 3155])
+            ("lisp-mode-syntax-table" variable (:default-value (let ((table (copy-syntax-table emacs-lisp-mode-syntax-table))) (modify-syntax-entry 91 "_   " table) (modify-syntax-entry 93 "_   " table) (modify-syntax-entry 35 "' 14" table) (modify-syntax-entry 124 "\" 23bn" table) table)) nil [3157 3476])
+            ("lisp-imenu-generic-expression" variable (:default-value (list (list nil (purecopy (concat "^\\s-*(" (eval-when-compile (regexp-opt (quote ("defun" "defun*" "defsubst" "defmacro" "defadvice" "define-skeleton" "define-minor-mode" "define-global-minor-mode" "define-globalized-minor-mode" "define-derived-mode" "define-generic-mode" "define-compiler-macro" "define-modify-macro" "defsetf" "define-setf-expander" "define-method-combination" "defgeneric" "defmethod" "cl-defun" "cl-defsubst" "cl-defmacro" "cl-define-compiler-macro")) t)) "\\s-+\\(\\(\\sw\\|\\s_\\)+\\)")) 2) (list (purecopy "Variables") (purecopy (concat "^\\s-*(" (eval-when-compile (regexp-opt (quote ("defconst" "defconstant" "defcustom" "defparameter" "define-symbol-macro")) t)) "\\s-+\\(\\(\\sw\\|\\s_\\)+\\)")) 2) (list (purecopy "Variables") (purecopy (concat "^\\s-*(defvar\\s-+\\(\\(\\sw\\|\\s_\\)+\\)" "[[:space:]
+]+[^)]")) 1) (list (purecopy "Types") (purecopy (concat "^\\s-*(" (eval-when-compile (regexp-opt (quote ("defgroup" "deftheme" "deftype" "defstruct" "defclass" "define-condition" "define-widget" "defface" "defpackage" "cl-deftype" "cl-defstruct")) t)) "\\s-+'?\\(\\(\\sw\\|\\s_\\)+\\)")) 2))) nil [3478 4932])
+            ("put" code nil nil [4997 5030])
+            ("put" code nil nil [5031 5065])
+            ("put" code nil nil [5066 5099])
+            ("put" code nil nil [5100 5133])
+            ("put" code nil nil [5134 5167])
+            ("put" code nil nil [5168 5204])
+            ("put" code nil nil [5205 5245])
+            ("lisp-doc-string-elt-property" variable (:default-value (quote doc-string-elt)) nil [5247 5364])
+            ("pcase-let" code nil nil [5392 16960])
+            ("define-obsolete-variable-alias" code nil nil [16962 17056])
+            ("lisp-el-font-lock-keywords" variable (:default-value lisp-el-font-lock-keywords-1) nil [17057 17178])
+            ("lisp-cl-font-lock-keywords" variable (:default-value lisp-cl-font-lock-keywords-1) nil [17179 17295])
+            ("lisp-font-lock-syntactic-face-function" function (:arguments ("state")) nil [17297 19109])
+            ("lisp-mode-variables" function (:arguments ("lisp-syntax" "keywords-case-insensitive" "elisp")) nil [19111 21648])
+            ("lisp-outline-level" function nil nil [21650 21832])
+            ("lisp-current-defun-name" function nil nil [21834 22758])
+            ("lisp-mode-shared-map" variable (:default-value (let ((map (make-sparse-keymap))) (set-keymap-parent map prog-mode-map) (define-key map "" (quote indent-sexp)) (define-key map "" (quote backward-delete-char-untabify)) map)) nil [22760 23284])
+            ("emacs-lisp-mode-map" variable (:default-value (let ((map (make-sparse-keymap "Emacs-Lisp")) (menu-map (make-sparse-keymap "Emacs-Lisp")) (lint-map (make-sparse-keymap)) (prof-map (make-sparse-keymap)) (tracing-map (make-sparse-keymap))) (set-keymap-parent map lisp-mode-shared-map) (define-key map "	" (quote completion-at-point)) (define-key map "" (quote eval-defun)) (define-key map "" (quote indent-pp-sexp)) (bindings--define-key map [menu-bar emacs-lisp] (cons "Emacs-Lisp" menu-map)) (bindings--define-key menu-map [eldoc] (quote (menu-item "Auto-Display Documentation Strings" eldoc-mode :button (:toggle bound-and-true-p eldoc-mode) :help "Display the documentation string for the item under cursor"))) (bindings--define-key menu-map [checkdoc] (quote (menu-item "Check Documentation Strings" checkdoc :help "Check documentation strings for style requirements"))) (bindings--define-key menu-map [re-builder] (quote (menu-item "Construct Regexp" re-builder :help "Construct a regexp interactively"))) (bindings--define-key menu-map [tracing] (cons "Tracing" tracing-map)) (bindings--define-key tracing-map [tr-a] (quote (menu-item "Untrace All" untrace-all :help "Untrace all currently traced functions"))) (bindings--define-key tracing-map [tr-uf] (quote (menu-item "Untrace Function..." untrace-function :help "Untrace function, and possibly activate all remaining advice"))) (bindings--define-key tracing-map [tr-sep] menu-bar-separator) (bindings--define-key tracing-map [tr-q] (quote (menu-item "Trace Function Quietly..." trace-function-background :help "Trace the function with trace output going quietly to a buffer"))) (bindings--define-key tracing-map [tr-f] (quote (menu-item "Trace Function..." trace-function :help "Trace the function given as an argument"))) (bindings--define-key menu-map [profiling] (cons "Profiling" prof-map)) (bindings--define-key prof-map [prof-restall] (quote (menu-item "Remove Instrumentation for All Functions" elp-restore-all :help "Restore the original definitions of all functions being profiled"))) (bindings--define-key prof-map [prof-restfunc] (quote (menu-item "Remove Instrumentation for Function..." elp-restore-function :help "Restore an instrumented function to its original definition"))) (bindings--define-key prof-map [sep-rem] menu-bar-separator) (bindings--define-key prof-map [prof-resall] (quote (menu-item "Reset Counters for All Functions" elp-reset-all :help "Reset the profiling information for all functions being profiled"))) (bindings--define-key prof-map [prof-resfunc] (quote (menu-item "Reset Counters for Function..." elp-reset-function :help "Reset the profiling information for a function"))) (bindings--define-key prof-map [prof-res] (quote (menu-item "Show Profiling Results" elp-results :help "Display current profiling results"))) (bindings--define-key prof-map [prof-pack] (quote (menu-item "Instrument Package..." elp-instrument-package :help "Instrument for profiling all function that start with a prefix"))) (bindings--define-key prof-map [prof-func] (quote (menu-item "Instrument Function..." elp-instrument-function :help "Instrument a function for profiling"))) (bindings--define-key prof-map [sep-natprof] menu-bar-separator) (bindings--define-key prof-map [prof-natprof-stop] (quote (menu-item "Stop Native Profiler" profiler-stop :help "Stop recording profiling information" :enable (and (featurep (quote profiler)) (profiler-running-p))))) (bindings--define-key prof-map [prof-natprof-report] (quote (menu-item "Show Profiler Report" profiler-report :help "Show the current profiler report" :enable (and (featurep (quote profiler)) (profiler-running-p))))) (bindings--define-key prof-map [prof-natprof-start] (quote (menu-item "Start Native Profiler..." profiler-start :help "Start recording profiling information"))) (bindings--define-key menu-map [lint] (cons "Linting" lint-map)) (bindings--define-key lint-map [lint-di] (quote (menu-item "Lint Directory..." elint-directory :help "Lint a directory"))) (bindings--define-key lint-map [lint-f] (quote (menu-item "Lint File..." elint-file :help "Lint a file"))) (bindings--define-key lint-map [lint-b] (quote (menu-item "Lint Buffer" elint-current-buffer :help "Lint the current buffer"))) (bindings--define-key lint-map [lint-d] (quote (menu-item "Lint Defun" elint-defun :help "Lint the function at point"))) (bindings--define-key menu-map [edebug-defun] (quote (menu-item "Instrument Function for Debugging" edebug-defun :help "Evaluate the top level form point is in, stepping through with Edebug" :keys "C-u C-M-x"))) (bindings--define-key menu-map [separator-byte] menu-bar-separator) (bindings--define-key menu-map [disas] (quote (menu-item "Disassemble Byte Compiled Object..." disassemble :help "Print disassembled code for OBJECT in a buffer"))) (bindings--define-key menu-map [byte-recompile] (quote (menu-item "Byte-recompile Directory..." byte-recompile-directory :help "Recompile every `.el' file in DIRECTORY that needs recompilation"))) (bindings--define-key menu-map [emacs-byte-compile-and-load] (quote (menu-item "Byte-compile and Load" emacs-lisp-byte-compile-and-load :help "Byte-compile the current file (if it has changed), then load compiled code"))) (bindings--define-key menu-map [byte-compile] (quote (menu-item "Byte-compile This File" emacs-lisp-byte-compile :help "Byte compile the file containing the current buffer"))) (bindings--define-key menu-map [separator-eval] menu-bar-separator) (bindings--define-key menu-map [ielm] (quote (menu-item "Interactive Expression Evaluation" ielm :help "Interactively evaluate Emacs Lisp expressions"))) (bindings--define-key menu-map [eval-buffer] (quote (menu-item "Evaluate Buffer" eval-buffer :help "Execute the current buffer as Lisp code"))) (bindings--define-key menu-map [eval-region] (quote (menu-item "Evaluate Region" eval-region :help "Execute the region as Lisp code" :enable mark-active))) (bindings--define-key menu-map [eval-sexp] (quote (menu-item "Evaluate Last S-expression" eval-last-sexp :help "Evaluate sexp before point; print value in echo area"))) (bindings--define-key menu-map [separator-format] menu-bar-separator) (bindings--define-key menu-map [comment-region] (quote (menu-item "Comment Out Region" comment-region :help "Comment or uncomment each line in the region" :enable mark-active))) (bindings--define-key menu-map [indent-region] (quote (menu-item "Indent Region" indent-region :help "Indent each nonblank line in the region" :enable mark-active))) (bindings--define-key menu-map [indent-line] (quote (menu-item "Indent Line" lisp-indent-line))) map)) nil [23286 30374])
+            ("emacs-lisp-byte-compile" function (:user-visible-flag t) nil [30376 30605])
+            ("emacs-lisp-byte-compile-and-load" function (:user-visible-flag t) nil [30607 31083])
+            ("emacs-lisp-mode-hook" variable nil nil [31085 31263])
+            ("lisp-mode-hook" variable nil nil [31265 31400])
+            ("lisp-interaction-mode-hook" variable nil nil [31402 31548])
+            ("lisp--prettify-symbols-alist" variable
+               (:constant-flag t
+                :default-value (quote (("lambda" . 955))))
+                nil [31550 31611])
+            ("define-derived-mode" code nil nil [31613 32055])
+            ("emacs-list-byte-code-comment-re" variable
+               (:constant-flag t
+                :default-value (concat "\\(#\\)@\\([0-9]+\\) " "\\(?:[^(]\\|([^\"]\\)"))
+                nil [32108 32298])
+            ("emacs-lisp-byte-code-comment" function (:arguments ("end" "_point")) nil [32301 33573])
+            ("emacs-lisp-byte-code-syntax-propertize" function (:arguments ("start" "end")) nil [33575 33836])
+            ("add-to-list" code nil nil [33838 33911])
+            ("define-derived-mode" code nil nil [33912 34238])
+            ("lisp-mode-map" variable (:default-value (let ((map (make-sparse-keymap)) (menu-map (make-sparse-keymap "Lisp"))) (set-keymap-parent map lisp-mode-shared-map) (define-key map "" (quote lisp-eval-defun)) (define-key map "" (quote run-lisp)) (bindings--define-key map [menu-bar lisp] (cons "Lisp" menu-map)) (bindings--define-key menu-map [run-lisp] (quote (menu-item "Run inferior Lisp" run-lisp :help "Run an inferior Lisp process, input and output via buffer `*inferior-lisp*'"))) (bindings--define-key menu-map [ev-def] (quote (menu-item "Eval defun" lisp-eval-defun :help "Send the current defun to the Lisp process made by M-x run-lisp"))) (bindings--define-key menu-map [ind-sexp] (quote (menu-item "Indent sexp" indent-sexp :help "Indent each line of the list starting just after point"))) map)) nil [34264 35191])
+            ("define-derived-mode" code nil nil [35193 35789])
+            ("lisp-find-tag-default" function nil nil [35791 35983])
+            ("defalias" code nil nil [36012 36051])
+            ("lisp-eval-defun" function
+               (:user-visible-flag t
+                :arguments ("_and-go"))
+                nil [36099 36267])
+            ("lisp-interaction-mode-map" variable (:default-value (let ((map (make-sparse-keymap)) (menu-map (make-sparse-keymap "Lisp-Interaction"))) (set-keymap-parent map lisp-mode-shared-map) (define-key map "" (quote eval-defun)) (define-key map "" (quote indent-pp-sexp)) (define-key map "	" (quote completion-at-point)) (define-key map "
+" (quote eval-print-last-sexp)) (bindings--define-key map [menu-bar lisp-interaction] (cons "Lisp-Interaction" menu-map)) (bindings--define-key menu-map [eval-defun] (quote (menu-item "Evaluate Defun" eval-defun :help "Evaluate the top-level form containing point, or after point"))) (bindings--define-key menu-map [eval-print-last-sexp] (quote (menu-item "Evaluate and Print" eval-print-last-sexp :help "Evaluate sexp before point; print value into current buffer"))) (bindings--define-key menu-map [edebug-defun-lisp-interaction] (quote (menu-item "Instrument Function for Debugging" edebug-defun :help "Evaluate the top level form point is in, stepping through with Edebug" :keys "C-u C-M-x"))) (bindings--define-key menu-map [indent-pp-sexp] (quote (menu-item "Indent or Pretty-Print" indent-pp-sexp :help "Indent each line of the list starting just after point, or prettyprint it"))) (bindings--define-key menu-map [complete-symbol] (quote (menu-item "Complete Lisp Symbol" completion-at-point :help "Perform completion on Lisp symbol preceding point"))) map)) nil [36269 37815])
+            ("define-derived-mode" code nil nil [37817 38381])
+            ("eval-print-last-sexp" function
+               (:user-visible-flag t
+                :arguments ("eval-last-sexp-arg-internal"))
+                nil [38383 39145])
+            ("last-sexp-setup-props" function (:arguments ("beg" "end" "value" "alt1" "alt2")) nil [39148 39923])
+            ("last-sexp-toggle-display" function
+               (:user-visible-flag t
+                :arguments ("_arg"))
+                nil [39926 40700])
+            ("prin1-char" function (:arguments ("char")) nil [40702 41819])
+            ("preceding-sexp" function nil nil [41822 43418])
+            ("eval-last-sexp-1" function (:arguments ("eval-last-sexp-arg-internal")) nil [43421 44036])
+            ("eval-last-sexp-print-value" function (:arguments ("value" "eval-last-sexp-arg-internal")) nil [44039 44937])
+            ("eval-last-sexp-fake-value" variable (:default-value (make-symbol "t")) nil [44940 44992])
+            ("eval-sexp-add-defvars" function (:arguments ("exp" "pos")) nil [44994 45840])
+            ("eval-last-sexp" function
+               (:user-visible-flag t
+                :arguments ("eval-last-sexp-arg-internal"))
+                nil [45842 46893])
+            ("eval-defun-1" function (:arguments ("form")) nil [46895 48829])
+            ("eval-defun-2" function nil nil [48831 50581])
+            ("eval-defun" function
+               (:user-visible-flag t
+                :arguments ("edebug-it"))
+                nil [50583 52174])
+            ("define-obsolete-function-alias" code nil nil [52233 52321])
+            ("define-obsolete-function-alias" code nil nil [52322 52396])
+            ("lisp-indent-offset" variable nil nil [52398 52559])
+            ("put" code nil nil [52560 52651])
+            ("lisp-indent-function" variable (:default-value (quote lisp-indent-function)) nil [52653 53025])
+            ("lisp-indent-line" function
+               (:user-visible-flag t
+                :arguments ("_whole-exp"))
+                nil [53027 54234])
+            ("calculate-lisp-indent-last-sexp" variable nil nil [54236 54276])
+            ("calculate-lisp-indent" function (:arguments ("parse-start")) nil [54278 60929])
+            ("lisp-indent-function" function (:arguments ("indent-point" "state")) nil [60931 63695])
+            ("lisp-body-indent" variable (:default-value 2) nil [63697 63829])
+            ("put" code nil nil [63830 63884])
+            ("lisp-indent-specform" function (:arguments ("count" "state" "indent-point" "normal-indent")) nil [63886 66188])
+            ("lisp-indent-defform" function (:arguments ("state" "_indent-point")) nil [66190 66417])
+            ("put" code nil nil [66637 66681])
+            ("put" code nil nil [66682 66718])
+            ("put" code nil nil [66719 66755])
+            ("put" code nil nil [66756 66792])
+            ("put" code nil nil [66793 66838])
+            ("put" code nil nil [66839 66886])
+            ("put" code nil nil [66887 66937])
+            ("put" code nil nil [66938 66972])
+            ("put" code nil nil [66973 67008])
+            ("put" code nil nil [67009 67045])
+            ("put" code nil nil [67046 67079])
+            ("put" code nil nil [67080 67116])
+            ("put" code nil nil [67117 67162])
+            ("put" code nil nil [67163 67208])
+            ("put" code nil nil [67209 67266])
+            ("indent-sexp" function
+               (:user-visible-flag t
+                :arguments ("endpos"))
+                nil [67268 71079])
+            ("indent-pp-sexp" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [71081 71535])
+            ("emacs-lisp-docstring-fill-column" variable (:default-value 65) nil [71576 71889])
+            ("put" code nil nil [71890 71995])
+            ("lisp-fill-paragraph" function
+               (:user-visible-flag t
+                :arguments ("justify"))
+                nil [71997 74679])
+            ("indent-code-rigidly" function
+               (:user-visible-flag t
+                :arguments ("start" "end" "arg" "nochange-regexp"))
+                nil [74681 75845])
+            ("lisp-mode" package nil nil [75847 75867]))          
+      :file "lisp-mode.el.gz"
+      :pointmax 75896
+      :fsize 19760
+      :lastmodtime '(21885 55889 0 0)
+      :unmatched-syntax '((close-paren 32298 . 32299) (symbol 32089 . 32105) (open-paren 32088 . 32089)))
+    (semanticdb-table "eieio.el.gz"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [1791 1804])
+            ("eieio-version" variable (:default-value "1.4") nil [1833 1891])
+            ("eieio-version" function (:user-visible-flag t) nil [1893 2001])
+            ("eieio-core" include nil nil [2003 2024])
+            ("defclass" function (:arguments ("name" "superclass" "slots" "options-and-doc")) nil [2056 5165])
+            ("make-instance" function (:arguments ("class" "initargs")) nil [5221 6090])
+            ("defgeneric" function (:arguments ("method" "args" "doc-string")) nil [6127 6688])
+            ("defmethod" function (:arguments ("method" "args")) nil [6690 8335])
+            ("oref" function (:arguments ("obj" "slot")) nil [8372 8595])
+            ("defalias" code nil nil [8597 8631])
+            ("defalias" code nil nil [8632 8670])
+            ("oref-default" function (:arguments ("obj" "slot")) nil [8672 8977])
+            ("with-slots" function (:arguments ("spec-list" "object" "body")) nil [9004 10109])
+            ("define-obsolete-function-alias" code nil nil [10217 10299])
+            ("eieio-object-name" function (:arguments ("obj" "extra")) nil [10301 10619])
+            ("define-obsolete-function-alias" code nil nil [10620 10692])
+            ("eieio-object-name-string" function (:arguments ("obj")) nil [10694 10839])
+            ("define-obsolete-function-alias" code nil nil [10840 10928])
+            ("eieio-object-set-name-string" function (:arguments ("obj" "name")) nil [10930 11132])
+            ("define-obsolete-function-alias" code nil nil [11133 11228])
+            ("eieio-object-class" function (:arguments ("obj")) nil [11230 11371])
+            ("define-obsolete-function-alias" code nil nil [11372 11446])
+            ("define-obsolete-function-alias" code nil nil [11468 11538])
+            ("eieio-object-class-name" function (:arguments ("obj")) nil [11540 11717])
+            ("define-obsolete-function-alias" code nil nil [11718 11803])
+            ("eieio-class-parents" function (:arguments ("class")) nil [11805 12048])
+            ("define-obsolete-function-alias" code nil nil [12049 12125])
+            ("eieio-class-children" function (:arguments ("class")) nil [12127 12343])
+            ("define-obsolete-function-alias" code nil nil [12344 12424])
+            ("define-obsolete-function-alias" code nil nil [12454 12544])
+            ("define-obsolete-function-alias" code nil nil [12545 12634])
+            ("eieio-class-parent" function (:arguments ("class")) nil [12636 12776])
+            ("define-obsolete-function-alias" code nil nil [12777 12850])
+            ("same-class-p" function (:arguments ("obj" "class")) nil [12852 13035])
+            ("object-of-class-p" function (:arguments ("obj" "class")) nil [13037 13282])
+            ("defalias" code nil nil [13310 13355])
+            ("child-of-class-p" function (:arguments ("child" "class")) nil [13357 13705])
+            ("object-slots" function (:arguments ("obj")) nil [13707 13879])
+            ("class-slot-initarg" function (:arguments ("class" "slot")) nil [13881 14186])
+            ("oset" function (:arguments ("obj" "slot" "value")) nil [14213 14462])
+            ("oset-default" function (:arguments ("class" "slot" "value")) nil [14464 14775])
+            ("slot-boundp" function (:arguments ("object" "slot")) nil [14820 15405])
+            ("slot-makeunbound" function (:arguments ("object" "slot")) nil [15407 15520])
+            ("slot-exists-p" function (:arguments ("object-or-class" "slot")) nil [15522 15893])
+            ("find-class" function (:arguments ("symbol" "errorp")) nil [15895 16224])
+            ("object-assoc" function (:arguments ("key" "slot" "list")) nil [16285 16828])
+            ("object-assoc-list" function (:arguments ("slot" "list")) nil [16830 17293])
+            ("object-assoc-list-safe" function (:arguments ("slot" "list")) nil [17295 17839])
+            ("object-add-to-list" function (:arguments ("object" "slot" "item" "append")) nil [17841 18646])
+            ("object-remove-from-list" function (:arguments ("object" "slot" "item")) nil [18648 18998])
+            ("next-method-p" function nil nil [19033 19212])
+            ("call-next-method" function (:arguments ("replacement-args")) nil [19214 20386])
+            ("defsetf" code nil nil [20446 20477])
+            ("if" code nil nil [20479 21092])
+            ("eieio-default-superclass" type (:type "class") nil [21477 21744])
+            ("defalias" code nil nil [21746 21798])
+            ("constructor" function (:arguments ("newname" "slots")) nil [21800 21914])
+            ("constructor" function
+               (:parent "eieio-default-superclass"
+                :arguments ("class" "newname" "slots"))
+                nil [21916 22750])
+            ("shared-initialize" function (:arguments ("slots")) nil [22752 22900])
+            ("shared-initialize" function
+               (:parent "eieio-default-superclass"
+                :arguments ("obj" "slots"))
+                nil [22902 23397])
+            ("initialize-instance" function (:arguments ("slots")) nil [23399 23504])
+            ("initialize-instance" function
+               (:parent "eieio-default-superclass"
+                :arguments ("this" "slots"))
+                nil [23506 24972])
+            ("slot-missing" function (:arguments ("slot-name" "operation" "new-value")) nil [24974 25117])
+            ("slot-missing" function
+               (:parent "eieio-default-superclass"
+                :arguments ("object" "slot-name" "operation" "new-value"))
+                nil [25119 25644])
+            ("slot-unbound" function (:arguments ("class" "slot-name" "fn")) nil [25646 25775])
+            ("slot-unbound" function
+               (:parent "eieio-default-superclass"
+                :arguments ("object" "class" "slot-name" "fn"))
+                nil [25777 26550])
+            ("no-applicable-method" function (:arguments ("method" "args")) nil [26552 26677])
+            ("no-applicable-method" function
+               (:parent "eieio-default-superclass"
+                :arguments ("object" "method" "args"))
+                nil [26679 27142])
+            ("no-next-method" function (:arguments ("args")) nil [27144 27266])
+            ("no-next-method" function
+               (:parent "eieio-default-superclass"
+                :arguments ("object" "args"))
+                nil [27268 27754])
+            ("clone" function (:arguments ("params")) nil [27756 28016])
+            ("clone" function
+               (:parent "eieio-default-superclass"
+                :arguments ("obj" "params"))
+                nil [28018 28654])
+            ("destructor" function (:arguments ("params")) nil [28656 28763])
+            ("destructor" function
+               (:parent "eieio-default-superclass"
+                :arguments ("this" "params"))
+                nil [28765 29013])
+            ("object-print" function (:arguments ("strings")) nil [29015 29312])
+            ("object-print" function
+               (:parent "eieio-default-superclass"
+                :arguments ("this" "strings"))
+                nil [29314 29928])
+            ("eieio-print-depth" variable nil nil [29930 30022])
+            ("object-write" function (:arguments ("comment")) nil [30024 30190])
+            ("object-write" function
+               (:parent "eieio-default-superclass"
+                :arguments ("this" "comment"))
+                nil [30192 32123])
+            ("eieio-override-prin1" function (:arguments ("thing")) nil [32125 32524])
+            ("eieio-list-prin1" function (:arguments ("list")) nil [32526 33043])
+            ("change-class" function (:arguments ("obj" "class")) nil [33088 33293])
+            ("add-hook" code nil nil [33366 33434])
+            ("add-hook" code nil nil [33435 33507])
+            ("eieio-edebug-prin1-to-string" function (:arguments ("object" "noescape")) nil [33540 34053])
+            ("add-hook" code nil nil [34055 35346])
+            ("customize-object" function (:prototype-flag t) nil [35537 35715])
+            ("eieio-browse" function
+               (:prototype-flag t
+                :user-visible-flag t)
+                nil [35854 36085])
+            ("eieio-help-class" function (:prototype-flag t) nil [36087 36267])
+            ("eieio-help-constructor" function (:prototype-flag t) nil [36269 36381])
+            ("eieio-help-generic" function (:prototype-flag t) nil [36383 36498])
+            ("eieio" package nil nil [36556 36572]))          
+      :file "eieio.el.gz"
+      :pointmax 36594
+      :fsize 11538
+      :lastmodtime '(21885 55889 0 0)
+      :unmatched-syntax '((close-paren 1804 . 1805) (symbol 1773 . 1790) (open-paren 1772 . 1773)))
+    (semanticdb-table "lisp.el.gz"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("defun-prompt-regexp" variable nil nil [1097 1346])
+            ("make-variable-buffer-local" code nil nil [1347 1396])
+            ("parens-require-spaces" variable (:default-value t) nil [1398 1587])
+            ("forward-sexp-function" variable nil nil [1589 2090])
+            ("forward-sexp" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [2092 2631])
+            ("backward-sexp" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [2633 2991])
+            ("mark-sexp" function
+               (:user-visible-flag t
+                :arguments ("arg" "allow-extend"))
+                nil [2993 3818])
+            ("forward-list" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [3820 4286])
+            ("backward-list" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [4288 4717])
+            ("down-list" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [4719 5265])
+            ("backward-up-list" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [5267 5673])
+            ("up-list" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [5675 6568])
+            ("kill-sexp" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [6570 6921])
+            ("backward-kill-sexp" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [6923 7222])
+            ("kill-backward-up-list" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [7240 7733])
+            ("beginning-of-defun-function" variable nil nil [7736 8305])
+            ("beginning-of-defun" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [8307 9633])
+            ("beginning-of-defun-raw" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [9635 13032])
+            ("end-of-defun-function" variable (:default-value (lambda nil (forward-sexp 1))) nil [13034 13402])
+            ("buffer-end" function (:arguments ("arg")) nil [13404 13635])
+            ("end-of-defun" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [13637 15943])
+            ("mark-defun" function
+               (:user-visible-flag t
+                :arguments ("allow-extend"))
+                nil [15945 17268])
+            ("narrow-to-defun" function
+               (:user-visible-flag t
+                :arguments ("_arg"))
+                nil [17270 18721])
+            ("insert-pair-alist" variable (:default-value (quote ((40 41) (91 93) (123 125) (60 62) (34 34) (39 39) (96 39)))) nil [18723 19127])
+            ("insert-pair" function
+               (:user-visible-flag t
+                :arguments ("arg" "open" "close"))
+                nil [19129 21381])
+            ("insert-parentheses" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [21383 21947])
+            ("delete-pair" function (:user-visible-flag t) nil [21949 22129])
+            ("raise-sexp" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [22131 22587])
+            ("move-past-close-and-reindent" function (:user-visible-flag t) nil [22589 23586])
+            ("check-parens" function (:user-visible-flag t) nil [23588 24487])
+            ("field-complete" function (:arguments ("table" "predicate")) nil [24490 25034])
+            ("lisp-complete-symbol" function (:arguments ("predicate")) nil [25036 26124])
+            ("lisp--local-variables-1" function (:arguments ("vars" "sexp")) nil [26126 27789])
+            ("lisp--local-variables" function nil nil [27791 29367])
+            ("lisp--local-variables-completion-table" variable (:default-value (let ((lastpos nil) (lastvars nil)) (letrec ((hookfun (lambda nil (setq lastpos nil) (remove-hook (quote post-command-hook) hookfun)))) (completion-table-dynamic (lambda (_string) (save-excursion (skip-syntax-backward "_w") (let ((newpos (cons (point) (current-buffer)))) (unless (equal lastpos newpos) (add-hook (quote post-command-hook) hookfun) (setq lastpos newpos) (setq lastvars (mapcar (function symbol-name) (lisp--local-variables)))))) lastvars))))) nil [29369 30340])
+            ("lisp--company-doc-buffer" function (:arguments ("str")) nil [30926 31652])
+            ("lisp--company-doc-string" function (:arguments ("str")) nil [31654 31972])
+            ("declare-function" code nil nil [31974 32032])
+            ("lisp--company-location" function (:arguments ("str")) nil [32034 32457])
+            ("lisp-completion-at-point" function (:arguments ("_predicate")) nil [32459 37382]))          
+      :file "lisp.el.gz"
+      :pointmax 37406
+      :fsize 10063
+      :lastmodtime '(21885 55889 0 0)
+      :unmatched-syntax nil))
+  :file "!usr!share!emacs!24.5!lisp!emacs-lisp!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,5 +1,52 @@
 ;;; -*- coding: utf-8 -*-
-(("/home/c0urage/.emacs.d/init.el" . 22306)
+(("/home/c0urage/dotfiles/.emacs.d/url/" . 152)
+ ("/home/c0urage/dotfiles/.emacs.d/undohist/"
+  (dired-filename . "/home/c0urage/dotfiles/.emacs.d/undohist/!home!c0urage!.emacs.d!elpa!avy-20180322.1333!avy-autoloads.el"))
+ ("/home/c0urage/dotfiles/.emacs.d/themes/"
+  (dired-filename . "/home/c0urage/dotfiles/.emacs.d/themes/monokai-theme.el"))
+ ("/home/c0urage/dotfiles/.emacs.d/snippets/"
+  (dired-filename . "/home/c0urage/dotfiles/.emacs.d/snippets/.gitignore"))
+ ("/home/c0urage/dotfiles/.emacs.d/semanticdb/"
+  (dired-filename . "/home/c0urage/dotfiles/.emacs.d/semanticdb/!home!c0urage!dotfiles!.emacs.d!elpa!avy-20180322.1333!semantic.cache"))
+ ("/home/c0urage/dotfiles/.emacs.d/irony/"
+  (dired-filename . "/home/c0urage/dotfiles/.emacs.d/irony/bin"))
+ ("/home/c0urage/dotfiles/.emacs.d/insert/"
+  (dired-filename . "/home/c0urage/dotfiles/.emacs.d/insert/template.cpp"))
+ ("/home/c0urage/dotfiles/.emacs.d/" . 1324)
+ ("/home/c0urage/dotfiles/.emacs.d/ac-comphist.dat" . 29)
+ ("/home/c0urage/dotfiles/.emacs.d/auto-install/"
+  (dired-filename . "/home/c0urage/dotfiles/.emacs.d/auto-install/."))
+ ("/home/c0urage/dotfiles/.emacs.d/auto-save-list/"
+  (dired-filename . "/home/c0urage/dotfiles/.emacs.d/auto-save-list/."))
+ ("/home/c0urage/dotfiles/.emacs.d/backup/" . 50)
+ ("/home/c0urage/dotfiles/.emacs.d/elpa/"
+  (dired-filename . "/home/c0urage/dotfiles/.emacs.d/elpa/.."))
+ ("/home/c0urage/dotfiles/.emacs.d/history" . 115)
+ ("/home/c0urage/dotfiles/.emacs.d/.python-environments/" . 228)
+ ("/home/c0urage/dotfiles/.emacs.d/init.el" . 8864)
+ ("/home/c0urage/.emacs.d/recentf" . 1715)
+ ("/home/c0urage/.emacs.d/elpa/browse-kill-ring-20171219.1108/browse-kill-ring-autoloads.el" . 735)
+ ("/home/c0urage/.emacs.d/elpa/browse-at-remote-20180227.52/browse-at-remote-autoloads.el" . 964)
+ ("/home/c0urage/.emacs.d/elpa/visual-regexp-steroids-20170221.1853/visual-regexp-steroids-autoloads.el" . 967)
+ ("/home/c0urage/.emacs.d/elpa/visual-regexp-20170228.1716/visual-regexp-autoloads.el" . 700)
+ ("/home/c0urage/.emacs.d/elpa/goto-chg-20180105.1033/goto-chg-autoloads.el" . 1874)
+ ("/home/c0urage/.emacs.d/elpa/dired-toggle-20140907.1349/dired-toggle-autoloads.el" . 407)
+ ("/home/c0urage/.emacs.d/elpa/dired-details-1.3.1/dired-details-autoloads.el" . 248)
+ ("/home/c0urage/"
+  (dired-filename . "/home/c0urage/.AndroidStudio3.0"))
+ ("/home/"
+  (dired-filename . "/home/c0urage"))
+ ("/"
+  (dired-filename . "/proc"))
+ ("/home/c0urage/.skk" . 22)
+ ("/home/c0urage/.emacs.d/elpa/ido-migemo-20150921.1544/ido-migemo-autoloads.el" . 912)
+ ("/home/c0urage/.emacs.d/elpa/avy-migemo-20180104.624/avy-migemo-autoloads.el" . 3915)
+ ("/home/c0urage/.emacs.d/elpa/avy-20180322.1333/avy-autoloads.el" . 7506)
+ ("/home/c0urage/.emacs.d/elpa/helm-migemo-20151009.2056/helm-migemo-autoloads.el" . 489)
+ ("/home/c0urage/.emacs.d/elpa/migemo-20160924.741/migemo-autoloads.el" . 226)
+ ("/home/c0urage/.emacs.d/elpa/ddskk-20170709.839/ddskk-autoloads.el" . 36237)
+ ("/home/c0urage/.emacs.d/elpa/ccc-20151205.543/ccc-autoloads.el" . 398)
+ ("/home/c0urage/.emacs.d/elpa/cdb-20151205.543/cdb-autoloads.el" . 220)
  ("/home/c0urage/.emacs.d/elpa/srefactor-20170223.540/srefactor-autoloads.el" . 631)
  ("/home/c0urage/.emacs.d/elpa/helm-git-grep-20170614.711/helm-git-grep-autoloads.el" . 1519)
  ("/home/c0urage/.emacs.d/elpa/helm-ghq-20161015.117/helm-ghq-autoloads.el" . 333)
@@ -29,7 +76,6 @@
  ("/home/c0urage/workspace/QuickDrag-WE/Firefox/background.js" . 1270)
  ("/home/c0urage/workspace/QuickDrag-WE/Firefox/options.js" . 2022)
  ("/home/c0urage/workspace/QuickDrag-WE/Firefox/quickdrag.js" . 5298)
- ("/home/c0urage/.emacs.d/recentf" . 1570)
  ("/home/c0urage/.emacs.d/elpa/flycheck-pycheckers-20180320.1700/flycheck-pycheckers-autoloads.el" . 289)
  ("/home/c0urage/.emacs.d/elpa/flycheck-pyflakes-20170330.1611/flycheck-pyflakes-autoloads.el" . 256)
  ("/home/c0urage/.emacs.d/elpa/flycheck-haskell-20180321.1340/flycheck-haskell-autoloads.el" . 737)

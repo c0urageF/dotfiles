@@ -1,0 +1,156 @@
+;; Object helm-git-grep-20170614.711/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "helm-git-grep-20170614.711/"
+  :tables
+  (list
+    (semanticdb-table "helm-git-grep.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [1745 1758])
+            ("helm" include nil nil [1760 1775])
+            ("helm-files" include nil nil [1776 1797])
+            ("declare-function" code nil nil [1799 1850])
+            ("helm-git-grep" customgroup (:user-visible-flag t) nil [1854 1947])
+            ("helm-git-grep-sources" variable (:default-value (quote (helm-git-grep-source helm-git-grep-submodule-source))) nil [1949 2290])
+            ("helm-git-grep-candidate-number-limit" variable (:default-value 300) nil [2292 2514])
+            ("helm-git-grep-max-length-history" variable (:default-value 100) nil [2516 2668])
+            ("helm-git-grep-use-ioccur-style-keys" variable (:default-value t) nil [2670 2804])
+            ("helm-git-grep-ignore-case" variable (:default-value t) nil [2806 2918])
+            ("helm-git-grep-wordgrep" variable nil nil [2920 3028])
+            ("helm-git-grep-showing-leading-and-trailing-lines" variable nil nil [3030 3173])
+            ("helm-git-grep-showing-leading-and-trailing-lines-number" variable (:default-value 1) nil [3175 3343])
+            ("helm-git-grep-at-point-deactivate-mark" variable nil nil [3345 3507])
+            ("helm-git-grep-base-directory" variable (:default-value (quote root)) nil [3509 3852])
+            ("helm-git-grep-pathspecs" variable nil nil [3854 4770])
+            ("helm-git-grep-doc-order-in-name-header" variable (:default-value (quote (pathspec basedir wordgrep ignorecase))) nil [4772 5599])
+            ("helm-git-grep-faces" customgroup (:user-visible-flag t) nil [5619 5751])
+            ("helm-git-grep-match" variable
+               (:default-value (quote ((default (:inherit helm-match))))
+                :type "face")
+                nil [5753 5897])
+            ("helm-git-grep-file" variable
+               (:default-value (quote ((default (:inherit compilation-info))))
+                :type "face")
+                nil [5899 6058])
+            ("helm-git-grep-line" variable
+               (:default-value (quote ((default (:inherit compilation-line-number))))
+                :type "face")
+                nil [6060 6221])
+            ("helm-git-grep-pathspec-disabled-message" variable
+               (:constant-flag t
+                :default-value (format "%s is nil, namely not activated." (symbol-name (quote helm-git-grep-pathspecs))))
+                nil [6244 6389])
+            ("helm-git-grep-doc-order-in-name-header-plist" variable
+               (:constant-flag t
+                :default-value (quote (pathspec (:doc "[helm-git-grep-pathspec-toggle-availability]:Tog.pathspec%s" :function (lambda (doc) (when helm-git-grep-pathspecs (format doc (if helm-git-grep-pathspec-available "" "[disabled]"))))) basedir (:doc "[helm-git-grep-toggle-base-directory]:Tog.basedir[%s]" :function (lambda (doc) (format doc (symbol-name helm-git-grep-base-directory)))) wordgrep (:doc "[helm-git-grep-toggle-wordgrep]:Tog.wordgrep%s" :function (lambda (doc) (format doc (if helm-git-grep-wordgrep "[w]" "")))) ignorecase (:doc "[helm-git-grep-toggle-ignore-case]:Tog.ignorecase%s" :function (lambda (doc) (format doc (if helm-git-grep-ignore-case "[i]" "")))))))
+                nil [6391 7222])
+            ("helm-git-grep-history" variable nil nil [7224 7298])
+            ("helm-git-grep-pathspec-available" variable (:default-value t) nil [7300 7413])
+            ("helm-git-grep-git-string" function (:arguments ("args")) nil [7418 7910])
+            ("helm-git-grep-base-directory" function nil nil [7912 8155])
+            ("helm-git-grep-pathspec-args" function nil nil [8157 8349])
+            ("helm-git-grep-get-top-dir" function nil nil [8351 8742])
+            ("helm-git-grep-showing-leading-and-trailing-lines-option" function (:arguments ("strp")) nil [8744 9025])
+            ("helm-git-grep-args" function nil nil [9027 9614])
+            ("helm-git-grep-submodule-grep-command" function nil nil [9616 10261])
+            ("helm-git-grep-process" function nil nil [10263 10507])
+            ("helm-git-grep-submodule-grep-process" function nil nil [10509 10820])
+            ("define-compilation-mode" code nil nil [10822 11126])
+            ("put" code nil nil [11127 11173])
+            ("put" code nil nil [11174 11212])
+            ("helm-git-grep-save-results-1" function nil nil [11214 12641])
+            ("helm-git-grep-action" function (:arguments ("candidate" "where" "mark")) nil [12644 13892])
+            ("helm-git-grep-other-window" function (:arguments ("candidates")) nil [13894 14062])
+            ("helm-git-grep-other-frame" function (:arguments ("candidates")) nil [14064 14229])
+            ("helm-git-grep-save-results" function (:arguments ("candidates")) nil [14231 14400])
+            ("helm-git-grep-actions" variable (:default-value (delq nil (quote (("Find File" . helm-git-grep-action) ("Find file other frame" . helm-git-grep-other-frame) ("Save results in grep buffer" . helm-git-grep-save-results) ("Find file other window" . helm-git-grep-other-window))))) nil [14402 14710])
+            ("helm-git-grep-filtered-candidate-transformer-file-line" function (:arguments ("candidates" "source")) nil [14712 14992])
+            ("helm-git-grep-filtered-candidate-transformer-display" function (:arguments ("filename" "lineno" "content")) nil [14994 15319])
+            ("helm-git-grep-highlight-match" function (:arguments ("content")) nil [15321 15692])
+            ("helm-git-grep-filtered-candidate-transformer-file-line-1" function (:arguments ("candidate")) nil [15694 16657])
+            ("helm-git-grep-init" function nil nil [16659 16865])
+            ("helm-git-grep-persistent-action" function (:arguments ("candidate")) nil [16867 17158])
+            ("helm-git-grep-get-region-substring" function nil nil [17160 17305])
+            ("helm-git-grep-get-input-symbol" function nil nil [17307 17495])
+            ("helm-git-grep-get-isearch-input-symbol" function nil nil [17497 17677])
+            ("helm-git-grep-rerun-with-input" function nil nil [17679 17856])
+            ("helm-git-grep-doc-list-in-name-header" function nil nil [17858 18390])
+            ("helm-git-grep-concat-string-list" function (:arguments ("list")) nil [18392 18533])
+            ("helm-git-grep-header-name" function (:arguments ("name")) nil [18535 18724])
+            ("helm-git-grep-run-persistent-action" function (:user-visible-flag t) nil [18726 18960])
+            ("put" code nil nil [18961 19016])
+            ("helm-git-grep-run-default-action" function (:user-visible-flag t) nil [19018 19182])
+            ("put" code nil nil [19183 19235])
+            ("helm-git-grep-run-other-window-action" function (:user-visible-flag t) nil [19237 19422])
+            ("put" code nil nil [19423 19480])
+            ("helm-git-grep-run-other-frame-action" function (:user-visible-flag t) nil [19482 19664])
+            ("put" code nil nil [19665 19721])
+            ("helm-git-grep-run-save-buffer" function (:user-visible-flag t) nil [19723 19895])
+            ("put" code nil nil [19896 19945])
+            ("helm-git-grep-toggle-ignore-case" function (:user-visible-flag t) nil [19947 20181])
+            ("put" code nil nil [20182 20234])
+            ("helm-git-grep-toggle-wordgrep" function (:user-visible-flag t) nil [20236 20458])
+            ("put" code nil nil [20459 20508])
+            ("helm-git-grep-toggle-showing-trailing-leading-line" function (:user-visible-flag t) nil [20510 20807])
+            ("put" code nil nil [20808 20878])
+            ("helm-git-grep-toggle-base-directory" function (:user-visible-flag t) nil [20880 21180])
+            ("put" code nil nil [21181 21236])
+            ("helm-git-grep-pathspec-toggle-availability" function (:user-visible-flag t) nil [21238 21689])
+            ("put" code nil nil [21690 21752])
+            ("helm-git-grep-ls-files-limited-by-pathspec" function (:user-visible-flag t) nil [21769 22516])
+            ("helm-git-grep-help-message" variable (:default-value "== Helm Git Grep Map ==
+Helm Git Grep tips:
+
+You can toggle ignore case option of git grep.
+You can save your results in a helm-git-grep-mode buffer, see below.
+
+
+Specific commands for Helm Grep:
+\\<helm-git-grep-map>
+\\[helm-goto-next-file]	->Next File.
+\\[helm-goto-precedent-file]		->Precedent File.
+\\[helm-yank-text-at-point]		->Yank Text at point in minibuffer.
+\\[helm-git-grep-ls-files-limited-by-pathspec]		->Show result of `git ls-files' to check files limited by pathspec.
+\\[helm-git-grep-pathspec-toggle-availability]		->Toggle pathspec availability.
+\\[helm-git-grep-toggle-base-directory]		->Toggle base directory for search.
+\\[helm-git-grep-toggle-ignore-case]		->Toggle ignore case option.
+\\[helm-git-grep-toggle-wordgrep]		->Toggle wordgrep option.
+\\[helm-git-grep-run-other-window-action]		->Jump other window.
+\\[helm-git-grep-run-other-frame-action]		->Jump other frame.
+\\[helm-git-grep-run-persistent-action]		->Run persistent action (Same as `C-z').
+\\[helm-git-grep-run-default-action]		->Run default action (Same as RET).
+\\[helm-git-grep-run-save-buffer]		->Save to a `helm-git-grep-mode' enabled buffer.
+\\[helm-git-grep-help]		->Show this help.
+
+== Helm Map ==
+\\{helm-map}") nil [22518 23797])
+            ("helm-git-grep-help" function (:user-visible-flag t) nil [23799 23955])
+            ("put" code nil nil [23956 23994])
+            ("helm-git-grep-map" variable (:default-value (let ((map (make-sparse-keymap))) (set-keymap-parent map helm-map) (define-key map (kbd "M-<down>") (quote helm-goto-next-file)) (define-key map (kbd "M-<up>") (quote helm-goto-precedent-file)) (define-key map (kbd "C-c l") (quote helm-git-grep-ls-files-limited-by-pathspec)) (define-key map (kbd "C-c p") (quote helm-git-grep-pathspec-toggle-availability)) (define-key map (kbd "C-c b") (quote helm-git-grep-toggle-base-directory)) (define-key map (kbd "C-c i") (quote helm-git-grep-toggle-ignore-case)) (define-key map (kbd "C-c w") (quote helm-git-grep-toggle-wordgrep)) (define-key map (kbd "C-c n") (quote helm-git-grep-toggle-showing-trailing-leading-line)) (define-key map (kbd "C-c o") (quote helm-git-grep-run-other-window-action)) (define-key map (kbd "C-c C-o") (quote helm-git-grep-run-other-frame-action)) (define-key map (kbd "C-w") (quote helm-yank-text-at-point)) (define-key map (kbd "C-x C-s") (quote helm-git-grep-run-save-buffer)) (when helm-git-grep-use-ioccur-style-keys (define-key map (kbd "<right>") (quote helm-git-grep-run-persistent-action)) (define-key map (kbd "<left>") (quote helm-git-grep-run-default-action))) (define-key map (kbd "C-c ?") (quote helm-git-grep-help)) (delq nil map))) nil [23996 25285])
+            ("eval" code nil nil [25287 26007])
+            ("helm-git-grep-source" variable (:default-value (helm-make-source "Git Grep" (quote helm-git-grep-class) :candidates-process (quote helm-git-grep-process))) nil [26009 26138])
+            ("helm-git-grep-submodule-source" variable (:default-value (helm-make-source "Git Submodule Grep" (quote helm-git-grep-class) :candidates-process (quote helm-git-grep-submodule-grep-process))) nil [26140 26304])
+            ("helm-git-grep-1" function (:arguments ("input")) nil [26306 26691])
+            ("helm-git-grep" function (:user-visible-flag t) nil [26708 26837])
+            ("helm-git-grep-at-point" function (:user-visible-flag t) nil [26854 27316])
+            ("helm-git-grep-from-isearch" function (:user-visible-flag t) nil [27333 27533])
+            ("helm-git-grep-from-helm" function (:user-visible-flag t) nil [27550 27734])
+            ("helm-git-grep-with-exclude-file-pattern-obsolete-message" variable
+               (:constant-flag t
+                :default-value "use `helm-git-grep-pathspecs' to exclude files form search result.")
+                nil [27772 27910])
+            ("helm-git-grep-with-exclude-file-pattern" function (:user-visible-flag t) nil [27927 28076])
+            ("define-obsolete-function-alias" code nil nil [28093 28180])
+            ("make-obsolete" code nil nil [28196 28320])
+            ("define-obsolete-function-alias" code nil nil [28322 28436])
+            ("define-obsolete-function-alias" code nil nil [28438 28552])
+            ("define-obsolete-variable-alias" code nil nil [28554 28641])
+            ("helm-git-grep" package nil nil [28645 28669]))          
+      :file "helm-git-grep.el"
+      :pointmax 28702
+      :fsize 28701
+      :lastmodtime '(23227 37266 588700 755000)
+      :unmatched-syntax '((close-paren 1758 . 1759) (symbol 1727 . 1744) (open-paren 1726 . 1727))))
+  :file "!home!c0urage!dotfiles!.emacs.d!elpa!helm-git-grep-20170614.711!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

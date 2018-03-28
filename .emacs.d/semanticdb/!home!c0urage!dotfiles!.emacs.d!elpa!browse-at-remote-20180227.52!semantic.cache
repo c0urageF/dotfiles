@@ -1,0 +1,16 @@
+;; Object browse-at-remote-20180227.52/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "browse-at-remote-20180227.52/"
+  :tables
+  (list
+    (semanticdb-table "browse-at-remote-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "browse-at-remote-autoloads.el"
+      :pointmax 305
+      :fsize 1111
+      :lastmodtime '(23227 44085 834576 35000)
+      :unmatched-syntax nil))
+  :file "!home!c0urage!dotfiles!.emacs.d!elpa!browse-at-remote-20180227.52!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

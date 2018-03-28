@@ -1,0 +1,16 @@
+;; Object visual-regexp-steroids-20170221.1853/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "visual-regexp-steroids-20170221.1853/"
+  :tables
+  (list
+    (semanticdb-table "visual-regexp-steroids-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "visual-regexp-steroids-autoloads.el"
+      :pointmax 317
+      :fsize 1120
+      :lastmodtime '(23227 44002 159440 990000)
+      :unmatched-syntax nil))
+  :file "!home!c0urage!dotfiles!.emacs.d!elpa!visual-regexp-steroids-20170221.1853!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

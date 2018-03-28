@@ -1,0 +1,16 @@
+;; Object ido-migemo-20150921.1544/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "ido-migemo-20150921.1544/"
+  :tables
+  (list
+    (semanticdb-table "ido-migemo-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "ido-migemo-autoloads.el"
+      :pointmax 293
+      :fsize 1053
+      :lastmodtime '(23227 42239 97522 981000)
+      :unmatched-syntax nil))
+  :file "!home!c0urage!dotfiles!.emacs.d!elpa!ido-migemo-20150921.1544!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

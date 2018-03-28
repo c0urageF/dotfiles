@@ -25,8 +25,36 @@
 (load "org")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; skk
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq skk-tut-file "/usr/share/skk/SKK.tut")
+(require 'skk)
+(global-set-key "\C-x\C-j" 'skk-mode)
+(setq skk-sticky-key [muhenkan])
+
+(when (require 'dired-x nil t)
+  (global-set-key "\C-x\C-j" 'skk-mode))
+
+(setq skk-dcomp-activate t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 基本設定
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; 右から左に読む言語に対応させないことで描画高速化
+(setq-default bidi-display-reordering nil)
+
+;; splash screenを無効にする
+(setq inhibit-splash-screen t)
+
+;; 同じ内容を履歴に記録しないようにする
+(setq history-delete-duplicates t)
+
+;; C-u C-SPC C-SPC ...でどんどん過去のマークを遡る
+(setq set-mark-command-repeat-pop t)
+
+;; インデントにTABを使わないようにする
+(setq-default indent-tabs-mode nil)
+
 ;; スタートアップページを表示しない
 (setq inhibit-startup-message t)
 
@@ -49,11 +77,14 @@
 ;; タイトルバーにフルパス表示
 (setq frame-title-format "%f")
 
-;; バックアップファイルを作らない
-(setq make-backup-files nil)
+;; backup の保存先
+(setq backup-directory-alist
+  (cons (cons ".*" (expand-file-name "~/.emacs.d/backup"))
+        backup-directory-alist))
 
-;; オートセーブファイルを作らない
-(setq auto-save-default nil)
+(setq auto-save-file-name-transforms
+  `((".*", (expand-file-name "~/.emacs.d/backup/") t)))
+
 (set-face-background 'region "custom-rogue ")
 
 ;;; uncomment for CJK utf-8 support for non-Asian users
@@ -140,8 +171,9 @@ scroll-step 20)
 (savehist-mode 1)
 
 ;; ファイル内のカーソルの位置を記憶する
-(setq-default save-place t)
 (require 'saveplace)
+(setq-default save-place t)
+(setq save-place-file (concat user-emacs-directory "places"))
 
 ;; 対応する括弧を表示させる
 (show-paren-mode 1)
@@ -194,14 +226,56 @@ scroll-step 20)
 ;; yes → y
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; ツールバーとスクロールバーを消す
+;; メニューバーとツールバーとスクロールバーを消す
+(menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
 ;; リージョンを上書き入力
 (delete-selection-mode t)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key (kbd "C-@") 'hippie-expand)
+(setq hippie-expand-try-functions-list
+      '(try-complete-file-name-partially   ; ファイル名の一部
+        try-complete-file-name             ; ファイル名全体
+         try-expand-dabbrev                 ; カレントバッファでdabbrev
+        try-expand-dabbrev-all-buffers     ; すべてのバッファでdabbrev
+        try-expand-dabbrev-from-kill))       ; キルリングの中からdabbrev
+
+(global-set-key (kbd "C-t") 'other-window)
+
+(ido-mode 1)
+(ido-everywhere 1)
+
+(global-set-key (kbd "C-x C-b") 'bs-show)
+
+(ffap-bindings)
+
+;; 2画面ファイラー用の設定
+(setq dired-dwim-target t)
+
+(require 'dired)
+(require 'dired-details)
+(dired-details-install)
+(setq dired-details-hidden-string "")
+(setq dired-details-hide-link-targets nil)
+
+(require 'wdired)
+(setq wdired-allow-to-change-permissions t)
+(define-key dired-mode-map "e" 'wdired-change-to-wdire-mode)
+
+(global-set-key (kbd "M-y") 'browse-kill-ring)
+                                            
+(setq ido-max-window-height 0.75)
+(setq ido-enable-flex-matching t)
+(ido-vertical-mode 1)
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+(smex-initialize)
+(require 'bind-key)
+(bind-key "M-x" 'smex)
+(bind-key "M-X" 'smex-major-mode-commands)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;                      
 ;; バッファ・ファイル関係
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 現在位置のファイル・URLを開く
@@ -228,25 +302,79 @@ scroll-step 20)
 ;; 新しいバッファを作成するときにいちいち聞いてこない
 (setq iswitchb-prompt-newbuffer nil)
 
-;; 括弧を自動補完
-;; (require 'smartparens)
-;; (smartparens-global-mode t)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; org-mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c a") 'org-agenda)
+;; org-captureで2種類のメモを扱うようにする
+(setq org-capture-templates
+      '(("t" "New TODO" entry
+         (file+headline "~/org/todo.org" "予定")
+         "* TODO %?\n\n")
+        ("m" "Memo" entry
+         (file+headline "~/org/memo.org" "メモ")
+         "* %U%?\n%i\n%a")))
+;; org-agendaでaを押したら予定表とTODOリストを表示
+(setq org-agenda-custom-commands
+      '(("a" "Agenda and TODO"
+         ((agenda "")
+          (alltodo "")))))
+;; org-agendaで扱うファイルは複数可だが、
+;; TODO・予定用のファイルのみ指定
+(setq org-agenda-files '("~/org/todo.org"))
+;; TODOリストに日付つきTODOを表示しない
+(setq org-agenda-todo-ignore-with-date t)
+;; 今日から予定を表示させる
+(setq org-agenda-start-on-weekday nil)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; recentf
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 最近のファイル500個を保存する
+(setq recentf-max-saved-items 500)
+;; 最近使ったファイルに加えないファイルを
+;; 正規表現で指定する
+(setq recentf-exclude
+      '("/TAGS$" "/var/tmp/"))
+;; recentfをディレクトリにも拡張した上に、
+;; 「最近開いたファイル」を「最近使ったファイル」に進化させる
+(require 'recentf-ext)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; visual-regexp
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'visual-regexp)
+(require 'visual-regexp-steroids)
+(setq vr/engine 'pcre2el)
+(global-set-key (kbd "M-%") 'vr/query-replace)
+(define-key vr/minibuffer-keymap (kbd "C-j") 'skk-insert)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; goto-chg
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'goto-chg)
+(global-set-key [f8] 'goto-last-change)
+(global-set-key [C-f8] 'goto-last-change-reverse)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; migemo
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when (locate-library "migemo")
+  (setq migemo-command "/usr/local/bin/cmigemo") ; HERE cmigemoバイナリ
+  (setq migemo-options '("-q" "--emacs"))
+  (setq migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict") ; HERE Migemo辞書
+  (setq migemo-user-dictionary nil)
+  (setq migemo-regex-dictionary nil)
+  (setq migemo-coding-system 'utf-8-unix)
+  (load-library "migemo")
+  (migemo-init))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; anzu
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'anzu)
 (global-anzu-mode +1)
-
-;; (require 'recentf-ext)
-;; 最新ファイル500個保存する
-;; (setq recentf-max-saved-items 500)
-;; 最近使ったファイルを加えないファイルを正規表現で指定する
-;; (setq recentf-exclude '("TAGS$" "/var/tmp/"))
-
-;; (require 'tempbuf)
-;; ファイルを開いたら自動的にtempbufを有効にする
-;; (add-hook 'find-file-hooks 'turn-on-tempbuf-mode)
-;; diredバッファに対してtempbufを有効にする
-;; (add-hook 'dired-mode-hook 'trun-on-tempbuf-mode)
 
 ;; ファイルを自動で保存する
 (require 'auto-save-buffers)
@@ -340,6 +468,10 @@ scroll-step 20)
 (grep-a-lot-setup-keys)
 ;; igrepを扱う人向け
 (grep-a-lot-advise igrep)
+
+(require 'wgrep)
+(setq wgrep-change-readonly-file t)
+(setq wgrep-enable-key "e")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; elscreen.el
@@ -449,8 +581,8 @@ scroll-step 20)
 (define-key global-map (kbd "C-x b") 'helm-for-files)
 (define-key global-map (kbd "C-x C-b") 'helm-buffers-list)
 (define-key global-map (kbd "C-x C-f") 'helm-find-files)
-(define-key global-map (kbd "M-x")     'helm-M-x)
-(define-key global-map (kbd "M-y")     'helm-show-kill-ring)
+;; (define-key global-map (kbd "M-x")     'helm-M-x)
+;; (define-key global-map (kbd "M-y")     'helm-show-kill-ring)
 (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
 (define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
 
@@ -466,8 +598,6 @@ scroll-step 20)
     ad-do-it))
 
 (require 'helm-gtags)
-
-
 
 (add-hook 'helm-gtags-mode-hook
           '(lambda ()
@@ -493,6 +623,9 @@ scroll-step 20)
      '(helm-truncate-lines t)
      '(helm-delete-minibuffer-contents-from-point t)
      '(helm-mini-default-sources '(helm-source-buffers-list
+                                   helm-source-bookmarks
+                                   helm-source-file-cache
+                                   helm-source-files-in-current-dir
                                    helm-source-ls-git-status
                                    helm-source-files-in-current-dir
                                    helm-source-ls-git
@@ -527,6 +660,27 @@ scroll-step 20)
 ;; nilなら一覧のテキストカラーを失う代わりに、起動スピードをほんの少し上げる
 (setq helm-swoop-speed-or-color t)
 
+(helm-migemo-mode 1)
+;; (require 'helm-migemo)
+;; ;;; この修正が必要
+;; (eval-after-load "helm-migemo"
+;;   '(defun helm-compile-source--candidates-in-buffer (source)
+;;      (helm-aif (assoc 'candidates-in-buffer source)
+;;          (append source
+;;                  `((candidates
+;;                     . ,(or (cdr it)
+;;                            (lambda ()
+;;                              ;; Do not use `source' because other plugins
+;;                              ;; (such as helm-migemo) may change it
+;;                              (helm-candidates-in-buffer (helm-get-current-source)))))
+;;                    (volatile) (match identity)))
+;;        source)))
+
+(require 'helm-elisp-package)
+(let ((it (helm-make-source "list packages" 'helm-list-el-package-source)))
+  (setq helm-source-list-el-package (delq (assq 'match-part it) it)))
+
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ace-isearch
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

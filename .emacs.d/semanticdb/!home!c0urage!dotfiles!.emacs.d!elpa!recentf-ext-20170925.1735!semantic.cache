@@ -1,0 +1,16 @@
+;; Object recentf-ext-20170925.1735/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "recentf-ext-20170925.1735/"
+  :tables
+  (list
+    (semanticdb-table "recentf-ext-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "recentf-ext-autoloads.el"
+      :pointmax 295
+      :fsize 386
+      :lastmodtime '(23227 44665 284624 282000)
+      :unmatched-syntax nil))
+  :file "!home!c0urage!dotfiles!.emacs.d!elpa!recentf-ext-20170925.1735!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,16 @@
+;; Object avy-migemo-20180104.624/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "avy-migemo-20180104.624/"
+  :tables
+  (list
+    (semanticdb-table "avy-migemo-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "avy-migemo-autoloads.el"
+      :pointmax 293
+      :fsize 4056
+      :lastmodtime '(23227 42228 697629 208000)
+      :unmatched-syntax nil))
+  :file "!home!c0urage!dotfiles!.emacs.d!elpa!avy-migemo-20180104.624!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

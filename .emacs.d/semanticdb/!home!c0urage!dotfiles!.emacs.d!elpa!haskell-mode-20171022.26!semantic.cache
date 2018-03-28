@@ -1,0 +1,194 @@
+;; Object haskell-mode-20171022.26/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "haskell-mode-20171022.26/"
+  :tables
+  (list
+    (semanticdb-table "haskell.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [820 837])
+            ("haskell-mode" include nil nil [838 861])
+            ("haskell-hoogle" include nil nil [862 887])
+            ("haskell-process" include nil nil [888 914])
+            ("haskell-debug" include nil nil [915 939])
+            ("haskell-interactive-mode" include nil nil [940 975])
+            ("haskell-repl" include nil nil [976 999])
+            ("haskell-load" include nil nil [1000 1023])
+            ("haskell-commands" include nil nil [1024 1051])
+            ("haskell-modules" include nil nil [1052 1078])
+            ("haskell-string" include nil nil [1079 1104])
+            ("haskell-completions" include nil nil [1105 1135])
+            ("haskell-utils" include nil nil [1136 1160])
+            ("haskell-customize" include nil nil [1161 1189])
+            ("interactive-haskell-mode-map" variable (:default-value (let ((map (make-sparse-keymap))) (define-key map (kbd "C-c C-l") (quote haskell-process-load-file)) (define-key map (kbd "C-c C-r") (quote haskell-process-reload)) (define-key map (kbd "C-c C-t") (quote haskell-process-do-type)) (define-key map (kbd "C-c C-i") (quote haskell-process-do-info)) (define-key map (kbd "M-.") (quote haskell-mode-jump-to-def-or-tag)) (define-key map (kbd "C-c C-k") (quote haskell-interactive-mode-clear)) (define-key map (kbd "C-c C-c") (quote haskell-process-cabal-build)) (define-key map (kbd "C-c v c") (quote haskell-cabal-visit-file)) (define-key map (kbd "C-c C-x") (quote haskell-process-cabal)) (define-key map (kbd "C-c C-b") (quote haskell-interactive-switch)) (define-key map (kbd "C-c C-z") (quote haskell-interactive-switch)) map)) nil [1191 2025])
+            ("define-minor-mode" code nil nil [2042 2346])
+            ("make-obsolete" code nil nil [2348 2498])
+            ("haskell-process-completions-at-point" function nil nil [2500 4661])
+            ("haskell-interactive-mode-return" function (:user-visible-flag t) nil [4678 5203])
+            ("haskell-session-kill" function
+               (:user-visible-flag t
+                :arguments ("leave-interactive-buffer"))
+                nil [5220 6889])
+            ("haskell-interactive-kill" function (:user-visible-flag t) nil [6906 7351])
+            ("haskell-session-make" function (:arguments ("name")) nil [7353 7692])
+            ("haskell-session-new-assume-from-cabal" function nil nil [7694 8300])
+            ("haskell-session" function nil nil [8317 8631])
+            ("haskell-interactive-switch" function (:user-visible-flag t) nil [8648 9053])
+            ("haskell-session-new" function nil nil [9055 9642])
+            ("haskell-session-change" function (:user-visible-flag t) nil [9659 9934])
+            ("haskell-process-prompt-restart" function (:arguments ("process")) nil [9936 12949])
+            ("haskell-process" function nil nil [12951 13077])
+            ("haskell-kill-session-process" function
+               (:user-visible-flag t
+                :arguments ("session"))
+                nil [13094 13539])
+            ("haskell-interactive-mode-visit-error" function (:user-visible-flag t) nil [13556 14117])
+            ("xref-prompt-for-identifier" variable nil nil [14119 14158])
+            ("haskell-mode-jump-to-tag" function
+               (:user-visible-flag t
+                :arguments ("next-p"))
+                nil [14175 14949])
+            ("haskell-mode-after-save-handler" function nil nil [14966 15143])
+            ("haskell-mode-tag-find" function
+               (:user-visible-flag t
+                :arguments ("_next-p"))
+                nil [15160 15448])
+            ("haskell-mode-jump-to-filename-in-string" function nil nil [15450 16042])
+            ("haskell-interactive-bring" function (:user-visible-flag t) nil [16059 16292])
+            ("haskell-process-load-file" function (:user-visible-flag t) nil [16309 16836])
+            ("haskell-process-reload" function (:user-visible-flag t) nil [16853 17075])
+            ("haskell-process-reload-file" function nil nil [17092 17155])
+            ("make-obsolete" code nil nil [17157 17253])
+            ("haskell-process-load-or-reload" function
+               (:user-visible-flag t
+                :arguments ("toggle"))
+                nil [17270 17767])
+            ("make-obsolete" code nil nil [17769 17871])
+            ("haskell-process-cabal-build" function (:user-visible-flag t) nil [17888 18046])
+            ("haskell-process-cabal" function
+               (:user-visible-flag t
+                :arguments ("p"))
+                nil [18063 18470])
+            ("haskell-process-file-loadish" function (:arguments ("command" "reload-p" "module-buffer")) nil [18472 19684])
+            ("haskell-process-minimal-imports" function (:user-visible-flag t) nil [19701 20367])
+            ("haskell-interactive-jump-to-error-line" function nil nil [20369 21767])
+            ("haskell" package nil nil [21769 21787]))          
+      :file "haskell.el"
+      :pointmax 21813
+      :fsize 21817
+      :lastmodtime '(23227 37266 580700 842000)
+      :unmatched-syntax nil)
+    (semanticdb-table "haskell-mode.el"
+      :file "haskell-mode.el"
+      :fsize 53348
+      :lastmodtime '(23227 37266 580700 842000))
+    (semanticdb-table "haskell-hoogle.el"
+      :file "haskell-hoogle.el"
+      :fsize 5539
+      :lastmodtime '(23227 37266 576700 885000))
+    (semanticdb-table "haskell-process.el"
+      :file "haskell-process.el"
+      :fsize 19741
+      :lastmodtime '(23227 37266 580700 842000))
+    (semanticdb-table "haskell-debug.el"
+      :file "haskell-debug.el"
+      :fsize 27874
+      :lastmodtime '(23227 37266 576700 885000))
+    (semanticdb-table "haskell-interactive-mode.el"
+      :file "haskell-interactive-mode.el"
+      :fsize 47465
+      :lastmodtime '(23227 37266 580700 842000))
+    (semanticdb-table "haskell-repl.el"
+      :file "haskell-repl.el"
+      :fsize 5450
+      :lastmodtime '(23227 37266 580700 842000))
+    (semanticdb-table "haskell-load.el"
+      :file "haskell-load.el"
+      :fsize 27257
+      :lastmodtime '(23227 37266 580700 842000))
+    (semanticdb-table "haskell-commands.el"
+      :file "haskell-commands.el"
+      :fsize 41728
+      :lastmodtime '(23227 37266 576700 885000))
+    (semanticdb-table "haskell-modules.el"
+      :file "haskell-modules.el"
+      :fsize 5113
+      :lastmodtime '(23227 37266 580700 842000))
+    (semanticdb-table "haskell-string.el"
+      :file "haskell-string.el"
+      :fsize 10216
+      :lastmodtime '(23227 37266 580700 842000))
+    (semanticdb-table "haskell-completions.el"
+      :file "haskell-completions.el"
+      :fsize 15713
+      :lastmodtime '(23227 37266 576700 885000))
+    (semanticdb-table "haskell-utils.el"
+      :file "haskell-utils.el"
+      :fsize 7556
+      :lastmodtime '(23227 37266 580700 842000))
+    (semanticdb-table "haskell-customize.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [770 787])
+            ("haskell-process-load-or-reload-prompt" variable nil nil [898 1082])
+            ("haskell" customgroup (:user-visible-flag t) nil [1099 1249])
+            ("haskell-mode-pkg-base-dir" variable (:default-value (file-name-directory load-file-name)) nil [1251 1427])
+            ("haskell-completing-read-function" variable (:default-value (quote ido-completing-read)) nil [1429 1829])
+            ("haskell-process-type" variable (:default-value (quote auto)) nil [1831 2595])
+            ("haskell-process-wrapper-function" variable (:default-value (function identity)) nil [2597 3350])
+            ("haskell-ask-also-kill-buffers" variable (:default-value t) nil [3352 3526])
+            ("haskell-doc-prettify-types" variable (:default-value t) nil [3627 3836])
+            ("haskell-process-ended-functions" variable (:default-value (list (quote haskell-process-prompt-restart))) nil [3838 3961])
+            ("haskell-interactive" customgroup (:user-visible-flag t) nil [3978 4161])
+            ("haskell-process-path-ghci" variable (:default-value "ghci") nil [4163 4504])
+            ("haskell-process-path-cabal" variable (:default-value "cabal") nil [4506 4859])
+            ("haskell-process-path-stack" variable (:default-value "stack") nil [4861 5211])
+            ("haskell-process-args-ghci" variable (:default-value (quote ("-ferror-spans"))) nil [5213 5381])
+            ("haskell-process-args-cabal-repl" variable (:default-value (quote ("--ghc-option=-ferror-spans"))) nil [5383 5917])
+            ("haskell-process-args-cabal-new-repl" variable (:default-value (quote ("--ghc-option=-ferror-spans"))) nil [5919 6465])
+            ("haskell-process-args-stack-ghci" variable (:default-value (quote ("--ghci-options=-ferror-spans" "--no-build" "--no-load"))) nil [6467 6698])
+            ("haskell-process-do-cabal-format-string" variable (:default-value ":!cd %s && %s") nil [6700 6954])
+            ("haskell-process-log" variable nil nil [6956 7102])
+            ("haskell-process-show-debug-tips" variable (:default-value t) nil [7104 7249])
+            ("haskell-process-show-overlays" variable (:default-value t) nil [7251 7435])
+            ("haskell-notify-p" variable nil nil [7437 7565])
+            ("haskell-process-suggest-no-warn-orphans" variable (:default-value t) nil [7567 7751])
+            ("haskell-process-suggest-hoogle-imports" variable nil nil [7753 7920])
+            ("haskell-process-suggest-hayoo-imports" variable nil nil [7922 8087])
+            ("haskell-process-hayoo-query-url" variable (:default-value "http://hayoo.fh-wedel.de/json/?query=%s") nil [8089 8260])
+            ("haskell-process-suggest-haskell-docs-imports" variable nil nil [8262 8441])
+            ("haskell-process-suggest-add-package" variable (:default-value t) nil [8443 8654])
+            ("haskell-process-suggest-language-pragmas" variable (:default-value t) nil [8656 8815])
+            ("haskell-process-suggest-remove-import-lines" variable nil nil [8817 8977])
+            ("haskell-process-suggest-overloaded-strings" variable (:default-value t) nil [8979 9178])
+            ("haskell-process-check-cabal-config-on-load" variable (:default-value t) nil [9180 9383])
+            ("haskell-process-prompt-restart-on-cabal-change" variable (:default-value t) nil [9385 9571])
+            ("haskell-process-auto-import-loaded-modules" variable nil nil [9573 9745])
+            ("haskell-process-reload-with-fbytecode" variable nil nil [9747 9999])
+            ("haskell-process-use-presentation-mode" variable nil nil [10001 10202])
+            ("haskell-process-suggest-restart" variable (:default-value t) nil [10204 10350])
+            ("haskell-interactive-popup-errors" variable (:default-value t) nil [10352 10486])
+            ("haskell-interactive-mode-collapse" variable nil nil [10488 10616])
+            ("haskell-interactive-types-for-show-ambiguous" variable (:default-value t) nil [10618 10812])
+            ("haskell-interactive-prompt" variable (:default-value "λ> ") nil [10814 10927])
+            ("haskell-interactive-prompt2" variable (:default-value (replace-regexp-in-string "> $" "| " haskell-interactive-prompt)) nil [10929 11310])
+            ("haskell-interactive-mode-eval-mode" variable nil nil [11312 11504])
+            ("haskell-interactive-mode-hide-multi-line-errors" variable nil nil [11506 11679])
+            ("haskell-interactive-mode-delete-superseded-errors" variable (:default-value t) nil [11681 11865])
+            ("haskell-interactive-mode-include-file-name" variable (:default-value t) nil [11867 12063])
+            ("haskell-interactive-mode-read-only" variable (:default-value t) nil [12065 12363])
+            ("haskell-interactive-prompt-read-only" variable (:default-value haskell-interactive-mode-read-only) nil [12365 12554])
+            ("haskell-import-mapping" variable (:default-value (quote nil)) nil [12556 12973])
+            ("haskell-language-extensions" variable (:default-value (quote nil)) nil [12975 13479])
+            ("haskell-stylish-on-save" variable nil nil [13481 13693])
+            ("inferior-haskell-root-dir" variable nil nil [13799 13981])
+            ("haskell-process-type" function nil nil [13983 15574])
+            ("haskell-customize" package nil nil [15576 15604]))          
+      :file "haskell-customize.el"
+      :pointmax 15605
+      :fsize 15607
+      :lastmodtime '(23227 37266 576700 885000)
+      :unmatched-syntax nil))
+  :file "!home!c0urage!dotfiles!.emacs.d!elpa!haskell-mode-20171022.26!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

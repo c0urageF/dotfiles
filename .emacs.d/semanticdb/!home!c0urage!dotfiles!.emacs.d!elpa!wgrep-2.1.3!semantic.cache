@@ -1,0 +1,129 @@
+;; Object wgrep-2.1.3/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "wgrep-2.1.3/"
+  :tables
+  (list
+    (semanticdb-table "wgrep.el"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("grep" include nil nil [2889 2904])
+            ("declare-function" code nil nil [2906 2970])
+            ("declare-function" code nil nil [2971 3027])
+            ("wgrep" customgroup (:user-visible-flag t) nil [3029 3103])
+            ("wgrep-change-readonly-file" variable nil nil [3105 3232])
+            ("wgrep-enable-key" variable (:default-value "") nil [3234 3337])
+            ("wgrep-auto-save-buffer" variable nil nil [3339 3486])
+            ("wgrep-setup-hook" variable nil nil [3488 3557])
+            ("wgrep-face" variable
+               (:user-visible-flag t
+                :default-value (quote ((((class color) (background dark)) (:background "SlateGray1" :foreground "Black")) (((class color) (background light)) (:background "ForestGreen" :foreground "white")) (t nil)))
+                :type "face")
+                nil [3559 3866])
+            ("wgrep-delete-face" variable
+               (:user-visible-flag t
+                :default-value (quote ((((class color) (background dark)) (:background "SlateGray1" :foreground "pink")) (((class color) (background light)) (:background "ForestGreen" :foreground "pink")) (t nil)))
+                :type "face")
+                nil [3868 4186])
+            ("wgrep-file-face" variable
+               (:user-visible-flag t
+                :default-value (quote ((((class color) (background dark)) (:background "gray30" :foreground "white")) (((class color) (background light)) (:background "ForestGreen" :foreground "white")) (t nil)))
+                :type "face")
+                nil [4188 4496])
+            ("wgrep-reject-face" variable
+               (:user-visible-flag t
+                :default-value (quote ((((class color) (background dark)) (:foreground "HotPink" :weight bold)) (((class color) (background light)) (:foreground "Red" :weight bold)) (t nil)))
+                :type "face")
+                nil [4498 4813])
+            ("wgrep-done-face" variable
+               (:user-visible-flag t
+                :default-value (quote ((((class color) (background dark)) (:foreground "LightSkyBlue")) (((class color) (background light)) (:foreground "Blue")) (t nil)))
+                :type "face")
+                nil [4815 5104])
+            ("wgrep-readonly-state" variable nil nil [5106 5139])
+            ("make-variable-buffer-local" code nil nil [5140 5190])
+            ("wgrep-prepared" variable nil nil [5192 5219])
+            ("make-variable-buffer-local" code nil nil [5220 5264])
+            ("wgrep-sibling-buffer" variable nil nil [5266 5299])
+            ("make-variable-buffer-local" code nil nil [5300 5350])
+            ("wgrep-original-mode-map" variable nil nil [5352 5388])
+            ("make-variable-buffer-local" code nil nil [5389 5442])
+            ("auto-coding-regexp-alist" variable nil nil [5531 5564])
+            ("wgrep-acceptable-modes" variable nil nil [5566 5601])
+            ("make-obsolete" code nil nil [5602 5653])
+            ("wgrep-line-file-regexp" variable (:default-value (caar grep-regexp-alist)) nil [5655 5855])
+            ("wgrep-results-parser" variable (:default-value (quote wgrep-parse-command-results)) nil [5856 5914])
+            ("wgrep-header/footer-parser" variable (:default-value (quote wgrep-prepare-header/footer)) nil [5915 5979])
+            ("wgrep-inhibit-modification-hook" variable nil nil [5981 6025])
+            ("wgrep-mode-map" variable nil nil [6027 6054])
+            ("unless" code nil nil [6055 6677])
+            ("wgrep-setup" function nil nil [6694 6770])
+            ("wgrep-setup-internal" function nil nil [6772 7133])
+            ("wgrep-maybe-echo-error-at-point" function nil nil [7135 7572])
+            ("wgrep-set-readonly-area" function (:arguments ("state")) nil [7574 9062])
+            ("wgrep-after-change-function" function (:arguments ("beg" "end" "leng-before")) nil [9064 9336])
+            ("put" code nil nil [9338 9395])
+            ("put" code nil nil [9396 9443])
+            ("wgrep-get-file-buffer" function (:arguments ("file")) nil [9445 9722])
+            ("wgrep-check-buffer" function nil nil [9724 10005])
+            ("wgrep-display-physical-data" function nil nil [10007 10272])
+            ("wgrep-let-destructive-overlay" function (:arguments ("ov")) nil [10274 10527])
+            ("wgrep-after-save-hook" function nil nil [10529 10681])
+            ("wgrep-file-overlays" function nil nil [10683 10915])
+            ("wgrep-replace-to-new-line" function (:arguments ("new-text")) nil [10917 11338])
+            ("wgrep-flush-whole-line" function nil nil [11340 11487])
+            ("wgrep-string-replace-bom" function (:arguments ("string" "cs")) nil [11505 12269])
+            ("wgrep-put-overlay-to-file-buffer" function (:arguments ("beg" "end")) nil [12271 12743])
+            ("wgrep-put-done-result" function (:arguments ("ov")) nil [12745 12820])
+            ("wgrep-put-reject-result" function (:arguments ("ov" "error-data")) nil [12822 12998])
+            ("wgrep-set-result" function (:arguments ("ov" "face" "message")) nil [13000 13162])
+            ("wgrep-edit-overlays" function nil nil [13164 13361])
+            ("wgrep-put-change-face" function (:arguments ("beg" "end")) nil [13363 13910])
+            ("wgrep-editing-overlay" function (:arguments ("start" "end")) nil [13977 15905])
+            ("wgrep-to-original-mode" function nil nil [15907 16282])
+            ("wgrep-finish-edit" function (:user-visible-flag t) nil [16284 17181])
+            ("wgrep-exit" function (:user-visible-flag t) nil [17183 17448])
+            ("wgrep-abort-changes" function (:user-visible-flag t) nil [17450 17694])
+            ("wgrep-remove-change" function
+               (:user-visible-flag t
+                :arguments ("beg" "end"))
+                nil [17696 17867])
+            ("wgrep-remove-all-change" function (:user-visible-flag t) nil [17869 18010])
+            ("wgrep-toggle-readonly-area" function (:user-visible-flag t) nil [18012 18887])
+            ("wgrep-change-to-wgrep-mode" function (:user-visible-flag t) nil [18889 19785])
+            ("wgrep-save-all-buffers" function (:user-visible-flag t) nil [19787 20306])
+            ("wgrep-mark-deletion" function (:user-visible-flag t) nil [20308 20958])
+            ("wgrep-prepare-context" function nil nil [20960 21202])
+            ("wgrep-parse-command-results" function nil nil [21204 23002])
+            ("wgrep-delete-whole-line" function nil nil [23004 23110])
+            ("wgrep-goto-first-found" function nil nil [23112 23340])
+            ("wgrep-goto-end-of-found" function nil nil [23342 23571])
+            ("wgrep-goto-line" function (:arguments ("line")) nil [23573 23656])
+            ("wgrep-prepare-context-while" function (:arguments ("filename" "line" "direction" "fprop" "flen")) nil [23868 24585])
+            ("wgrep-construct-filename-property" function (:arguments ("filename")) nil [24587 24682])
+            ("wgrep-process-exited-p" function nil nil [24684 24834])
+            ("wgrep-prepare-to-edit" function nil nil [24836 25137])
+            ("wgrep-prepare-header/footer" function nil nil [25139 25763])
+            ("wgrep-set-header/footer-read-only" function (:arguments ("state")) nil [25765 26264])
+            ("wgrep-cleanup-overlays" function (:arguments ("beg" "end")) nil [26266 26405])
+            ("wgrep-make-overlay" function (:arguments ("beg" "end")) nil [26407 26525])
+            ("wgrep-clone-to-temp-buffer" function nil nil [26527 26932])
+            ("wgrep-restore-from-temp-buffer" function nil nil [26934 27815])
+            ("wgrep-cleanup-temp-buffer" function nil nil [27817 28120])
+            ("wgrep-current-file-and-linum" function nil nil [28122 28384])
+            ("wgrep-get-old-text" function (:arguments ("file" "number")) nil [28386 28685])
+            ("wgrep-goto-grep-line" function (:arguments ("file" "number")) nil [28687 29871])
+            ("wgrep-transaction-editing-list" function nil nil [29987 31472])
+            ("wgrep-compute-transaction" function nil nil [31474 32550])
+            ("wgrep-commit-buffer" function (:arguments ("buffer" "tran")) nil [32552 33622])
+            ("wgrep-apply-change" function (:arguments ("marker" "old" "new")) nil [33624 34522])
+            ("add-hook" code nil nil [34649 34689])
+            ("wgrep-unload-function" function nil nil [34715 34793])
+            ("wgrep" package nil nil [34795 34811]))          
+      :file "wgrep.el"
+      :pointmax 34836
+      :fsize 34835
+      :lastmodtime '(23227 37266 632700 278000)
+      :unmatched-syntax '((symbol 1 . 2))))
+  :file "!home!c0urage!dotfiles!.emacs.d!elpa!wgrep-2.1.3!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

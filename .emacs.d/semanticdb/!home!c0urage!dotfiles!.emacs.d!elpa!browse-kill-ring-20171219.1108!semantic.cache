@@ -1,0 +1,16 @@
+;; Object browse-kill-ring-20171219.1108/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "browse-kill-ring-20171219.1108/"
+  :tables
+  (list
+    (semanticdb-table "browse-kill-ring-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "browse-kill-ring-autoloads.el"
+      :pointmax 305
+      :fsize 882
+      :lastmodtime '(23227 44096 466469 187000)
+      :unmatched-syntax nil))
+  :file "!home!c0urage!dotfiles!.emacs.d!elpa!browse-kill-ring-20171219.1108!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

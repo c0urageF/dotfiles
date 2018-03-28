@@ -1,0 +1,16 @@
+;; Object visual-regexp-20170228.1716/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "visual-regexp-20170228.1716/"
+  :tables
+  (list
+    (semanticdb-table "visual-regexp-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "visual-regexp-autoloads.el"
+      :pointmax 299
+      :fsize 844
+      :lastmodtime '(23227 43958 523893 567000)
+      :unmatched-syntax nil))
+  :file "!home!c0urage!dotfiles!.emacs.d!elpa!visual-regexp-20170228.1716!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,17 @@
+;; Object backup/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "backup/"
+  :tables
+  (list
+    (semanticdb-table "!home!c0urage!.emacs.d!elpa!avy-20180322.1333!avy-autoloads.el~"
+      :major-mode 'emacs-lisp-mode
+      :tags 
+        '( ("add-to-list" code nil nil [73 143]))          
+      :file "!home!c0urage!.emacs.d!elpa!avy-20180322.1333!avy-autoloads.el~"
+      :pointmax 279
+      :fsize 278
+      :lastmodtime '(23227 42227 205644 440000)
+      :unmatched-syntax nil))
+  :file "!home!c0urage!dotfiles!.emacs.d!backup!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
