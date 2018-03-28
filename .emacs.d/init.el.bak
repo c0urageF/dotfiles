@@ -6,11 +6,6 @@
 (add-to-list 'load-path "~/.emacs.d/private-conf")
 (add-to-list 'load-path "~/.emacs.d/helm")
 
-;; proxy設定
-;; private-conf/myproxy.elがあるときだけプロキシ設定をロード
-;; 第2引数のtをつけると、ファイルが存在しなくてもエラーにならない
-(load "myproxy" t)
-
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
@@ -456,34 +451,6 @@ scroll-step 20)
   (eval-after-load 'helm
     '(define-key helm-map (kbd "C-x C-a") 'helm-git-grep-from-helm)))
 
-(require 'helm-swoop)
-;; キーバインドはお好みで
-(global-set-key (kbd "M-i") 'helm-swoop)
-(global-set-key (kbd "M-I") 'helm-swoop-back-to-last-point)
-(global-set-key (kbd "C-c M-i") 'helm-multi-swoop)
-(global-set-key (kbd "C-x M-i") 'helm-multi-swoop-all)
-
-;; Save buffer when helm-multi-swoop-edit complete
-(setq helm-multi-swoop-edit-save t)
-
-;; 値がtの場合はウィンドウ内に分割、nilなら別のウィンドウを使用
-(setq helm-swoop-split-with-multiple-windows nil)
-
-;; ウィンドウ分割方向 'split-window-vertically or 'split-window-horizontally
-(setq helm-swoop-split-direction 'split-window-horizontally)
-
-;; nilなら一覧のテキストカラーを失う代わりに、起動スピードをほんの少し上げる
-(setq helm-swoop-speed-or-color t)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ace-isearch
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(when (require 'ace-isearch)
-  (global-ace-isearch-mode +1)
-  (setq ace-isearch-use-function-from-isearch nil)
-  (define-key isearch-mode-map (kbd "M-o") 'helm-multi-swoop-all-from-isearch))
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; neotree.el
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -800,35 +767,5 @@ scroll-step 20)
                              ;;; この辺の設定はお好みで
                              (set (make-variable-buffer-local 'company-idle-delay) 0.1)
                              (set (make-variable-buffer-local 'company-minimum-prefix-length) 0)))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; schene
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; run-schemeで動かす処理系
-;; (setq scheme-program-name "C:/Program Files (x86)/MzScheme/MzScheme.exe")
-
-(setq scheme-program-name "MzScheme.exe")
-
-(autoload 'run-scheme "cmuscheme" "Run an inferior Scheme process." t)
-
-;; C-c s で emacs 上で MzScheme が走るようにする
-(define-key global-map "\C-cs" 'run-scheme)
-
-;; 起動時にいきなり scheme 処理系を走らせる
-;; (run-scheme scheme-program-name)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
